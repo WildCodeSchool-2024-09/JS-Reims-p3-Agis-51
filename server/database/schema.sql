@@ -19,3 +19,9 @@ insert into item(id, title, user_id)
 values
   (1, "Stuff", 1),
   (2, "Doodads", 1);
+
+create table vehicle  (
+  id int unsigned primary key auto_increment not null,
+  type varchar(50) not null,
+  available boolean not null
+);
