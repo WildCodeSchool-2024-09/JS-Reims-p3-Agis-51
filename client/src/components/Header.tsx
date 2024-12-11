@@ -1,8 +1,8 @@
 import "./Header.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import home from "../assets/images/home.jpg";
 import Nav from "./Nav";
-import { useState } from "react";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
