@@ -1,12 +1,10 @@
 import "./App.css";
-
 function App() {
   return (
     <>
       <header>
         <h1 className="logo">JS Monorepo</h1>
       </header>
-
       <nav className="navbar">
         <ul>
           <li>
@@ -34,7 +32,6 @@ function App() {
           </li>
         </ul>
       </nav>
-
       <main className="text-box">
         <hgroup className="block-primary">
           <h2 className="block-primary-main">JS Monorepo</h2>
@@ -42,7 +39,6 @@ function App() {
         </hgroup>
         <p>Vous avez lu le README ?</p>
       </main>
-
       <footer>
         Développé par la&nbsp;
         <a
