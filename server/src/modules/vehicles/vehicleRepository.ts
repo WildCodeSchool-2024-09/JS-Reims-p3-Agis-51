@@ -9,6 +9,17 @@ type Vehicle = {
 };
 
 class VehicleRepository {
+  async create(vehicle: Omit<Vehicle, "id">) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await databaseClient.query<Result>(
+      "insert into vehicle (id, type, available) values (?, ?)",
+      [vehicle.type, vehicle.available],
+    );
+
+    // Return the ID of the newly inserted item
+    return result.insertId;
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await databaseClient.query<Rows>("select * from vehicle");

@@ -15,6 +15,7 @@ router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 router.get("/api/vehicles", vehicleActions.browse);
 router.get("/api/vehicles/:id", vehicleActions.read);
+router.post("/api/vehicles", vehicleActions.add);
 /* ************************************************************************* */
 
 export default router;
