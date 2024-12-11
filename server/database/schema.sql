@@ -25,3 +25,11 @@ create table vehicle  (
   type varchar(50) not null,
   available boolean not null
 );
+
+insert into vehicle(id, type, available)
+values
+  (1, "car", true),
+  (2, "motorcycle", false),
+  (3,"scooter",true),
+  (4,"bicycle",true),
+  (5,"trotter",true);
