@@ -17,4 +17,22 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse };
+const read: RequestHandler = async (req, res, next) => {
+  try {
+    // Fetch a specific item based on the provided ID
+    const vehicleId = Number(req.params.id);
+    const vehicle = await vehicleRepository.read(vehicleId);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (vehicle == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(vehicle);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+export default { browse, read };
