@@ -6,10 +6,10 @@ import vehicleRepository from "./vehicleRepository";
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    // Fetch all items
+    // Fetch all vehicles
     const vehicles = await vehicleRepository.readAll();
 
-    // Respond with the items in JSON format
+    // Respond with the vehicles in JSON format
     res.json(vehicles);
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -23,7 +23,7 @@ const read: RequestHandler = async (req, res, next) => {
     const vehicleId = Number(req.params.id);
     const vehicle = await vehicleRepository.read(vehicleId);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
+    // If the vehicle is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
     if (vehicle == null) {
       res.sendStatus(404);
@@ -39,18 +39,18 @@ const read: RequestHandler = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
-    // Extract the item data from the request body
+    // Extract the vehicle data from the request body
     const newVehicle = {
-      id: req.body.id,
       type: req.body.type,
       available: req.body.available,
     };
 
-    // Create the item
+    // Create the vehicle
+
     const insertId = await vehicleRepository.create(newVehicle);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    res.status(201).json(insertId);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
