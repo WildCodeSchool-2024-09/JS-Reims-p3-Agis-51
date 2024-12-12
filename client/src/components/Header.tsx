@@ -18,7 +18,7 @@ function Header() {
           <img src={home} alt="" />
         </Link>
         <button className="btn-menu" type="button" onClick={toggleMenu}>
-          Menu 
+          Menu
         </button>
       </div>
       <nav className={`nav ${isMenuOpen ? "show" : ""}`}>

@@ -17,6 +17,6 @@ class DocumentRepository {
     // Return the array of items
     return rows as Document[];
   }
-};
+}
 
 export default new DocumentRepository();
