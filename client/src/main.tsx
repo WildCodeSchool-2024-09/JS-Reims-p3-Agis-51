@@ -2,12 +2,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home/Home";
 
 /* ************************************************************************* */
 
+import About from "./About";
 // Import the main app component
 import App from "./App";
-
+import VehicleList from "./components/VehicleList";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -22,8 +24,21 @@ const router = createBrowserRouter([
   {
     path: "/", // The root path
     element: <App />, // Renders the App component for the home page
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/list",
+        element: <VehicleList />,
+      },
+    ],
   },
-
   // Try adding a new route! For example, "/about" with an About component
 ]);
 

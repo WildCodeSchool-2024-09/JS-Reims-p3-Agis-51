@@ -1,0 +1,29 @@
+h1 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+ul {
+  text-align: center;
+}
+li {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  line-height: 3rem;
+  background-color: lightgrey;
+  border: solid 2px lightblue;
+  border-radius: 25px;
+  padding-bottom: 25px;
+  margin-top: 75px;
+}
