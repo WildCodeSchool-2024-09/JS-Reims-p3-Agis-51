@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import About from "./About";
 // Import the main app component
 import App from "./App";
+import VehicleList from "./components/VehicleList";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/list",
+        element: <VehicleList />,
       },
     ],
   },

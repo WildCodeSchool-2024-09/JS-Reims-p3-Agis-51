@@ -10,10 +10,10 @@ function Nav() {
       <Link to={"/"} className="menu-link">
         Reparation
       </Link>
-      <Link to={"/"} className="menu-link">
+      <Link to={"/list"} className="menu-link">
         Location
       </Link>
-      <Link to={"/"} className="menu-link">
+      <Link to={"/about"} className="menu-link">
         Contact
       </Link>
       <Link to={"/"} className="menu-link">
