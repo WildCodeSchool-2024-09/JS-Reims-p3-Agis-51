@@ -37,7 +37,7 @@ values
 create table document  (
   id int unsigned primary key auto_increment not null,
   id_Card varchar (100), 
-  drivers_license varchar(50)
+  driver_license varchar(50)
 );
 
 insert into document(id, id_Card, drivers_license)
