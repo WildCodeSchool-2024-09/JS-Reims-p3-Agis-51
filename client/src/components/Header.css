@@ -59,10 +59,9 @@
 
 .menu-link {
   text-decoration: none;
-  color: rgb(233, 224, 224);
-}
-.menu-link {
+  color: rgb(53, 79, 230);
   letter-spacing: 0;
+  font-size: 1.05rem;
 }
 
 .menu-link:hover,
