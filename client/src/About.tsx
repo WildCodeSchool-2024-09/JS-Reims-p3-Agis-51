@@ -6,7 +6,7 @@ function About() {
   return (
     <>
       <header>
-        <h1 className="logo">JS Monorepo</h1>
+        <h1 className="logo">AGIS51 Contactez nous</h1>
       </header>
 
       <nav className="navbar">
@@ -46,15 +46,7 @@ function About() {
       </main>
 
       <footer>
-        Développé par la&nbsp;
-        <a
-          href="https://www.wildcodeschool.com/"
-          className="wcs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Wild Code School
-        </a>
+        <p>Copyright &copy; 2024</p>
       </footer>
     </>
   );

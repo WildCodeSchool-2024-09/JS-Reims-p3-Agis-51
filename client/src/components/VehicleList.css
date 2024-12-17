@@ -1,29 +1,25 @@
-h1 {
-  text-align: center;
-}
-p {
-  text-align: center;
-}
-ul {
-  text-align: center;
-}
-li {
-  display: flex;
-  justify-content: center;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.info {
+.vehicle-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 18px;
-  line-height: 3rem;
+  font-size: 25px;
+  line-height: 5rem;
   background-color: lightgrey;
   border: solid 2px lightblue;
   border-radius: 25px;
   padding-bottom: 25px;
   margin-top: 75px;
+}
+
+.vehicle-table {
+  width: 75%;
+  height: 450px;
 }
