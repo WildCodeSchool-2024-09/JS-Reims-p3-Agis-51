@@ -21,7 +21,7 @@ function Header() {
           Menu
         </button>
       </div>
-      <nav className={`nav ${isMenuOpen ? "show" : ""}`}>
+      <nav className={`nav-container ${isMenuOpen ? "show" : ""}`}>
         <Nav />
       </nav>
     </div>

@@ -3,11 +3,7 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: row-reverse;
-}
-
-.header-container {
-  display: flex;
-  flex-direction: column;
+  border: 5px black;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,58 +39,75 @@
   }
 }
 
-.nav {
+.nav-container {
   display: none;
 }
 
-.nav.show {
+.nav-container.show {
   display: block;
 }
 
 @media screen and (min-width: 768px) {
-  .nav {
+  .nav-container {
     display: block;
+    text-align: center;
+    padding: 5%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-link {
+    text-decoration: none;
+    color: rgb(16, 3, 3);
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-link {
+    letter-spacing: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-link:hover,
+  .menu-link:active {
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-link:after,
+  .menu-link:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid rgba(255, 255, 255, 0);
+    bottom: 0px;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 290ms ease-in-out;
+    width: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-link:after,
+  .menu-link:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-color: #2705e976;
+    transition: width 350ms ease-in-out;
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-link:hover:before {
+    bottom: auto;
+    top: 0;
+    width: 70%;
   }
 }
 
 .menu-link {
-  text-decoration: none;
-  color: rgb(233, 224, 224);
-}
-.menu-link {
-  letter-spacing: 0;
-}
-
-.menu-link:hover,
-.menu-link:active {
-  letter-spacing: 2px;
-}
-
-.menu-link:after,
-.menu-link:before {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border: 1px solid rgba(255, 255, 255, 0);
-  bottom: 0px;
-  content: " ";
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  transition: all 280ms ease-in-out;
-  width: 0;
-}
-
-.menu-link:after,
-.menu-link:before {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-color: #0ee097c1;
-  transition: width 350ms ease-in-out;
-  width: 70%;
-}
-
-.menu-link:hover:before {
-  bottom: auto;
-  top: 0;
-  width: 70%;
+  justify-content: center;
 }
