@@ -1,38 +1,21 @@
-create table user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
-);
-
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
-);
-
-insert into user(id, email, password)
-values
-  (1, "jdoe@mail.com", "123456");
-
-insert into item(id, title, user_id)
-values
-  (1, "Stuff", 1),
-  (2, "Doodads", 1);
 
 create table vehicle  (
   id int unsigned primary key auto_increment not null,
   type varchar(50) not null,
+  energy VARCHAR(50) NOT NULL,
+  quantity INT NOT NULL,
   available boolean not null
 );
 
-insert into vehicle(id, type, available)
+insert into vehicle(id, type, energy, quantity, available)
 values
-  (1, "car", true),
-  (2, "motorcycle", false),
-  (3,"scooter",true),
-  (4,"bicycle",true),
-  (5,"trotter",true);
+  (1, 'car', 'automatic', 4, true),
+  (2, 'car', 'manual', 10, true),
+  (3, 'bicycle', 'electric', 5, true),
+  (4, 'kick scooter', 'electric', 6, true),
+  (5, 'scooter', 'thermal', 5, true),
+  (6, 'scooter', 'electric', 4, true),
+  (7, 'car', 'manual', 10, true);
 
 create table document  (
   id int unsigned primary key auto_increment not null,

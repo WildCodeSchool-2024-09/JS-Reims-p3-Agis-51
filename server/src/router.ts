@@ -8,6 +8,7 @@ import vehicleActions from "./modules/vehicles/vehicleActions";
 router.get("/api/vehicles", vehicleActions.browse);
 router.get("/api/vehicles/:id", vehicleActions.read);
 router.post("/api/vehicles", vehicleActions.add);
+router.put("/api/vehicles/:id", vehicleActions.edit);
 router.get("/api/document", documentActions.browse);
 
 export default router;

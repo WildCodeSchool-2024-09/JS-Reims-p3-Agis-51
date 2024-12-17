@@ -37,4 +37,24 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const vehicle = {
+      id: Number(req.params.id),
+      type: req.body.type,
+      available: req.body.available,
+    };
+
+    const affectedRows = await vehicleRepository.update(vehicle);
+
+    if (affectedRows === 0) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit };
