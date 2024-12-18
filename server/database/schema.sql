@@ -1,4 +1,3 @@
-
 create table vehicle  (
   id int unsigned primary key auto_increment not null,
   type varchar(50) not null,

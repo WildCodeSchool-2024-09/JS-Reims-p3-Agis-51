@@ -63,4 +63,14 @@ const edit: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit };
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const vehicleId = Number(req.params.id);
+    await vehicleRepository.delete(vehicleId);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit, destroy };
