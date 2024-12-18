@@ -29,6 +29,15 @@ class VehicleRepository {
     );
     return rows[0] as Vehicle;
   }
+
+  async delete(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      "delete from vehicle where id = ?",
+      [id],
+    );
+
+    return result.affectedRows;
+  }
 }
 
 export default new VehicleRepository();
