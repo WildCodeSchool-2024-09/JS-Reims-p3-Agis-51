@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./VehicleList.css";
+import "./VehicleLocation.css";
 
 interface Vehicle {
   id: number;
@@ -7,7 +7,7 @@ interface Vehicle {
   available: boolean;
 }
 
-const VehicleList = () => {
+const VehicleLocation = () => {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
 
   useEffect(() => {
@@ -60,4 +60,4 @@ const VehicleList = () => {
   );
 };
 
-export default VehicleList;
+export default VehicleLocation;

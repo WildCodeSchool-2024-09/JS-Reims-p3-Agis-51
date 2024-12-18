@@ -1,9 +1,9 @@
-import VehicleList from "../../components/VehicleList";
+import VehicleLocation from "../../components/VehicleLocation";
 
 const Liste = () => {
   return (
     <div className="vehicle-list">
-      <VehicleList />
+      <VehicleLocation />
     </div>
   );
 };
