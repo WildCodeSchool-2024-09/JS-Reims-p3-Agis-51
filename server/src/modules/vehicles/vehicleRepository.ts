@@ -38,7 +38,6 @@ class VehicleRepository {
     );
     return rows[0] as Vehicle;
   }
-
   async update(vehicleToUpdate: Vehicle) {
     const [result] = await databaseClient.query<Result>(
       "UPDATE vehicle SET type = ?, energy = ?, gearbox = ?, quantity = ?, available = ? WHERE id = ?",
@@ -60,7 +59,6 @@ class VehicleRepository {
       "delete from vehicle where id = ?",
       [id],
     );
-
     return result.affectedRows;
   }
 }
