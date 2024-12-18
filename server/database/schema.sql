@@ -2,20 +2,21 @@
 create table vehicle  (
   id int unsigned primary key auto_increment not null,
   type varchar(50) not null,
-  energy VARCHAR(50) NOT NULL,
-  quantity INT NOT NULL,
+  energy VARCHAR(50)  NULL,
+  gearbox VARCHAR(50) NULL,
+  quantity INT NULL,
   available boolean not null
 );
 
-insert into vehicle(id, type, energy, quantity, available)
-values
-  (1, 'car', 'automatic', 4, true),
-  (2, 'car', 'manual', 10, true),
-  (3, 'bicycle', 'electric', 5, true),
-  (4, 'kick scooter', 'electric', 6, true),
-  (5, 'scooter', 'thermal', 5, true),
-  (6, 'scooter', 'electric', 4, true),
-  (7, 'car', 'manual', 10, true);
+INSERT INTO vehicle(id, type, energy, gearbox, quantity, available)
+VALUES
+  (1, 'car', 'Unknown', 'automatic', 4, true),
+  (2, 'car', 'Unknown', 'manual', 10, true),
+  (3, 'bicycle', 'electric', NULL, 5, true),
+  (4, 'kick scooter', 'electric', NULL, 6, true),
+  (5, 'scooter', 'thermal', NULL, 5, true),
+  (6, 'scooter', 'electric', NULL, 4, true);
+
 
 create table document  (
   id int unsigned primary key auto_increment not null,

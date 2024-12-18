@@ -5,14 +5,23 @@ import type { Result, Rows } from "../../../database/client";
 type Vehicle = {
   id: number;
   type: string;
+  energy: string;
+  gearbox: string;
+  quantity: number;
   available: boolean;
 };
 
 class VehicleRepository {
   async create(vehicle: Omit<Vehicle, "id">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into vehicle ( type, available) values (?, ?)",
-      [vehicle.type, vehicle.available],
+      "insert into vehicle ( type, energy, gearbox, quantity, available) values (?, ?, ?, ?, ?)",
+      [
+        vehicle.type,
+        vehicle.energy,
+        vehicle.gearbox,
+        vehicle.quantity,
+        vehicle.available,
+      ],
     );
     return result.insertId;
   }
@@ -32,8 +41,15 @@ class VehicleRepository {
 
   async update(vehicleToUpdate: Vehicle) {
     const [result] = await databaseClient.query<Result>(
-      "UPDATE vehicle SET type = ?, available = ? WHERE id = ?",
-      [vehicleToUpdate.type, vehicleToUpdate.available, vehicleToUpdate.id],
+      "UPDATE vehicle SET type = ?, energy = ?, gearbox = ?, quantity = ?, available = ? WHERE id = ?",
+      [
+        vehicleToUpdate.type,
+        vehicleToUpdate.energy,
+        vehicleToUpdate.gearbox,
+        vehicleToUpdate.quantity,
+        vehicleToUpdate.available,
+        vehicleToUpdate.id,
+      ],
     );
 
     // Return how many rows were affected

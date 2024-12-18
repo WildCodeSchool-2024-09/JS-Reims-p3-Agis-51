@@ -28,6 +28,9 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     const newVehicle = {
       type: req.body.type,
+      energy: req.body.energy,
+      gearbox: req.body.gearbox,
+      quantity: req.body.quantity,
       available: req.body.available,
     };
     const insertId = await vehicleRepository.create(newVehicle);
@@ -42,6 +45,9 @@ const edit: RequestHandler = async (req, res, next) => {
     const vehicle = {
       id: Number(req.params.id),
       type: req.body.type,
+      energy: req.body.energy,
+      gearbox: req.body.gearbox,
+      quantity: req.body.quantity,
       available: req.body.available,
     };
 
