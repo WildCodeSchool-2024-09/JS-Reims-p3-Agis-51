@@ -72,10 +72,10 @@ export default function Message2() {
   };
 
   return (
-    <form className="form-container2" onSubmit={handleSubmit}>
+    <form className="formLoc-container" onSubmit={handleSubmit}>
       <label htmlFor="name">Nom et Prénom:</label>
       <input
-        className="username2"
+        className="username-loc"
         type="text"
         id="name"
         name="name"
@@ -86,7 +86,7 @@ export default function Message2() {
 
       <label htmlFor="email">Adresse email:</label>
       <input
-        className="email2"
+        className="email-loc"
         type="email"
         id="email"
         name="email"
@@ -97,7 +97,7 @@ export default function Message2() {
 
       <label htmlFor="message">Votre Message:</label>
       <textarea
-        className="message2"
+        className="message-loc"
         id="message"
         name="message"
         value={formData.message}

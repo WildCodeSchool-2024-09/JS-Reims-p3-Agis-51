@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./VehicleLocation.css";
-import Message2 from "./formcopy";
+import FormLoc from "./formLocation";
 
 interface Vehicle {
   id: number;
@@ -89,7 +89,7 @@ const VehicleLocation = () => {
           )}
         </div>
         <div>
-          <Message2 />
+          <FormLoc />
         </div>
       </div>
     </section>
