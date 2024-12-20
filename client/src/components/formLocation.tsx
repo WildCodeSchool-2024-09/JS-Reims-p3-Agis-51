@@ -6,12 +6,15 @@ type Errors = {
   message: string;
 };
 
+type FileUpload = File | null;
+
 export default function Message2() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [uploadedFile, setUploadedFile] = useState<FileUpload>(null);
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
@@ -28,8 +31,12 @@ export default function Message2() {
   const handleChange = (event: { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
+    setUploadedFile(file);
   };
 
   const validate = () => {
@@ -65,8 +72,9 @@ export default function Message2() {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     if (validate()) {
+      const fileName = uploadedFile ? uploadedFile.name : "No file uploaded";
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}, File: ${fileName}`,
       );
     }
   };
@@ -104,6 +112,17 @@ export default function Message2() {
         onChange={handleChange}
       />
       {errors.message && <p className="error">{errors.message}</p>}
+
+      <label htmlFor="file-upload">Vos Documents:</label>
+      <input
+        className="file-upload-loc"
+        type="file"
+        id="file-upload"
+        name="file-upload"
+        onChange={handleFileChange}
+        accept=".pdf, .jpg, .jpeg, .png"
+        multiple
+      />
 
       <button className="submit-button" type="submit">
         Envoyer
