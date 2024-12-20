@@ -111,6 +111,14 @@ h2 {
   height: 75px;
   border-radius: 5px;
 }
+.file-upload-loc {
+  text-align: center;
+  font-size: 1.10rem;
+  margin-bottom: 1rem;
+  width: 75%;
+  height: 35px;
+  margin-left: auto;
+}
 
 @media screen and (min-width: 768px) {
   .loc-container {
