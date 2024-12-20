@@ -13,7 +13,7 @@ function Nav() {
       <Link to={"/location"} className="menu-link">
         Location
       </Link>
-      <Link to={"/about"} className="menu-link">
+      <Link to={"/contact"} className="menu-link">
         Contact
       </Link>
       <Link to={"/"} className="menu-link">
