@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.page-loc {
+  background-color: rgb(234, 231, 231);
+}
+
+p,
+tbody {
+  font-family: "Montserrat", sans-serif;
+}
+p {
+  margin-top: 15px;
+  line-height: 1.25rem;
+}
+
+th,
+h2 {
+  font-family: "Lora", serif;
+  color: lightseagreen;
+}
+
+.loc-intro {
+  text-align: center;
+  line-height: 2.5rem;
+}
+.loc-intro > h2 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+.loc-intro > p {
+  font-size: 0.90rem;
+  text-align: justify;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.vehicle-list {
+  background-color: lightgray;
+  border: solid 0.25rem lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+  border-radius: 25px;
+  padding-bottom: 25px;
+  margin-top: 2rem;
+}
+.vehicle-table {
+  border-collapse: collapse;
+  margin-top: 25px;
+  border-radius: 25px;
+  width: 75%;
+}
+@media screen and (min-width: 768px) {
+  .vehicle-list {
+    width: 50%;
+    margin: auto;
+  }
+
+  .vehicle-table {
+    width: 50%;
+    height: 80%;
+  }
+}
+
+.formLoc-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 90%;
+  padding: 2rem;
+  color: lightseagreen;
+  font-size: 1.25rem;
+  margin: auto;
+}
+
+.error {
+  color: red;
+}
+
+.username-loc {
+  text-align: center;
+  font-size: 1.10rem;
+  margin-bottom: 1rem;
+  width: 75%;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.email-loc {
+  text-align: center;
+  font-size: 1.10rem;
+  margin-bottom: 1rem;
+  width: 75%;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.message-loc {
+  text-align: center;
+  font-size: 1.10rem;
+  margin-bottom: 1rem;
+  width: 75%;
+  height: 75px;
+  border-radius: 5px;
+}
+.file-upload-loc {
+  text-align: center;
+  font-size: 1.10rem;
+  margin-bottom: 1rem;
+  width: 75%;
+  height: 35px;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .loc-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.5rem;
+  }
+  .formLoc-container {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .formLoc-container {
+    width: 600px;
+  }
+}
