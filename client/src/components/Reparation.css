@@ -1,0 +1,95 @@
+.reparations-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .reparations-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .reparations-page h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #444;
+  }
+  
+  .reparations-page p {
+    margin-bottom: 15px;
+  }
+  
+  .reparations-page ul {
+    list-style: disc;
+    padding-left: 20px;
+  }
+  
+  .reparations-page li {
+    margin-bottom: 10px;
+  }
+  
+  .reparations-page button {
+    background-color: #11ec18f8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+  }
+  
+  .reparations-page button:hover {
+    background-color: #509c70;
+  }
+  
+  @media (max-width: 768px) {
+    .reparations-page {
+      padding: 10px;
+    }
+  
+    .reparations-page h1 {
+      font-size: 1.5rem;
+    }
+  
+    .reparations-page h2 {
+      font-size: 1.2rem;
+    }
+  
+    .reparations-page ul {
+      padding-left: 15px;
+    }
+  
+    .reparations-page button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .reparations-page {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .reparations-page h1 {
+      font-size: 2.5rem;
+    }
+  
+    .reparations-page h2 {
+      font-size: 1.75rem;
+    }
+  
+    .reparations-page ul {
+      padding-left: 25px;
+    }
+  
+    .reparations-page button {
+      font-size: 1.1rem;
+      padding: 12px 25px;
+    }
+  }
+  

@@ -1,0 +1,114 @@
+
+.forfait-reparations-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  .forfait-reparations-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .forfait-reparations-page h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #444;
+  }
+  
+  .forfait-reparations-page h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .forfait-reparations-page p {
+    margin-bottom: 15px;
+  }
+  
+  .forfait-reparations-page ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .forfait-reparations-page li {
+    margin-bottom: 10px;
+  }
+  
+  .forfait-reparations-page a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .forfait-reparations-page a:hover {
+    text-decoration: underline;
+  }
+  
+  .procedure-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  .tarif {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+  }
+  
+
+  @media (max-width: 768px) {
+    .forfait-reparations-page {
+      padding: 15px;
+    }
+  
+    .forfait-reparations-page h1 {
+      font-size: 2rem;
+    }
+  
+    .forfait-reparations-page h2 {
+      font-size: 1.5rem;
+    }
+  
+    .forfait-reparations-page h3 {
+      font-size: 1.2rem;
+    }
+  
+    .tarif {
+      padding: 10px;
+    }
+  
+    .procedure-link {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .forfait-reparations-page {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  
+    .forfait-reparations-page h1 {
+      font-size: 3rem;
+    }
+  
+    .forfait-reparations-page h2 {
+      font-size: 2.5rem;
+    }
+  
+    .forfait-reparations-page h3 {
+      font-size: 1.8rem;
+    }
+  
+    .tarif {
+      padding: 20px;
+    }
+  }
+  
