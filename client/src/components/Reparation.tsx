@@ -1,11 +1,11 @@
 import "./Reparation.css";
-import { useNavigate,Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Reparation() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/TarifsReparations');
+    navigate("/TarifsReparations");
   };
 
   return (
@@ -63,10 +63,13 @@ function Reparation() {
         </ul>
       </p>
       <Link to="/TarifsReparations">
-        <button type="button" onClick={handleClick}> Consulter nos tarifs</button>
+        <button type="button" onClick={handleClick}>
+          {" "}
+          Consulter nos tarifs
+        </button>
       </Link>
     </div>
   );
-};
+}
 
 export default Reparation;

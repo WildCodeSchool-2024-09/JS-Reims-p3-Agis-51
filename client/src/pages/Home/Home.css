@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Tilt+Neon&");
+
 h1 {
   text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 p {
   text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 ul {
   text-align: center;
@@ -26,4 +32,15 @@ li {
   border-radius: 25px;
   padding-bottom: 25px;
   margin-top: 75px;
+}
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

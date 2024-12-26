@@ -1,30 +1,48 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-function Nav() {
+type ToggleFunction = () => void;
+
+function Nav({ handleshowLinks }: { handleshowLinks: ToggleFunction }) {
   return (
     <nav>
-      <Link to={"/"} className="menu-link">
-        Qui Sommes Nous
-      </Link>
-      <Link to={"/"} className="menu-link">
-        Reparation
-      </Link>
-      <Link to={"/list"} className="menu-link">
-        Location
-      </Link>
-      <Link to={"/about"} className="menu-link">
-        Contact
-      </Link>
-      <Link to={"/"} className="menu-link">
-        Nous Aider
-      </Link>
-      <Link to={"/"} className="menu-link">
-        Revue de presse
-      </Link>
-      <Link to={"/"} className="menu-link">
-        Compte
-      </Link>
+      <div className="menu-overlay">
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+            Qui Sommes Nous
+          </Link>
+        </div>
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+            Reparation
+          </Link>
+        </div>
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/list"} className="menu-link">
+            Location
+          </Link>
+        </div>
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/about"} className="menu-link">
+            Contact
+          </Link>
+        </div>
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+            Nous Aider
+          </Link>
+        </div>
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+            Revue de presse
+          </Link>
+        </div>
+        <div className="navbar-item">
+          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+            Compte 👤
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }
