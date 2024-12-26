@@ -1,50 +1,69 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-type ToggleFunction = () => void;
+function Nav2() {
+  const [showLinks, setShowLinks] = useState<boolean>(false);
+  const handleshowLinks = () => {
+    setShowLinks(!showLinks);
+  };
 
-function Nav({ handleshowLinks }: { handleshowLinks: ToggleFunction }) {
   return (
-    <nav>
-      <div className="menu-overlay">
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+    <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"}`}>
+      <ul className="navbar__links">
+        <li className="navbar__item slideInDown-1">
+          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
             Qui Sommes Nous
           </Link>
-        </div>
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+        </li>
+        <li className="navbar__item slideInDown-2">
+          <Link
+            onClick={handleshowLinks}
+            to={"/Reparation"}
+            className="navbar__link"
+          >
             Reparation
           </Link>
-        </div>
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/list"} className="menu-link">
+        </li>
+        <li className="navbar__item slideInDown-3">
+          <Link onClick={handleshowLinks} to={"/list"} className="navbar__link">
             Location
           </Link>
-        </div>
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/about"} className="menu-link">
+        </li>
+        <li className="navbar__item slideInDown-4">
+          <Link
+            onClick={handleshowLinks}
+            to={"/about"}
+            className="navbar__link"
+          >
             Contact
           </Link>
-        </div>
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+        </li>
+        <li className="navbar__item slideInDown-5">
+          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
             Nous Aider
           </Link>
-        </div>
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
+        </li>
+        <li className="navbar__item slideInDown-6">
+          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
             Revue de presse
           </Link>
-        </div>
-        <div className="navbar-item">
-          <Link onClick={handleshowLinks} to={"/"} className="menu-link">
-            Compte 👤
+        </li>
+        <li className="navbar__item slideInDown-7">
+          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
+            Compte
           </Link>
-        </div>
-      </div>
+        </li>
+      </ul>
+      <button
+        type="button"
+        className="navbar__burger"
+        onClick={handleshowLinks}
+      >
+        <span className="burger-bar" />
+      </button>
     </nav>
   );
 }
 
-export default Nav;
+export default Nav2;

@@ -12,9 +12,8 @@ function About() {
       <nav className="navbar">
         <ul>
           <li>
-            <a 
+            <a
               href="https://www.facebook.com/AGIS51"
-              
               target="_blank"
               rel="noopener noreferrer"
             >
