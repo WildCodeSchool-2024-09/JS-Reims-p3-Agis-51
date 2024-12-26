@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-function Nav2() {
+function Nav() {
   const [showLinks, setShowLinks] = useState<boolean>(false);
   const handleshowLinks = () => {
     setShowLinks(!showLinks);
@@ -66,4 +66,4 @@ function Nav2() {
   );
 }
 
-export default Nav2;
+export default Nav;

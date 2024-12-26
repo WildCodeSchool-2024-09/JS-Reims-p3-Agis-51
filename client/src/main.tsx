@@ -10,8 +10,8 @@ import About from "./About";
 // Import the main app component
 import App from "./App";
 import Reparation from "./components/Reparation";
-import VehicleList from "./components/VehicleList";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+import VehicleLocation from "./components/VehicleLocation";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/list",
-        element: <VehicleList />,
+        element: <VehicleLocation />,
       },
       {
         path: "/Reparation",

@@ -45,9 +45,8 @@
 
 .reparations-page button:hover {
   background-color: #509c70;
-  
 }
-.tarif-button{
+.tarif-button {
   text-decoration: none;
 }
 @media (max-width: 768px) {

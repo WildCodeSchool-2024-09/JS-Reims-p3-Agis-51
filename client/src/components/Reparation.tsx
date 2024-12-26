@@ -65,8 +65,7 @@ function Reparation() {
       <button className="tarif-button" type="button" onClick={handleClick}>
         {" "}
         Consulter nos tarifs
-        <Link to="/TarifsReparations">
-        </Link>
+        <Link to="/TarifsReparations"> </Link>
       </button>
     </div>
   );

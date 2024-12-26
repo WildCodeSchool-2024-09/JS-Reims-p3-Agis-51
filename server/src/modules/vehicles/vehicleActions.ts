@@ -28,6 +28,9 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     const newVehicle = {
       type: req.body.type,
+      energy: req.body.energy,
+      gearbox: req.body.gearbox,
+      quantity: req.body.quantity,
       available: req.body.available,
     };
     const insertId = await vehicleRepository.create(newVehicle);
@@ -37,4 +40,37 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const vehicle = {
+      id: Number(req.params.id),
+      type: req.body.type,
+      energy: req.body.energy,
+      gearbox: req.body.gearbox,
+      quantity: req.body.quantity,
+      available: req.body.available,
+    };
+
+    const affectedRows = await vehicleRepository.update(vehicle);
+
+    if (affectedRows === 0) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const vehicleId = Number(req.params.id);
+    await vehicleRepository.delete(vehicleId);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit, destroy };
