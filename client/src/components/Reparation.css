@@ -31,7 +31,8 @@
 }
 
 .reparations-page button {
-  background-color: #11ec18f8;
+  background-color: #0f5f12f8;
+  text-decoration: none;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -44,8 +45,11 @@
 
 .reparations-page button:hover {
   background-color: #509c70;
+  
 }
-
+.tarif-button{
+  text-decoration: none;
+}
 @media (max-width: 768px) {
   .reparations-page {
     padding: 10px;
@@ -90,5 +94,6 @@
   .reparations-page button {
     font-size: 1.1rem;
     padding: 12px 25px;
+    text-decoration: none;
   }
 }

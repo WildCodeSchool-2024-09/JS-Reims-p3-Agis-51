@@ -62,12 +62,12 @@ function Reparation() {
           <li>Sans effets personnels</li>
         </ul>
       </p>
-      <Link to="/TarifsReparations">
-        <button type="button" onClick={handleClick}>
-          {" "}
-          Consulter nos tarifs
-        </button>
-      </Link>
+      <button className="tarif-button" type="button" onClick={handleClick}>
+        {" "}
+        Consulter nos tarifs
+        <Link to="/TarifsReparations">
+        </Link>
+      </button>
     </div>
   );
 }
