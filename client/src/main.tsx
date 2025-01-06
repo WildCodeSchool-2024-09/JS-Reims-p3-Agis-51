@@ -9,6 +9,7 @@ import About from "./About";
 // Import the main app component
 import App from "./App";
 import VehicleList from "./components/VehicleList";
+import Legal from "./pages/Legal";
 import LoginUser from "./pages/LoginUser";
 import SignupUser from "./pages/SignupUser";
 
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
       },
       { path: "/LoginUser", element: <LoginUser /> },
       { path: "/SignupUser", element: <SignupUser /> },
+
+      { path: "/legal", element: <Legal /> },
       {
         path: "/list",
         element: <VehicleList />,
