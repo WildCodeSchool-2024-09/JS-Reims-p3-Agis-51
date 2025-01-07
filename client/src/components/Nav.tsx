@@ -19,7 +19,7 @@ function Nav() {
       <Link to={"/"} className="menu-link">
         Nous Aider
       </Link>
-      <Link to={"/"} className="menu-link">
+      <Link to={"/presse"} className="menu-link">
         Revue de presse
       </Link>
       <Link to={"/"} className="menu-link">

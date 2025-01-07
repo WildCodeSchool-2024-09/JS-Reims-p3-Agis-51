@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --text-family: "Montserrat", sans-serif;
+  --title-family: "Lora", serif;
+  --primary-color: lightseagreen;
+  --secondary-color: lightblue;
+  --tertiary-color: lightgrey;
+  --text-color: black;
+  --title-color: black;
+  --link-color: lightseagreen;
+  --border-color: lightblue;
+}
+
+h1 {
+  font-family: var(--title-family);
+  color: var(--title-color);
+  font-size: 1.5rem;
+  text-align: center;
+  margin: auto;
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 90%;
+  padding: 2rem;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  margin: auto;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 90%;
+  padding: 2rem;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  margin: auto;
+}
