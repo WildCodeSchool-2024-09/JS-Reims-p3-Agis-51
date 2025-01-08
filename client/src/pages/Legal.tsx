@@ -3,7 +3,7 @@ import "./Legal.css";
 const Legal = () => {
   return (
     <div className="mentions">
-      <h2> Mentions légales </h2>
+      <h1> Mentions légales </h1>
       <p>
         En application avec l’article 27 de la loi Informatique et Liberté du
         6/01/1978, les informations communiquées sont indispensables au
