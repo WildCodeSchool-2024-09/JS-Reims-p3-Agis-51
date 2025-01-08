@@ -9,8 +9,8 @@ import About from "./About";
 
 // Import the main app component
 import App from "./App";
-import Legal from "./pages/Legal";
 import VehicleLocation from "./components/VehicleLocation";
+import Legal from "./pages/Legal";
 import LoginUser from "./pages/LoginUser";
 import SignupUser from "./pages/SignupUser";
 // Import additional components for new routes
