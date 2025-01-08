@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import About from "./About";
 // Import the main app component
 import App from "./App";
+import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
 import VehicleLocation from "./components/VehicleLocation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/TarifsReparations",
         element: <TarifsReparations />,
+      },
+      {
+        path: "/NousAider",
+        element: <Donation />,
       },
     ],
   },
