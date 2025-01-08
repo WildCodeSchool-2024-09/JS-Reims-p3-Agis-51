@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 
 /* ************************************************************************* */
 import About from "./About";
+
 // Import the main app component
 import App from "./App";
 import Legal from "./pages/Legal";
