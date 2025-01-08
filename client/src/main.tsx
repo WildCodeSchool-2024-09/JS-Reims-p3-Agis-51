@@ -6,13 +6,13 @@ import Home from "./pages/Home/Home";
 
 /* ************************************************************************* */
 import About from "./About";
+
 // Import the main app component
 import App from "./App";
 import Legal from "./pages/Legal";
+import VehicleLocation from "./components/VehicleLocation";
 import LoginUser from "./pages/LoginUser";
 import SignupUser from "./pages/SignupUser";
-
-import VehicleLocation from "./components/VehicleLocation";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
