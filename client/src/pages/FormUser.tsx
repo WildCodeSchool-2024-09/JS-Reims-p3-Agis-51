@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./SignupUser.css";
+import "./FormUser.css";
 
-function SignupUser() {
+function FormUser() {
   const [signupName, setSignupName] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
@@ -9,6 +9,12 @@ function SignupUser() {
   const [signupNameError, setSignupNameError] = useState(false);
   const [signupEmailError, setSignupEmailError] = useState(false);
   const [signupPasswordError, setSignupPasswordError] = useState(false);
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [loginEmailError, setLoginEmailError] = useState(false);
+  const [loginPasswordError, setLoginPasswordError] = useState(false);
 
   const handleSignupSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -42,8 +48,31 @@ function SignupUser() {
     }
   };
 
+  const handleLoginValidation = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    setLoginEmailError(false);
+    setLoginPasswordError(false);
+
+    let isValid = true;
+
+    if (loginEmail.trim() === "" || !loginEmail.includes("@")) {
+      setLoginEmailError(true);
+      isValid = false;
+    }
+
+    if (loginPassword.trim() === "") {
+      setLoginPasswordError(true);
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert("Connexion réussie !");
+    }
+  };
+
   return (
-    <div className="signup-container">
+    <div className="forms-container">
       <form className="form-signup" onSubmit={handleSignupSubmit}>
         <h2>Créer un Compte</h2>
 
@@ -69,7 +98,9 @@ function SignupUser() {
             className="inputsignup"
           />
           {signupEmailError && (
-            <p className="error">Veuillez entrer un email valide (avec @).</p>
+            <p className="error">
+              Veuillez entrer une adresse email valide (avec @).
+            </p>
           )}
         </div>
 
@@ -92,8 +123,46 @@ function SignupUser() {
           S'inscrire
         </button>
       </form>
+
+      <form className="form-login" onSubmit={handleLoginValidation}>
+        <h2>Connexion</h2>
+
+        <div className="input">
+          <input
+            type="email"
+            placeholder="Adresse Email"
+            value={loginEmail}
+            onChange={(e) => setLoginEmail(e.target.value)}
+            className="inputlogin"
+          />
+          {loginEmailError && (
+            <p className="error">
+              Veuillez entrer une adresse email valide (avec @).
+            </p>
+          )}
+        </div>
+
+        <div className="input">
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={loginPassword}
+            onChange={(e) => setLoginPassword(e.target.value)}
+            className="inputlogin"
+          />
+          {loginPasswordError && (
+            <p className="error">
+              Le champ "Mot de passe" ne peut pas être vide.
+            </p>
+          )}
+        </div>
+
+        <button type="submit" className="buttonlogin">
+          Connexion
+        </button>
+      </form>
     </div>
   );
 }
 
-export default SignupUser;
+export default FormUser;

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
-import DropdownAccount from "./DropdownAccount";
 
 function Nav() {
   return (
@@ -23,7 +22,9 @@ function Nav() {
       <Link to={"/"} className="menu-link">
         Revue de presse
       </Link>
-      <DropdownAccount />
+      <Link to={"/FormUser"} className="menu-link">
+        Compte
+      </Link>
     </nav>
   );
 }
