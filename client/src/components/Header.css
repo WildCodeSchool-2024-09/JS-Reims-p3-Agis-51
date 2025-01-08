@@ -1,116 +1,73 @@
-@media screen and (max-width: 768px) {
-  .logo-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-  }
-}
-.logo-container {
+.header-container {
   display: flex;
-}
-/* .header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-} */
-
-/* .navbar {
-  position: fixed;
-  display: flex;
-  width: 100%;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.show-nav {
-  display: block;
-}
-
-.hide-nav {
-  display: none;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 768px) {
-  .hide-nav {
-    display: block;
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.196);
   }
 }
 
-.navbar__burger {
+.sub-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .sub-header-container {
+    width: 20%;
+  }
+}
+
+.btn-menu {
   width: 40px;
   height: 40px;
   background: transparent;
   border: none;
-  color: #060606;
+  color: inherit;
+  z-index: 10;
 }
 
 @media screen and (min-width: 768px) {
-  .navbar__burger {
+  .btn-menu {
     display: none;
   }
 }
 
-.menu-link {
-  white-space: nowrap;
-  text-decoration: none;
-  color: #ffffff;
-  transition: all .20s ease-in-out;
+.nav {
+  display: none;
 }
-@media screen and (min-width: 768px) {
-  .menu-link {
-    text-decoration: none;
-    transition: all .6s ease-in-out;
-    color: #060606;
-    background-color: #ac959544;
-    align-items: center;
-    letter-spacing: 0;
-  }
+
+.nav.show {
+  background-color: rgb(117, 117, 124);
+  display: block;
 }
 
 @media screen and (min-width: 768px) {
-  .menu-link:hover,
-  .menu-link:active {
-    letter-spacing: 2px;
+  .nav {
+    display: flex;
+  }
+
+  .header-logo {
+    margin-left: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 8rem;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .menu-link:after,
-  .menu-link:before {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border: 1px solid rgba(255, 255, 255, 0);
-    bottom: 0px;
-    content: " ";
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    transition: all 290ms ease-in-out;
-    width: 0;
-  }
-}
-@media screen and (min-width: 768px) {
-  .menu-link:after,
-  .menu-link:before {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-color: #2705e976;
-    transition: width 350ms ease-in-out;
-    width: 70%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .menu-link:hover:before {
-    bottom: auto;
-    top: 0;
-    width: 70%;
-  }
-}
-
-.burger-bar,
-.burger-bar::before,
-.burger-bar::after {
+.burger-bars,
+.burger-bars::before,
+.burger-bars::after {
   display: block;
   width: 40px;
   height: 3px;
@@ -119,51 +76,29 @@
   background: rgb(22, 19, 19);
   transition: all 0.3s ease-in-out;
 }
-.burger-bar::before,
-.burger-bar::after {
+
+.burger-bars::before,
+.burger-bars::after {
   content: "";
   position: absolute;
-  left: 0;
 }
 
-.burger-bar::before {
+.burger-bars::before {
   transform: translateY(-12px);
 }
 
-.burger-bar::after {
+.burger-bars::after {
   transform: translateY(12px);
 }
-.navbar-item:after {
-  content: "";
-  display: block;
-  margin: 0 auto;
-  width: 3vw;
-  height: 1px;
-  background: #ffffff;
-}
 
-.navbar-item:last-child:after {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .navbar-item:after {
-    display: none;
-  }
-}
-
-.show-nav .burger-bar {
-  width: 0;
+.btn-menu.show .burger-bars {
   background: transparent;
 }
-.show-nav .burger-bar::before {
-  transform: rotate(45deg);
+
+.btn-menu.show .burger-bars::before {
+  transform: rotate(45deg) translate(0, 0);
 }
-.show-nav .burger-bar::after {
-  transform: rotate(-45deg);
+
+.btn-menu.show .burger-bars::after {
+  transform: rotate(-45deg) translate(0, 0);
 }
-@media screen and (min-width: 768px) {
-  .burger-bar {
-    display: none;
-  }
-} */

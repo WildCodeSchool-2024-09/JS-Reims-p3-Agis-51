@@ -1,69 +1,46 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Nav.css";
+import { Link } from "react-router-dom";
+import about from "../assets/images/about.png";
+import compte from "../assets/images/compte.png";
+import contact from "../assets/images/contact.png";
+import location from "../assets/images/location-auto.png";
+import nousaider from "../assets/images/nous-aider.png";
+import reparation from "../assets/images/reparations.png";
+import revue from "../assets/images/revue-presse.png";
 
-function Nav() {
-  const [showLinks, setShowLinks] = useState<boolean>(false);
-  const handleshowLinks = () => {
-    setShowLinks(!showLinks);
-  };
-
+function Navigation({ handleClick }: { handleClick: () => void }) {
   return (
-    <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"}`}>
-      <ul className="navbar__links">
-        <li className="navbar__item slideInDown-1">
-          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
-            Qui Sommes Nous
-          </Link>
-        </li>
-        <li className="navbar__item slideInDown-2">
-          <Link
-            onClick={handleshowLinks}
-            to={"/Reparation"}
-            className="navbar__link"
-          >
-            Reparation
-          </Link>
-        </li>
-        <li className="navbar__item slideInDown-3">
-          <Link onClick={handleshowLinks} to={"/list"} className="navbar__link">
-            Location
-          </Link>
-        </li>
-        <li className="navbar__item slideInDown-4">
-          <Link
-            onClick={handleshowLinks}
-            to={"/about"}
-            className="navbar__link"
-          >
-            Contact
-          </Link>
-        </li>
-        <li className="navbar__item slideInDown-5">
-          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
-            Nous Aider
-          </Link>
-        </li>
-        <li className="navbar__item slideInDown-6">
-          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
-            Revue de presse
-          </Link>
-        </li>
-        <li className="navbar__item slideInDown-7">
-          <Link onClick={handleshowLinks} to={"/"} className="navbar__link">
-            Compte
-          </Link>
-        </li>
-      </ul>
-      <button
-        type="button"
-        className="navbar__burger"
-        onClick={handleshowLinks}
-      >
-        <span className="burger-bar" />
-      </button>
-    </nav>
+    <div className="navbar__links">
+      <Link onClick={handleClick} to={"/"} className="navbar__link">
+        <img src={about} className="about-img" alt="about" /> Qui Sommes Nous
+      </Link>
+
+      <Link onClick={handleClick} to={"/Reparation"} className="navbar__link">
+        <img src={reparation} className="reparation-img" alt="" /> Reparation
+      </Link>
+
+      <Link onClick={handleClick} to={"/list"} className="navbar__link">
+        <img src={location} className="location-img" alt="" />
+        Location
+      </Link>
+
+      <Link onClick={handleClick} to={"/contact"} className="navbar__link">
+        <img src={contact} className="contact-img" alt="" /> Contact
+      </Link>
+
+      <Link onClick={handleClick} to={"/"} className="navbar__link">
+        <img src={nousaider} className="aide-img" alt="" /> Nous Aider
+      </Link>
+
+      <Link onClick={handleClick} to={"/"} className="navbar__link">
+        <img src={revue} className="revue-img" alt="" /> Revue de presse
+      </Link>
+
+      <Link onClick={handleClick} to={"/"} className="navbar__link">
+        <img src={compte} className="compte-img" alt="" /> Compte
+      </Link>
+    </div>
   );
 }
 
-export default Nav;
+export default Navigation;

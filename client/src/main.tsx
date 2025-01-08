@@ -10,8 +10,8 @@ import About from "./About";
 // Import the main app component
 import App from "./App";
 import Reparation from "./components/Reparation";
-import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 import VehicleLocation from "./components/VehicleLocation";
+import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder

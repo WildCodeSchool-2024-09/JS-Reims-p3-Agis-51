@@ -49,6 +49,10 @@
 .tarif-button {
   text-decoration: none;
 }
+.tarif-button hover {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .reparations-page {
     padding: 10px;

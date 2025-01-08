@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Tilt+Neon&");
 
-h1 {
+.h1 {
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
-p {
+.p {
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-ul {
+.ul {
+  align-content: center;
   text-align: center;
 }
-li {
+.li {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -30,7 +31,6 @@ li {
   background-color: lightgrey;
   border: solid 2px lightblue;
   border-radius: 25px;
-  padding-bottom: 25px;
   margin-top: 75px;
 }
 .poppins-light {
