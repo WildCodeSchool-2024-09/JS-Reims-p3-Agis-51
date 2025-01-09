@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --text-family: "Montserrat", sans-serif;
+  --title-family: "Lora", serif;
+  --primary-color: lightgray;
+  --secondary-color: rgb(240, 237, 237);
+  --text-color: black;
+  --title-color: rgb(198, 108, 178);
+  --link-color: lightseagreen;
+}
+
+h1 {
+  font-family: var(--title-family);
+  color: var(--link-color);
+  font-size: 1.8rem;
+  text-align: center;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  max-width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.25rem;
+  margin: auto;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.article > h2 {
+  width: 80%;
+  font-family: var(--title-family);
+  color: var(--title-color);
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .article > h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.zoom-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.zoom-image:active {
+  transform: scale(1.2);
+  cursor: zoom-in;
+}
+
+@media (min-width: 768px) {
+  .zoom-image {
+    width: 70%;
+    max-height: 20%;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }
+}
+
+.article > p {
+  width: 90%;
+  font-family: var(--text-family);
+  color: var(--text-color);
+  font-size: 0.8rem;
+  text-align: left;
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .article > p {
+    width: 80%;
+    font-family: var(--text-family);
+    color: var(--text-color);
+    font-size: 1rem;
+    text-align: center;
+    margin: auto;
+  }
+}
