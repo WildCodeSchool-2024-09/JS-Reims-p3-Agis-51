@@ -10,6 +10,21 @@
   font-size: 1.25rem;
   margin: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .logo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .map-img {
+    display: none;
+  }
+}
+
+.map-img {
+  text-align: center;
+}
 
 .error {
   color: red;
