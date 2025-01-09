@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
 import About from "./About";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/location",
         element: <VehicleLocation />,
+      },
+      {
+        path: "/presse",
+        element: <Presse />,
       },
     ],
   },
