@@ -3,13 +3,18 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
-
 import About from "./About";
+
 // Import the main app component
 import App from "./App";
 import Reparation from "./components/Reparation";
+import Legal from "./pages/Legal";
+import LoginUser from "./pages/LoginUser";
+import SignupUser from "./pages/SignupUser";
+
 import VehicleLocation from "./components/VehicleLocation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
@@ -35,6 +40,10 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      { path: "/LoginUser", element: <LoginUser /> },
+      { path: "/SignupUser", element: <SignupUser /> },
+
+      { path: "/legal", element: <Legal /> },
       {
         path: "/list",
         element: <VehicleLocation />,
@@ -46,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/TarifsReparations",
         element: <TarifsReparations />,
+      },
+
+      {
+        path: "/presse",
+        element: <Presse />,
       },
     ],
   },
