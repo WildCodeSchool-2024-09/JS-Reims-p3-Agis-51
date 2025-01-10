@@ -10,13 +10,14 @@ import About from "./About";
 
 // Import the main app component
 import App from "./App";
+import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
+import VehicleLocation from "./components/VehicleLocation";
+import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+
 import Legal from "./pages/Legal";
 import LoginUser from "./pages/LoginUser";
 import SignupUser from "./pages/SignupUser";
-
-import VehicleLocation from "./components/VehicleLocation";
-import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -56,7 +57,10 @@ const router = createBrowserRouter([
         path: "/TarifsReparations",
         element: <TarifsReparations />,
       },
-
+      {
+        path: "/NousAider",
+        element: <Donation />,
+      },
       {
         path: "/presse",
         element: <Presse />,
