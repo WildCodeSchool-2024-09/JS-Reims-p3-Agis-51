@@ -2,47 +2,39 @@ import { useState } from "react";
 import "./FormUser.css";
 
 function FormUser() {
-  const [isSignupVisible, setIsSignupVisible] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const [signupName, setSignupName] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
-
-  const [signupNameError, setSignupNameError] = useState(false);
-  const [signupEmailError, setSignupEmailError] = useState(false);
-  const [signupPasswordError, setSignupPasswordError] = useState(false);
+  const [signupErrors, setSignupErrors] = useState({
+    name: false,
+    email: false,
+    password: false,
+  });
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [loginErrors, setLoginErrors] = useState({
+    email: false,
+    password: false,
+  });
 
-  const [loginEmailError, setLoginEmailError] = useState(false);
-  const [loginPasswordError, setLoginPasswordError] = useState(false);
+  const handleLoginClick = () => setIsLogin(true);
+  const handleSignUpClick = () => setIsLogin(false);
 
-  const handleSignupSubmit = (e: React.SyntheticEvent) => {
+  const handleSignupSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    setSignupNameError(false);
-    setSignupEmailError(false);
-    setSignupPasswordError(false);
+    const errors = {
+      name: signupName.trim() === "",
+      email: signupEmail.trim() === "" || !signupEmail.includes("@"),
+      password: signupPassword.trim() === "",
+    };
 
-    let isValid = true;
+    setSignupErrors(errors);
 
-    if (signupName.trim() === "") {
-      setSignupNameError(true);
-      isValid = false;
-    }
-
-    if (signupEmail.trim() === "" || !signupEmail.includes("@")) {
-      setSignupEmailError(true);
-      isValid = false;
-    }
-
-    if (signupPassword.trim() === "") {
-      setSignupPasswordError(true);
-      isValid = false;
-    }
-
-    if (isValid) {
+    if (!Object.values(errors).includes(true)) {
       alert("Inscription réussie !");
       setSignupName("");
       setSignupEmail("");
@@ -50,53 +42,44 @@ function FormUser() {
     }
   };
 
-  const handleLoginValidation = (e: React.SyntheticEvent) => {
+  const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    setLoginEmailError(false);
-    setLoginPasswordError(false);
+    const errors = {
+      email: loginEmail.trim() === "" || !loginEmail.includes("@"),
+      password: loginPassword.trim() === "",
+    };
 
-    let isValid = true;
+    setLoginErrors(errors);
 
-    if (loginEmail.trim() === "" || !loginEmail.includes("@")) {
-      setLoginEmailError(true);
-      isValid = false;
-    }
-
-    if (loginPassword.trim() === "") {
-      setLoginPasswordError(true);
-      isValid = false;
-    }
-
-    if (isValid) {
+    if (!Object.values(errors).includes(true)) {
       alert("Connexion réussie !");
     }
   };
 
   return (
-    <div className="forms-container">
-      <div className="form-toggle-buttons">
+    <div className="formUser-container">
+      <div className="form-user-toggle-buttons">
         <button
           type="button"
-          onClick={() => setIsSignupVisible(true)}
-          className="toggle-button"
+          className={`toggle-user-button ${!isLogin ? "active" : ""}`}
+          onClick={handleSignUpClick}
         >
           Créer un Compte
         </button>
         <button
           type="button"
-          onClick={() => setIsSignupVisible(false)}
-          className="toggle-button"
+          className={`toggle-user-button ${!isLogin ? "active" : ""}`}
+          onClick={handleLoginClick}
         >
           Connexion
         </button>
       </div>
 
-      {isSignupVisible ? (
+      {!isLogin ? (
         <form className="form-signup" onSubmit={handleSignupSubmit}>
           <h2>Créer un Compte</h2>
-
-          <div className="input">
+          <div className="input-form-user">
             <input
               type="text"
               placeholder="Nom"
@@ -104,12 +87,12 @@ function FormUser() {
               onChange={(e) => setSignupName(e.target.value)}
               className="inputsignup"
             />
-            {signupNameError && (
+            {signupErrors.name && (
               <p className="error">Le champ "Nom" ne peut pas être vide.</p>
             )}
           </div>
 
-          <div className="input">
+          <div className="input-form-user">
             <input
               type="email"
               placeholder="Adresse Email"
@@ -117,14 +100,14 @@ function FormUser() {
               onChange={(e) => setSignupEmail(e.target.value)}
               className="inputsignup"
             />
-            {signupEmailError && (
+            {signupErrors.email && (
               <p className="error">
                 Veuillez entrer une adresse email valide (avec @).
               </p>
             )}
           </div>
 
-          <div className="input">
+          <div className="input-form-user">
             <input
               type="password"
               placeholder="Mot de passe"
@@ -132,22 +115,21 @@ function FormUser() {
               onChange={(e) => setSignupPassword(e.target.value)}
               className="inputsignup"
             />
-            {signupPasswordError && (
+            {signupErrors.password && (
               <p className="error">
                 Le champ "Mot de passe" ne peut pas être vide.
               </p>
             )}
           </div>
 
-          <button type="submit" className="buttonsignup">
+          <button type="submit" className="button-form-user">
             S'inscrire
           </button>
         </form>
       ) : (
-        <form className="form-login" onSubmit={handleLoginValidation}>
+        <form className="form-login" onSubmit={handleLoginSubmit}>
           <h2>Connexion</h2>
-
-          <div className="input">
+          <div className="input-form-user">
             <input
               type="email"
               placeholder="Adresse Email"
@@ -155,14 +137,14 @@ function FormUser() {
               onChange={(e) => setLoginEmail(e.target.value)}
               className="inputlogin"
             />
-            {loginEmailError && (
+            {loginErrors.email && (
               <p className="error">
                 Veuillez entrer une adresse email valide (avec @).
               </p>
             )}
           </div>
 
-          <div className="input">
+          <div className="input-form-user">
             <input
               type="password"
               placeholder="Mot de passe"
@@ -170,16 +152,24 @@ function FormUser() {
               onChange={(e) => setLoginPassword(e.target.value)}
               className="inputlogin"
             />
-            {loginPasswordError && (
+            {loginErrors.password && (
               <p className="error">
                 Le champ "Mot de passe" ne peut pas être vide.
               </p>
             )}
           </div>
 
-          <button type="submit" className="buttonlogin">
+          <button type="submit" className="button-form-user">
             Connexion
           </button>
+          <div>
+            <p>
+              Vous n'avez pas de compte ?{" "}
+              <button type="button" onClick={handleSignUpClick}>
+                Créer un compte
+              </button>
+            </p>
+          </div>
         </form>
       )}
     </div>
