@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
 import Contact from "./Contact";
@@ -14,8 +15,10 @@ import Reparation from "./components/Reparation";
 import VehicleLocation from "./components/VehicleLocation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
+import Legal from "./pages/Legal";
 import LoginUser from "./pages/LoginUser";
 import SignupUser from "./pages/SignupUser";
+
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -40,6 +43,8 @@ const router = createBrowserRouter([
       },
       { path: "/LoginUser", element: <LoginUser /> },
       { path: "/SignupUser", element: <SignupUser /> },
+
+      { path: "/legal", element: <Legal /> },
       {
         path: "/list",
         element: <VehicleLocation />,
@@ -55,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/NousAider",
         element: <Donation />,
+      },
+      {
+        path: "/presse",
+        element: <Presse />,
       },
     ],
   },
