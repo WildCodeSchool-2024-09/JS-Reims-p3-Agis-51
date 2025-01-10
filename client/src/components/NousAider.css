@@ -10,6 +10,7 @@ p {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  text-wrap: balance;
 }
 .donation-container {
   display: flex;

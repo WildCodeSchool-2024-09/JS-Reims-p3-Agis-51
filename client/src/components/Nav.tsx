@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import about from "../assets/images/about.png";
 import compte from "../assets/images/compte.png";
 import contact from "../assets/images/contact.png";
-import location from "../assets/images/location.png";
-import nousaider from "../assets/images/nousaider.png";
-import reparation from "../assets/images/reparation.png";
-import revue from "../assets/images/revue.png";
+import location from "../assets/images/location-auto.png";
+import nousaider from "../assets/images/nous-aider.png";
+import reparation from "../assets/images/reparations.png";
+import revue from "../assets/images/revue-presse.png";
 
 function Navigation({ handleClick }: { handleClick: () => void }) {
   return (
@@ -32,7 +32,7 @@ function Navigation({ handleClick }: { handleClick: () => void }) {
         <img src={nousaider} className="aide-img" alt="" /> Nous Aider
       </Link>
 
-      <Link onClick={handleClick} to={"/"} className="navbar__link">
+      <Link onClick={handleClick} to={"/presse"} className="navbar__link">
         <img src={revue} className="revue-img" alt="" /> Revue de presse
       </Link>
       <Link onClick={handleClick} to={"/FormUser"} className="navbar__link">

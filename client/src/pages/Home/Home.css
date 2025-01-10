@@ -14,15 +14,13 @@
   align-content: center;
   text-align: center;
 }
-.li {
-  .banner-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: auto;
-    padding: 35px;
-  }
+
+.banner-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: auto;
 }
 
 .banner-icon {
@@ -51,52 +49,38 @@
   display: block;
   width: 100%;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 2px;
   text-align: justify;
   font-size: 1rem;
   line-height: 1.5;
   color: #484444;
-  hyphens: auto;
 }
 
 .info ul {
+  align-items: center;
   margin-left: 22px;
   font-weight: normal;
-  color: #484444;
 }
 
 .info ul li {
   margin-bottom: 5px;
   font-size: 1rem;
-  color: #484444;
 }
 @media (min-width: 768px) {
   .info {
-    max-width: 700px;
-    padding: 10px;
+    max-width: 900px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin: auto;
+    margin: 0% auto;
     margin-top: 10px;
     text-align: justify;
   }
 
-  .banner-images {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    position: relative;
-    transform: translate(5%, 4%);
-    align-items: center;
-    top: -30px;
-  }
-
   .banner-icon {
-    max-width: 90%;
+    width: 100%;
     object-fit: scale-down;
-    height: 90%;
+    height: 300px;
   }
 }
 

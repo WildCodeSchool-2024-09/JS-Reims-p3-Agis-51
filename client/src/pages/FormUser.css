@@ -12,14 +12,14 @@
   font-size: 25px;
 }
 .form-user-toggle-buttons {
-  display: flex;
-  gap: 15px;
-  background-color: rgb(234, 234, 239);
-  padding: 10px 15px;
-  border-radius: 9px;
-  box-shadow: 4px 7px 9px rgba(41, 61, 208, 0.1);
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
+  border-color: antiquewhite;
+  border-style: double;
+  padding: 8px 15px;
+  background-color: rgba(128, 128, 128, 0.627);
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 1%;
 }
 
 .toggle-user-button {
@@ -40,7 +40,7 @@
   height: 400px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(234, 234, 239);
+  background-color: rgba(128, 128, 128, 0.627);
   margin-bottom: 20px;
   box-shadow: 6px 8px 9px rgba(41, 61, 208, 0.1);
 }
@@ -53,12 +53,13 @@
 .input-form-user {
   margin-bottom: 20px;
 }
-
+.inputsignup {
+  border-radius: 15px;
+}
 .input-form-user input {
   padding: 14px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 90%;
+  border: px solid #ccc;
 }
 
 .error {
@@ -94,15 +95,17 @@
 
   .input-form-user input {
     padding: 20px;
-    width: 100%;
+    width: 90%;
     border: 2px solid #ccc;
     border-radius: 9px;
   }
   .form-user-toggle-buttons {
     display: flex;
+    background-color: rgba(128, 128, 128, 0.627);
     gap: 15px;
-    border-radius: 9px;
-    width: 33%;
+    border-radius: 10px;
+    padding: 18px 12px;
+    width: 35%;
     border: 1px solid #ccc;
     box-shadow: 7px 6px 7px rgba(41, 61, 208, 0.1);
   }
