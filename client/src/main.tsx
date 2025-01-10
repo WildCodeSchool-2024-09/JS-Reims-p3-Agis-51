@@ -10,15 +10,17 @@ import About from "./About";
 
 // Import the main app component
 import App from "./App";
+import Reparation from "./components/Reparation";
 import Legal from "./pages/Legal";
 import LoginUser from "./pages/LoginUser";
 import SignupUser from "./pages/SignupUser";
 
 import VehicleLocation from "./components/VehicleLocation";
+import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
-// import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
 /* ************************************************************************* */
@@ -43,9 +45,18 @@ const router = createBrowserRouter([
 
       { path: "/legal", element: <Legal /> },
       {
-        path: "/location",
+        path: "/list",
         element: <VehicleLocation />,
       },
+      {
+        path: "/Reparation",
+        element: <Reparation />,
+      },
+      {
+        path: "/TarifsReparations",
+        element: <TarifsReparations />,
+      },
+
       {
         path: "/presse",
         element: <Presse />,

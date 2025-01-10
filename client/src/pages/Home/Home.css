@@ -1,10 +1,28 @@
-.banner-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin: auto;
-  padding: 35px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Tilt+Neon&");
+
+.h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.p {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.ul {
+  align-content: center;
+  text-align: center;
+}
+.li {
+  .banner-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: auto;
+    padding: 35px;
+  }
 }
 
 .banner-icon {
@@ -87,4 +105,15 @@
   body {
     overflow-x: hidden;
   }
+}
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
