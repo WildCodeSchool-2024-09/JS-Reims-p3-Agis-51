@@ -10,6 +10,7 @@ import About from "./About";
 
 // Import the main app component
 import App from "./App";
+import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
@@ -53,7 +54,10 @@ const router = createBrowserRouter([
         path: "/TarifsReparations",
         element: <TarifsReparations />,
       },
-
+      {
+        path: "/NousAider",
+        element: <Donation />,
+      },
       {
         path: "/presse",
         element: <Presse />,
