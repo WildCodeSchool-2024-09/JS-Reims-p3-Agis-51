@@ -61,30 +61,28 @@
   background-color: #f9f9f9;
 }
 
-@media (max-width: 768px) {
-  .forfait-reparations-page {
-    padding: 15px;
-  }
+.forfait-reparations-page {
+  padding: 15px;
+}
 
-  .forfait-reparations-page h1 {
-    font-size: 2rem;
-  }
+.forfait-reparations-page h1 {
+  font-size: 2rem;
+}
 
-  .forfait-reparations-page h2 {
-    font-size: 1.5rem;
-  }
+.forfait-reparations-page h2 {
+  font-size: 1.5rem;
+}
 
-  .forfait-reparations-page h3 {
-    font-size: 1.2rem;
-  }
+.forfait-reparations-page h3 {
+  font-size: 1.2rem;
+}
 
-  .tarif {
-    padding: 10px;
-  }
+.tarif {
+  padding: 10px;
+}
 
-  .procedure-link {
-    font-size: 0.9rem;
-  }
+.procedure-link {
+  font-size: 0.9rem;
 }
 
 @media (min-width: 769px) {

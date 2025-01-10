@@ -53,27 +53,25 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .reparations-page {
-    padding: 10px;
-  }
+.reparations-page {
+  padding: 10px;
+}
 
-  .reparations-page h1 {
-    font-size: 1.5rem;
-  }
+.reparations-page h1 {
+  font-size: 1.5rem;
+}
 
-  .reparations-page h2 {
-    font-size: 1.2rem;
-  }
+.reparations-page h2 {
+  font-size: 1.2rem;
+}
 
-  .reparations-page ul {
-    padding-left: 15px;
-  }
+.reparations-page ul {
+  padding-left: 15px;
+}
 
-  .reparations-page button {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
+.reparations-page button {
+  font-size: 0.9rem;
+  padding: 8px 15px;
 }
 
 @media (min-width: 768px) {
