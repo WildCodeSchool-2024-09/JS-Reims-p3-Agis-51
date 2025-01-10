@@ -13,11 +13,9 @@ import App from "./App";
 import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
 import VehicleLocation from "./components/VehicleLocation";
-import TarifsReparations from "./pages/Tarifs/TarifsReparations";
-
+import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
-import LoginUser from "./pages/LoginUser";
-import SignupUser from "./pages/SignupUser";
+import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -41,8 +39,7 @@ const router = createBrowserRouter([
         path: "/Contact",
         element: <Contact />,
       },
-      { path: "/LoginUser", element: <LoginUser /> },
-      { path: "/SignupUser", element: <SignupUser /> },
+      { path: "/FormUser", element: <FormUser /> },
 
       { path: "/legal", element: <Legal /> },
       {
