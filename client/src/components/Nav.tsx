@@ -24,7 +24,7 @@ function Navigation({ handleClick }: { handleClick: () => void }) {
         Location
       </Link>
 
-      <Link onClick={handleClick} to={"/contact"} className="navbar__link">
+      <Link onClick={handleClick} to={"/Contact"} className="navbar__link">
         <img src={contact} className="contact-img" alt="" /> Contact
       </Link>
 
