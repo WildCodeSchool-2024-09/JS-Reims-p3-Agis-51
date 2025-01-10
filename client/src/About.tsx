@@ -13,7 +13,7 @@ function About() {
         <ul>
           <li>
             <a
-              href="https://github.com/WildCodeSchool/create-js-monorepo"
+              href="https://www.facebook.com/AGIS51"
               target="_blank"
               rel="noopener noreferrer"
             >
