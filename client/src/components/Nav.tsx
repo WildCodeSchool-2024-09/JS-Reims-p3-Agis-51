@@ -32,7 +32,7 @@ function Navigation({ handleClick }: { handleClick: () => void }) {
         <img src={nousaider} className="aide-img" alt="" /> Nous Aider
       </Link>
 
-      <Link onClick={handleClick} to={"/"} className="navbar__link">
+      <Link onClick={handleClick} to={"/presse"} className="navbar__link">
         <img src={revue} className="revue-img" alt="" /> Revue de presse
       </Link>
 

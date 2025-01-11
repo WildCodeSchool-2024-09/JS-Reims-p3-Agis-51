@@ -2,6 +2,7 @@ import { useState } from "react";
 
 type Errors = {
   name: string;
+  surname: string;
   email: string;
   message: string;
 };
@@ -9,12 +10,14 @@ type Errors = {
 export default function Message() {
   const [formData, setFormData] = useState({
     name: "",
+    surname: "",
     email: "",
     message: "",
   });
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
+    surname: "",
     email: "",
     message: "",
   });
@@ -25,7 +28,9 @@ export default function Message() {
     return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
   };
 
-  const handleChange = (event: { target: { name: string; value: string } }) => {
+  const handleChange = (event: {
+    target: { name: string; value: string };
+  }) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
@@ -36,25 +41,30 @@ export default function Message() {
     let valid = true;
     const newErrors: Errors = {
       name: "",
+      surname: "",
       email: "",
       message: "",
     };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required.";
+      newErrors.name = "Veuillez entrer votre prénom";
+      valid = false;
+    }
+    if (!formData.surname.trim()) {
+      newErrors.surname = "Veuillez entrer votre nom de famille";
       valid = false;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "Veuillez entrer votre email";
       valid = false;
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "Invalid email format.";
+      newErrors.email = "Veuillez entrer une adresse email valide";
       valid = false;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required.";
+      newErrors.message = "Veuillez entrer votre message";
       valid = false;
     }
 
@@ -66,14 +76,25 @@ export default function Message() {
     event.preventDefault();
     if (validate()) {
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}  Surname: ${formData.surname}`,
       );
     }
   };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <label htmlFor="name">Nom et Prénom:</label>
+      <label htmlFor="surname">Nom de famille</label>
+      <input
+        className="username"
+        type="text"
+        id="surname"
+        name="surname"
+        value={formData.surname}
+        onChange={handleChange}
+      />
+      {errors.surname && <p className="error">{errors.surname}</p>}
+
+      <label htmlFor="name">Prenom </label>
       <input
         className="username"
         type="text"
