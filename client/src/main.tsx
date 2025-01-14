@@ -3,17 +3,23 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
+import Contact from "./Contact";
 
 // Import the main app component
 import App from "./App";
+import Donation from "./components/NousAider";
+import Reparation from "./components/Reparation";
 import VehicleLocation from "./components/VehicleLocation";
-import Contact from "./pages/Contact/Contact";
+import FormUser from "./pages/FormUser";
+import Legal from "./pages/Legal";
+import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
-// import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
 /* ************************************************************************* */
@@ -30,12 +36,31 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/contact",
+        path: "/Contact",
         element: <Contact />,
       },
+      { path: "/FormUser", element: <FormUser /> },
+
+      { path: "/legal", element: <Legal /> },
       {
-        path: "/location",
+        path: "/list",
         element: <VehicleLocation />,
+      },
+      {
+        path: "/Reparation",
+        element: <Reparation />,
+      },
+      {
+        path: "/TarifsReparations",
+        element: <TarifsReparations />,
+      },
+      {
+        path: "/NousAider",
+        element: <Donation />,
+      },
+      {
+        path: "/presse",
+        element: <Presse />,
       },
     ],
   },
