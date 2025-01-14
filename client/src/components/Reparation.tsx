@@ -55,7 +55,7 @@ function Reparation() {
 
       <h2>Informations pour le rendez-vous</h2>
       <p>
-        Le jour du rendez-vous, merci de déposer votre véhicule :
+        <h3> Le jour du rendez-vous, merci de déposer votre véhicule :</h3>
         <ul>
           <li>Dans un état de propreté correct</li>
           <li>Avec un niveau de carburant suffisant</li>

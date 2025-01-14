@@ -98,3 +98,6 @@
     text-decoration: none;
   }
 }
+ul {
+  text-align: left;
+}
