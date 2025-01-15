@@ -11,7 +11,11 @@ import revue from "../assets/images/revue-presse.png";
 function Navigation({ handleClick }: { handleClick: () => void }) {
   return (
     <div className="navbar__links">
-      <Link onClick={handleClick} to={"/"} className="navbar__link">
+      <Link
+        onClick={handleClick}
+        to={"/qui-sommes-nous"}
+        className="navbar__link"
+      >
         <img src={about} className="about-img" alt="about" /> Qui Sommes Nous
       </Link>
 
