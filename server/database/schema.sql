@@ -1,3 +1,11 @@
+create table user (
+  id int unsigned primary key auto_increment not null,
+  name varchar (55) not null,
+  email varchar(255) not null unique,
+  hashed_password varchar(255) not null,
+  is_admin boolean not null default false
+);
+
 create table vehicle  (
   id int unsigned primary key auto_increment not null,
   type varchar(50) not null,
@@ -28,3 +36,6 @@ values
   (1,"passeport", "driving license" );
  
 
+insert into user(id,name, email, hashed_password)
+values
+  (1,"John Doe", "jdoe@mail.com", "$argon2id$v=19$m=19456,t=2,p=1$nz6t40CzCcijUhj3Ntpz9A$4DW+9sqLdKvj27E3JYbImIIfZAadyDGXHFiwpBHli4s");
