@@ -1,0 +1,129 @@
+.formUser-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.form-login h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+.form-user-toggle-buttons {
+  border-color: antiquewhite;
+  border-style: double;
+  padding: 8px 15px;
+  background-color: rgba(128, 128, 128, 0.627);
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 1%;
+}
+
+.toggle-user-button {
+  padding: 8px 15px;
+  background-color: rgb(12, 106, 101);
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.form-signup,
+.form-login {
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(128, 128, 128, 0.627);
+  margin-bottom: 20px;
+  box-shadow: 6px 8px 9px rgba(41, 61, 208, 0.1);
+}
+
+.form-signup h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+.input-form-user {
+  margin-bottom: 20px;
+}
+.inputsignup {
+  border-radius: 15px;
+}
+.input-form-user input {
+  padding: 14px;
+  width: 90%;
+  border: px solid #ccc;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.button-form-user {
+  width: 100%;
+  padding: 14px 15px;
+  background-color: rgb(12, 95, 91);
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .form-signup,
+  .form-login {
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 500px;
+    height: 440px;
+    display: flex;
+    margin-bottom: 10px;
+    box-shadow: 9px 10px 9px rgba(41, 61, 208, 0.1);
+  }
+  .input-form-user {
+    margin-bottom: 25px;
+  }
+
+  .input-form-user input {
+    padding: 20px;
+    width: 90%;
+    border: 2px solid #ccc;
+    border-radius: 9px;
+  }
+  .form-user-toggle-buttons {
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.627);
+    gap: 15px;
+    border-radius: 10px;
+    padding: 18px 12px;
+    width: 35%;
+    border: 1px solid #ccc;
+    box-shadow: 7px 6px 7px rgba(41, 61, 208, 0.1);
+  }
+
+  .toggle-user-button {
+    padding: 18px 40px;
+    color: white;
+    font-size: 16px;
+    margin: auto;
+    border-radius: 9px;
+    margin-top: 1px;
+  }
+  .button-form-user {
+    padding: 15px;
+    color: rgb(236, 230, 230);
+    border: none;
+    cursor: pointer;
+    border-radius: 9px;
+    font-size: 16px;
+  }
+}

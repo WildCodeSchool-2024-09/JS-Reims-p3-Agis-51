@@ -1,21 +1,30 @@
-create table user (
+create table vehicle  (
   id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
+  type varchar(50) not null,
+  energy VARCHAR(50)  NULL,
+  gearbox VARCHAR(50) NULL,
+  quantity INT NULL,
+  available boolean not null
 );
 
-create table item (
+INSERT INTO vehicle(id, type, energy, gearbox, quantity, available)
+VALUES
+  (1, 'car', 'Unknown', 'automatic', 4, true),
+  (2, 'car', 'Unknown', 'manual', 10, true),
+  (3, 'bicycle', 'electric', NULL, 5, true),
+  (4, 'kick scooter', 'electric', NULL, 6, true),
+  (5, 'scooter', 'thermal', NULL, 5, true),
+  (6, 'scooter', 'electric', NULL, 4, true);
+
+
+create table document  (
   id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
+  id_card varchar (100), 
+  driver_license varchar(50)
 );
 
-insert into user(id, email, password)
+insert into document(id, id_card, driver_license)
 values
-  (1, "jdoe@mail.com", "123456");
+  (1,"passeport", "driving license" );
+ 
 
-insert into item(id, title, user_id)
-values
-  (1, "Stuff", 1),
-  (2, "Doodads", 1);
