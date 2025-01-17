@@ -1,4 +1,12 @@
 import "./TarifsReparations.css";
+import Tarif29 from "./Tarif-29euros";
+import Tarif45 from "./Tarif-45euros";
+import Tarif60 from "./Tarif-60euros";
+import { Link } from "react-router-dom";
+
+const handleClick = () => {
+  
+}
 const TarifsReparations = () => {
   return (
     <div className="forfait-reparations-page">
@@ -26,9 +34,10 @@ const TarifsReparations = () => {
           <li>Étudiants boursiers</li>
           <li>Résidants marnais</li>
         </ul>
-        <a href="https://example.com/procedure-29" className="procedure-link">
-          Lien vers la procédure à 29€
-        </a>
+       <button type="button" className="forfait-1" type="button" onClick={handleClick}>
+               {" "}
+               Lien vers la procédure à 29€
+               <Link to="/Tarif29"> </Link>
       </div>
 
       <div className="tarif">

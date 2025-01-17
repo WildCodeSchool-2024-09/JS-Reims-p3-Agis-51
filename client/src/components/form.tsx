@@ -2,7 +2,6 @@ import { useState } from "react";
 
 type Errors = {
   name: string;
-  surname: string;
   email: string;
   message: string;
 };
@@ -10,14 +9,12 @@ type Errors = {
 export default function Message() {
   const [formData, setFormData] = useState({
     name: "",
-    surname: "",
     email: "",
     message: "",
   });
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
-    surname: "",
     email: "",
     message: "",
   });
@@ -41,30 +38,25 @@ export default function Message() {
     let valid = true;
     const newErrors: Errors = {
       name: "",
-      surname: "",
       email: "",
       message: "",
     };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Veuillez entrer votre prénom";
-      valid = false;
-    }
-    if (!formData.surname.trim()) {
-      newErrors.surname = "Veuillez entrer votre nom de famille";
+      newErrors.name = "Veuillez saisir votre nom.";
       valid = false;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Veuillez entrer votre email";
+      newErrors.email = "Veuillez saisir une adresse email.";
       valid = false;
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "Veuillez entrer une adresse email valide";
+      newErrors.email = "Votre email n'est pas valide.";
       valid = false;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Veuillez entrer votre message";
+      newErrors.message = "Veuillez saisir un message.";
       valid = false;
     }
 
@@ -76,31 +68,19 @@ export default function Message() {
     event.preventDefault();
     if (validate()) {
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}  Surname: ${formData.surname}`,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message} `,
       );
     }
   };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <label htmlFor="surname">Nom de famille</label>
-      <input
-        className="username"
-        type="text"
-        id="surname"
-        name="surname"
-        value={formData.surname}
-        onChange={handleChange}
-      />
-      {errors.surname && <p className="error">{errors.surname}</p>}
-
-      <label htmlFor="name">Prenom </label>
+      <label htmlFor="name">Nom et Prénom</label>
       <input
         className="username"
         type="text"
         id="name"
         name="name"
-        value={formData.name}
         onChange={handleChange}
       />
       {errors.name && <p className="error">{errors.name}</p>}
