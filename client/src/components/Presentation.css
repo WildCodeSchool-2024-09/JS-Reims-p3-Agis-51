@@ -1,44 +1,74 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
 .association {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 18px;
-  line-height: 5rem;
-  background-color: lightgrey;
-  border: solid 2px lightblue;
-  border-radius: 25px;
-  padding-bottom: 25px;
-  margin: auto;
-  margin-top: 75px;
-  width: 75%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.missions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 18px;
-  line-height: 3rem;
-  background-color: lightgrey;
-  border: solid 2px lightblue;
-  border-radius: 25px;
-  padding-bottom: 25px;
-  margin: auto;
-  margin-top: 1rem;
-  width: 75%;
+h2,
+h3 {
+  color: #0073aa;
+  margin-bottom: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .association {
-    width: 90%;
-    font-size: 14px;
-  }
-  .missions {
-    width: 90%;
-    font-size: 14px;
-  }
+h2 {
+  font-size: 2em;
+  border-bottom: 2px solid #0073aa;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+ul {
+  list-style: none;
+  padding: 15px;
+  margin-left: 20px;
+}
+
+ul.missions {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0073aa;
+}
+
+ul li p {
+  margin: 0;
+}
+
+br {
+  display: block;
+  content: "";
+  margin-top: 20px;
 }

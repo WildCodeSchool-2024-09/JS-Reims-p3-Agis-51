@@ -1,4 +1,3 @@
-import "../../App.css";
 import "./Contact.css";
 import Message from "../../components/form";
 
@@ -7,7 +6,7 @@ function Contact() {
     <>
       <div className="contact-page">
         <header>
-          <h1 className="logo">AGIS51 Contactez nous</h1>
+          <h1 className="logo">Contactez nous</h1>
         </header>
         <main>
           <div className="text-box">

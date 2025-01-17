@@ -2,7 +2,7 @@ import Association from "../../components/Presentation";
 
 const Info = () => {
   return (
-    <div className="vehicle-list">
+    <div className="info-asso">
       <Association />
     </div>
   );

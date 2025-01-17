@@ -33,7 +33,7 @@ function Presse() {
 
   return (
     <div>
-      <h1>Articles de presse</h1>
+      <h1 className="press-title">Articles de presse</h1>
 
       <div className="article-container">
         <div className="article">
@@ -52,6 +52,7 @@ function Presse() {
           />
         </div>
         <div className="article">
+          <h2>Ouverture du garage</h2>
           <p>source : journal le mag.</p>
           <img
             className={`lemag zoom-image ${zoomed ? "zoomed" : ""}`}

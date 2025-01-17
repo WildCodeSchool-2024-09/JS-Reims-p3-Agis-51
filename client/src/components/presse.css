@@ -12,7 +12,7 @@
 }
 
 h1 {
-  font-family: var(--title-family);
+  font-family: "Roboto", sans-serif;
   color: var(--link-color);
   font-size: 1.8rem;
   text-align: center;
@@ -54,8 +54,8 @@ h1 {
 
 .article > h2 {
   width: 80%;
-  font-family: var(--title-family);
-  color: var(--title-color);
+  font-family: "Roboto", sans-serif;
+  color: #0073aa;
   font-size: 1.2rem;
   text-align: center;
   margin: 0 0.5rem;

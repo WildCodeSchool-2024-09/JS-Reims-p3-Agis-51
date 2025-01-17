@@ -16,7 +16,7 @@ const Legal = () => {
         <strong> contactagis51@gmail.com </strong>
       </p>
 
-      <p>Copyright : ©Wild code school </p>
+      <p className="wild">Copyright : ©Wild code school </p>
 
       <p>
         Propriété intellectuelle : L’ensemble des éléments édités sur ce site

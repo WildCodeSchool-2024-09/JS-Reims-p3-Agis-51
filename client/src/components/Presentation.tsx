@@ -35,8 +35,8 @@ function Association() {
         personnes en difficulté d’emploi de bénéficier d’un contrat de travail
         et d’engager un parcours d’insertion socioprofessionnel.
       </p>
+      <p>Les objectifs principaux de l'association :</p>
       <ul className="missions">
-        Les objectifs principaux de l'association :
         <li>
           Accroître les chances d’insertion professionnelle par la mobilité
         </li>
@@ -47,16 +47,18 @@ function Association() {
         <li>Professionnaliser et qualifier les salariés en insertion,</li>
         <li>Favoriser la sécurité et la prévention</li>
       </ul>
-
       <br />
       <h2>Nos missions</h2>
       <h3>L'insertion par le travail</h3>
-      <ul>
+      <p>
         Le garage a permis de créer 6 postes salariés en Contrat à Durée
         Déterminée d’Insertion pour des personnes exclues durablement de
         l’emploi, principalement bénéficiaires des minimas sociaux. Cette
         reprise d’activité permet à chacun de bénéficier d’un accompagnement
-        personnalisé :<li>Social (logement, endettement, administratif…)</li>
+        personnalisé :
+      </p>
+      <ul>
+        <li>Social (logement, endettement, administratif…)</li>
         <li>Personnel (santé, image de soi, famille…)</li>
         <li>
           Professionnel (adaptation aux postes de travail, formation, projet
@@ -74,8 +76,10 @@ function Association() {
         freins clairement identifiés et reconnus par l’ensemble des acteurs de
         l’insertion professionnelle.
       </p>
-      <ul>
+      <p>
         Pour répondre à cette problématique, AGIS 51 met en place 3 actions :
+      </p>
+      <ul>
         <li>Un atelier de maintenance et de réparation automobile</li>
         <li>Un service de location de voiture</li>
         <li>La vente de véhicules d’occasion</li>
