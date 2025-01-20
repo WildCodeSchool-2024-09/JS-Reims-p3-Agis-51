@@ -1,4 +1,4 @@
-import "/.Tarif";
+import "./Tarif-60euros.css";
 
 const Tarif60 = () => {
   return (

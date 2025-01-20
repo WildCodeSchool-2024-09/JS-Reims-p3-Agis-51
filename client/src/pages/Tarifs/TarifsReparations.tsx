@@ -1,13 +1,20 @@
 import "./TarifsReparations.css";
-import Tarif29 from "./Tarif-29euros";
-import Tarif45 from "./Tarif-45euros";
-import Tarif60 from "./Tarif-60euros";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const handleClick = () => {
-  
-}
 const TarifsReparations = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/Tarif29");
+
+  };
+  const handleClick2 = () => {
+    navigate("/Tarif45");
+  }
+
+  const handleClick3 = () => {
+    navigate("/Tarif60");
+  }
   return (
     <div className="forfait-reparations-page">
       <h1>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h1>
@@ -34,10 +41,11 @@ const TarifsReparations = () => {
           <li>Étudiants boursiers</li>
           <li>Résidants marnais</li>
         </ul>
-       <button type="button" className="forfait-1" type="button" onClick={handleClick}>
-               {" "}
-               Lien vers la procédure à 29€
-               <Link to="/Tarif29"> </Link>
+        <button className="procedure-link" type="button" onClick={handleClick}>
+          {" "}
+          Lien vers la procédure à 29€
+          <Link to="/Tarif29"> </Link>
+        </button>
       </div>
 
       <div className="tarif">
@@ -48,9 +56,11 @@ const TarifsReparations = () => {
           <li>Étudiants non boursiers</li>
           <li>Associations</li>
         </ul>
-        <a href="https://example.com/procedure-45" className="procedure-link">
+        <button className="procedure-link" type="button" onClick={handleClick2}>
+          {" "}
           Lien vers la procédure à 45€
-        </a>
+          <Link to="/Tarif45"> </Link>
+        </button>
       </div>
 
       <div className="tarif">
@@ -68,9 +78,11 @@ const TarifsReparations = () => {
           Des remises sont accordées pour les salariés des entreprises
           adhérentes à <strong>ECORES</strong>.
         </p>
-        <a href="https://example.com/procedure-60" className="procedure-link">
+        <button className="procedure-link" type="button" onClick={handleClick3}>
+          {" "}
           Lien vers la procédure à 60€
-        </a>
+          <Link to="/Tarif60"> </Link>
+        </button>
       </div>
 
       <h2>Nos Forfaits</h2>
