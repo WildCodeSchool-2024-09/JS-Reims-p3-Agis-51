@@ -1,5 +1,4 @@
 import { useState } from "react";
-import UploadFileController from "../../../server/src/modules/UploadController/Upload";
 
 const UploadFunction = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -24,8 +23,6 @@ const UploadFunction = () => {
       });
 
       if (response.ok) {
-        const result = await response.json();
-        console.log("File uploaded successfully:", result);
       } else {
         console.error("File upload failed with status:", response.status);
       }

@@ -12,13 +12,13 @@ import Contact from "./Contact";
 import App from "./App";
 import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
+import Tarif29 from "./components/Tarif-29euros";
+import Tarif45 from "./components/Tarif-45euros";
+import Tarif60 from "./components/Tarif-60euros";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
-import Tarif29 from "./components/Tarif-29euros";
-import Tarif45 from "./components/Tarif-45euros";
-import Tarif60 from "./components/Tarif-60euros";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
       {
         path: "/Tarif60",
         element: <Tarif60 />,
-      }
+      },
     ],
   },
   // Try adding a new route! For example, "/about" with an About component

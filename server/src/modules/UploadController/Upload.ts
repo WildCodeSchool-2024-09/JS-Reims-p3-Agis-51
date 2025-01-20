@@ -1,7 +1,7 @@
 const uploadFilePermission = require("../middleware/uploadFilePermission");
 const fileModel = require("../models/fileModel");
 
-async function UploadFileController (
+async function UploadFileController(
   req: { userId: string; body: string },
   res: {
     status: (arg0: number) => {
@@ -37,11 +37,11 @@ async function UploadFileController (
     });
   } catch (err) {
     res.status(400).json({
-      message: 'une erreur est survenue lors de l\'enregistrement du fichier0',
+      message: "une erreur est survenue lors de l'enregistrement du fichier0",
       error: true,
       success: false,
     });
   }
 }
 
-export default UploadFileController; 
+export default UploadFileController;

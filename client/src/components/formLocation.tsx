@@ -107,15 +107,6 @@ const FormLoc = () => {
 
       <label htmlFor="file-upload">Vos Documents:</label>
       <UploadFunction />
-      {/* <input
-        className="file-upload-loc"
-        type="file"
-        id="file-upload"
-        name="file-upload"
-        onChange={handleChange}
-        accept=".pdf, .jpg, .jpeg, .png"
-        multiple
-      /> */}
 
       <button className="submit-button" onClick={handleSubmit} type="submit">
         Envoyer

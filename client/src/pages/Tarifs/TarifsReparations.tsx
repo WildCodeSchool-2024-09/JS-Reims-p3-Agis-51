@@ -6,15 +6,14 @@ const TarifsReparations = () => {
 
   const handleClick = () => {
     navigate("/Tarif29");
-
   };
   const handleClick2 = () => {
     navigate("/Tarif45");
-  }
+  };
 
   const handleClick3 = () => {
     navigate("/Tarif60");
-  }
+  };
   return (
     <div className="forfait-reparations-page">
       <h1>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h1>
