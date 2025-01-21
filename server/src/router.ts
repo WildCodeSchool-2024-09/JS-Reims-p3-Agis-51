@@ -7,13 +7,13 @@ import userActions from "./modules/user/userActions";
 import vehicleActions from "./modules/vehicles/vehicleActions";
 
 router.post("/api/login", authActions.login);
-router.post("/api/users", authActions.hashPassword, userActions.add);
+router.post("/api/website_users", authActions.hashPassword, userActions.add);
 
 // Authentication wall
 router.use(authActions.verifyToken);
 
-router.get("/api/users", userActions.browse);
-router.get("/api/users/:id", userActions.read);
+router.get("/api/website_users", userActions.browse);
+router.get("/api/website_users/:id", userActions.read);
 router.get("/api/vehicles", vehicleActions.browse);
 router.get("/api/vehicles/:id", vehicleActions.read);
 router.post("/api/vehicles", vehicleActions.add);
