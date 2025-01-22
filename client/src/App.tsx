@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
+export type { User, Auth };
+
 type User = {
   id: number;
   email: string;
