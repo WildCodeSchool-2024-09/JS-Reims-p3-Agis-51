@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
-import Contact from "./Contact";
+import Contact from "./pages/Contact/Contact";
 
 // Import the main app component
 import App from "./App";
