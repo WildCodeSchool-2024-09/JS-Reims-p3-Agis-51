@@ -41,13 +41,13 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Contact",
+        path: "/contact",
         element: <Contact />,
       },
-      { path: "/FormUser", element: <FormUser /> },
+      { path: "/compte", element: <FormUser /> },
       { path: "/legal", element: <Legal /> },
       {
-        path: "/list",
+        path: "/location",
         element: <VehicleLocation />,
       },
       {
@@ -55,11 +55,11 @@ const router = createBrowserRouter([
         element: <Reparation />,
       },
       {
-        path: "/TarifsReparations",
+        path: "/tarifs-reparations",
         element: <TarifsReparations />,
       },
       {
-        path: "/NousAider",
+        path: "/nous-aider",
         element: <Donation />,
       },
       {
@@ -67,24 +67,24 @@ const router = createBrowserRouter([
         element: <Presse />,
       },
       {
-        path: "/Tarif29",
+        path: "/tarif29",
         element: <Tarif29 />,
       },
       {
-        path: "/Tarif45",
+        path: "/tarif45",
         element: <Tarif45 />,
       },
       {
-        path: "/Tarif60",
+        path: "/tarif60",
         element: <Tarif60 />,
       },
       {
-        path: "/ProfilUser",
+        path: "/profil-user",
         element: <ProfilUser />,
       },
 
       {
-        path: "/Qui-sommes-nous",
+        path: "/qui-sommes-nous",
         element: <Info />,
       },
     ],

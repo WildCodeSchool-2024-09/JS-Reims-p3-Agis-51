@@ -5,7 +5,7 @@ function Reparation() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/TarifsReparations");
+    navigate("/tarifs-reparations");
   };
 
   return (
@@ -64,7 +64,7 @@ function Reparation() {
         <button className="tarif-button" type="button" onClick={handleClick}>
           {" "}
           Consulter nos tarifs
-          <Link to="/TarifsReparations"> </Link>
+          <Link to="/tarifs-reparations"> </Link>
         </button>
       </section>
     </div>

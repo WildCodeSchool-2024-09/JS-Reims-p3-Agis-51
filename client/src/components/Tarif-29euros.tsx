@@ -45,7 +45,7 @@ const Tarif29 = () => {
       <p>
         Le diagnostic est gratuit, et vous pouvez nous joindre au 03.26.02.82.99
       </p>
-      <button type="button" onClick={() => navigate("/reparation")}>
+      <button type="button" onClick={() => navigate("/tarifs-reparations")}>
         Retour
       </button>
     </div>
