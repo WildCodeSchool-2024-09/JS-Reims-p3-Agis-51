@@ -117,7 +117,7 @@ function FormUser() {
         const user = await response.json();
         alert("Connexion réussie !");
         setAuth(user);
-        navigate("/"); // rediriger après succès
+        navigate("/ProfilUser"); // rediriger après succès
       } else if (response.status === 401) {
         setLoginErrorMessage("Identifiants incorrects.");
       } else {

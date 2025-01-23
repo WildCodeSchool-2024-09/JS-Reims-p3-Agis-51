@@ -15,6 +15,7 @@ import Reparation from "./components/Reparation";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
+import ProfilUser from "./pages/ProfilUser";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
 // Import additional components for new routes
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/presse",
         element: <Presse />,
+      },
+      {
+        path: "/ProfilUser",
+        element: <ProfilUser />,
       },
     ],
   },
