@@ -7,6 +7,11 @@
   padding-top: 2.5rem;
 }
 
+.title-contact {
+  font-size: 1.5rem;
+  color: lightseagreen;
+}
+
 .text-box {
   text-align: center;
   line-height: 2.5rem;
