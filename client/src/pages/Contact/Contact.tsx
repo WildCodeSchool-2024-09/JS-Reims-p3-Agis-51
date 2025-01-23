@@ -1,5 +1,4 @@
 import "./Contact.css";
-import Agis51 from "../../assets/images/Agis51-map.png";
 import Message from "../../components/form";
 
 function Contact() {
@@ -39,7 +38,6 @@ function Contact() {
           </section>
         </main>
       </div>
-      <img className="map-img" src={Agis51} alt="map" />
       <nav className="navbar">
         <ul>
           <div>
@@ -55,11 +53,7 @@ function Contact() {
       </nav>
 
       <main className="text-box">
-        <section>
-          <div>
-            <Message />
-          </div>
-        </section>
+        
       </main>
     </>
   );
