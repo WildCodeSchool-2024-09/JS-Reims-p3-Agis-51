@@ -4,7 +4,8 @@
   margin-bottom: 20px;
 }
 
-.vehicle-table th, .vehicle-table td {
+.vehicle-table th,
+.vehicle-table td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
@@ -22,11 +23,13 @@
   background-color: #f9f9f9;
 }
 
-.vehicle-table th:first-child, .vehicle-table td:first-child {
+.vehicle-table th:first-child,
+.vehicle-table td:first-child {
   padding-left: 20px;
 }
 
-.vehicle-table th:last-child, .vehicle-table td:last-child {
+.vehicle-table th:last-child,
+.vehicle-table td:last-child {
   padding-right: 20px;
 }
 

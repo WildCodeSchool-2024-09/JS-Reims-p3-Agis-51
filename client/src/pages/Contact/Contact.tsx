@@ -51,10 +51,6 @@ function Contact() {
           </div>
         </ul>
       </nav>
-
-      <main className="text-box">
-        
-      </main>
     </>
   );
 }
