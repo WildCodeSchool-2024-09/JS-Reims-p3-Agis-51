@@ -38,6 +38,19 @@ function Contact() {
           </section>
         </main>
       </div>
+      <nav className="navbar">
+        <ul>
+          <div>
+            <a
+              href="https://www.facebook.com/AGIS51"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/*  */}
+            </a>
+          </div>
+        </ul>
+      </nav>
     </>
   );
 }

@@ -10,17 +10,20 @@ import Contact from "./pages/Contact/Contact";
 
 // Import the main app component
 import App from "./App";
+import Messages from "./components/Messages";
 import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
 import Tarif29 from "./components/Tarif-29euros";
 import Tarif45 from "./components/Tarif-45euros";
 import Tarif60 from "./components/Tarif-60euros";
 import VehicleLocation from "./components/VehicleLocation";
+import AdminPage from "./components/pageAdmin";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
 import ProfilUser from "./pages/ProfilUser";
 import Info from "./pages/Qui_sommes_nous/Presentation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+import VehicleList from "./pages/Vehicles";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -78,6 +81,18 @@ const router = createBrowserRouter([
         path: "/tarif60",
         element: <Tarif60 />,
       },
+
+      {
+        path: "/admin",
+        element: <AdminPage />,
+        children: [
+          {
+            path: "/admin/vehicles",
+            element: <VehicleList />,
+          },
+          { path: "/admin/messages", element: <Messages /> },
+        ],
+      },
       {
         path: "/profil-user",
         element: <ProfilUser />,
@@ -89,6 +104,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   // Try adding a new route! For example, "/about" with an About component
 ]);
 
