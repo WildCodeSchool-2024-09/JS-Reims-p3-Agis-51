@@ -21,6 +21,7 @@ import Legal from "./pages/Legal";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 import VehicleList from "./pages/Vehicles";
 import AdminPage from "./components/pageAdmin";
+import Messages from "./components/Messages";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -85,13 +86,12 @@ const router = createBrowserRouter([
         element: <AdminPage />,
         children: [
           {
-            path: "/admin",
-            element: <AdminPage />,
-          },
-          {
             path: "/admin/vehicles",
             element: <VehicleList />,
           },
+          { path: "/admin/messages",
+             element: <Messages /> 
+            },
         ],
       },
     ],
