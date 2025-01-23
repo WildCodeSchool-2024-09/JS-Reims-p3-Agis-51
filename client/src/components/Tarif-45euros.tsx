@@ -41,7 +41,9 @@ const Tarif45 = () => {
       <p>
         Le diagnostic est gratuit, et vous pouvez nous joindre au 03.26.02.82.99
       </p>
-      <button type="button" onClick = {() => navigate("/reparation")}>Retour </button>
+      <button type="button" onClick={() => navigate("/reparation")}>
+        Retour
+      </button>
     </div>
   );
 };
