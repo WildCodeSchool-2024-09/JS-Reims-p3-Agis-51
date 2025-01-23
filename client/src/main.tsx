@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
-import Contact from "./Contact";
+import Contact from "./pages/Contact/Contact";
 
 // Import the main app component
 import App from "./App";
@@ -19,6 +19,7 @@ import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+import VehicleList from "./pages/Vehicles";
 import AdminPage from "./components/pageAdmin";
 
 // Import additional components for new routes
@@ -78,18 +79,24 @@ const router = createBrowserRouter([
         path: "/Tarif60",
         element: <Tarif60 />,
       },
+
       {
         path: "/admin",
         element: <AdminPage />,
         children: [
           {
-            path: "/vehicles",
-            element: <Vehicles />,
+            path: "/admin",
+            element: <AdminPage />,
+          },
+          {
+            path: "/admin/vehicles",
+            element: <VehicleList />,
           },
         ],
       },
     ],
   },
+
   // Try adding a new route! For example, "/about" with an About component
 ]);
 

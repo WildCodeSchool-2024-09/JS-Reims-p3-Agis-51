@@ -1,7 +1,6 @@
-import "./App.css";
 import "./Contact.css";
-import Agis51 from "./assets/images/Agis51-map.png";
-import Message from "./components/form";
+import Agis51 from "../../assets/images/Agis51-map.png";
+import Message from "../../components/form";
 
 function Contact() {
   return (

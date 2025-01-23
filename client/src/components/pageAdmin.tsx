@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./pageAdmin.css";
 
@@ -7,7 +7,7 @@ interface Vehicle {
   type: string;
   available: boolean;
 }
-const pageAdmin = () => {
+const AdminPage = () => {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
 
   useEffect(() => {
@@ -31,35 +31,10 @@ const pageAdmin = () => {
     <div>
       <h1> 👤Page Admin</h1>
       <div className="admin-espace">
-        {/* <Link to
-            📨Messages       
-             </Link>
-          
-        
-        <li> */}
-          <a href="#parc-automobiles">🚗Parc automobiles</a>
-          {vehicles.length > 0 ? (
-            <table className="vehicle-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Type</th>
-                  <th>Disponible</th>
-                </tr>
-              </thead>
-              <tbody>
-                {vehicles.map((vehicle) => (
-                  <tr key={vehicle.id}>
-                    <td>{vehicle.id}</td>
-                    <td>{vehicle.type}</td>
-                    <td>{vehicle.available ? "Yes" : "No"}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p>Aucun véhicule disponible.</p>
-          )}
+        {/* <Link to={"/Messages/"}>📨Messages</Link> */}
+
+        <li>
+          <Link to={"/VehicleList"}>🚗Parc automobiles</Link>
         </li>
         <li>
           <a href="#demandes">💼Demandes reçue </a>
@@ -69,17 +44,4 @@ const pageAdmin = () => {
   );
 };
 
-const Messages = () => {
-  return (
-    <div>
-      <h2>Messages</h2>
-      <ul>
-        <li>Message 1</li>
-        <li>Message 2</li>
-        <li>Message 3</li>
-      </ul>
-    </div>
-  );
-};
-
-export default pageAdmin;
+export default AdminPage;

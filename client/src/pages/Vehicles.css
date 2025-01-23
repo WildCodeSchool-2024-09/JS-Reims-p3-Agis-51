@@ -1,0 +1,38 @@
+.vehicle-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.vehicle-table th, .vehicle-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.vehicle-table th {
+  background-color: #f0f0f0;
+}
+
+.vehicle-table td {
+  background-color: #fff;
+}
+
+.vehicle-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.vehicle-table th:first-child, .vehicle-table td:first-child {
+  padding-left: 20px;
+}
+
+.vehicle-table th:last-child, .vehicle-table td:last-child {
+  padding-right: 20px;
+}
+
+.no-vehicles {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
+}

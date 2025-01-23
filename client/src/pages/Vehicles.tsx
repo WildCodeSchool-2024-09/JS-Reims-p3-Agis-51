@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
+import "./Vehicles.css";
 
 interface Vehicle {
-
   id: number;
   type: string;
   available: boolean;
 }
+
+const VehicleList = () => {
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
@@ -25,30 +29,30 @@ interface Vehicle {
 
   return (
     <div>
-      
-          {vehicles.length > 0 ? (
-            <table className="vehicle-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Type</th>
-                  <th>Disponible</th>
-                </tr>
-              </thead>
-              <tbody>
-                {vehicles.map((vehicle) => (
-                  <tr key={vehicle.id}>
-                    <td>{vehicle.id}</td>
-                    <td>{vehicle.type}</td>
-                    <td>{vehicle.available ? "Yes" : "No"}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p>Aucun véhicule disponible.</p>
-          )}
-        </div>
-        </div>
-        );
-    }
+      {vehicles.length > 0 ? (
+        <table className="vehicle-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Disponible</th>
+            </tr>
+          </thead>
+          <tbody>
+            {vehicles.map((vehicle) => (
+              <tr key={vehicle.id}>
+                <td>{vehicle.id}</td>
+                <td>{vehicle.type}</td>
+                <td>{vehicle.available ? "Yes" : "No"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>Aucun véhicule disponible.</p>
+      )}
+    </div>
+  );
+};
+
+export default VehicleList;
