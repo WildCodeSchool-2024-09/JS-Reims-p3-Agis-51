@@ -12,9 +12,13 @@ import Contact from "./Contact";
 import App from "./App";
 import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
+import Tarif29 from "./components/Tarif-29euros";
+import Tarif45 from "./components/Tarif-45euros";
+import Tarif60 from "./components/Tarif-60euros";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
+import ProfilUser from "./pages/ProfilUser";
 import Info from "./pages/Qui_sommes_nous/Presentation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
@@ -41,14 +45,13 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: "/FormUser", element: <FormUser /> },
-
       { path: "/legal", element: <Legal /> },
       {
         path: "/list",
         element: <VehicleLocation />,
       },
       {
-        path: "/Reparation",
+        path: "/reparation",
         element: <Reparation />,
       },
       {
@@ -63,6 +66,23 @@ const router = createBrowserRouter([
         path: "/presse",
         element: <Presse />,
       },
+      {
+        path: "/Tarif29",
+        element: <Tarif29 />,
+      },
+      {
+        path: "/Tarif45",
+        element: <Tarif45 />,
+      },
+      {
+        path: "/Tarif60",
+        element: <Tarif60 />,
+      },
+      {
+        path: "/ProfilUser",
+        element: <ProfilUser />,
+      },
+
       {
         path: "/Qui-sommes-nous",
         element: <Info />,

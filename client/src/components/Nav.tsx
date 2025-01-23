@@ -19,7 +19,7 @@ function Navigation({ handleClick }: { handleClick: () => void }) {
         <img src={about} className="about-img" alt="about" /> Qui Sommes Nous
       </Link>
 
-      <Link onClick={handleClick} to={"/Reparation"} className="navbar__link">
+      <Link onClick={handleClick} to={"/reparation"} className="navbar__link">
         <img src={reparation} className="reparation-img" alt="" /> Reparation
       </Link>
 

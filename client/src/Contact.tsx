@@ -6,18 +6,15 @@ import Message from "./components/form";
 function Contact() {
   return (
     <>
-      <div>
+      <div className="contact-container">
         <h1> Contactez nous</h1>
         <p>
           <h3>Horaires d’ouvertures :</h3> du lundi au vendredi De 8h30 à 12h et
           de 13h30 à 17h tél : 03 26 02 82 99 <h3>Adresse :</h3> ZI. Farman La
           Pompelle Chemin de Saint Léonard 51100 REIMS
         </p>
-        <div className="map-img">
-          <img src={Agis51} alt="map" />
-        </div>
       </div>
-
+      <img className="map-img" src={Agis51} alt="map" />
       <nav className="navbar">
         <ul>
           <div>

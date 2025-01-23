@@ -1,20 +1,17 @@
 import { useState } from "react";
-
+import UploadFunction from "./UploadFunction.tsx";
 type Errors = {
   name: string;
   email: string;
   message: string;
 };
 
-type FileUpload = File | null;
-
-export default function Message2() {
+const FormLoc = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [uploadedFile, setUploadedFile] = useState<FileUpload>(null);
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
@@ -32,11 +29,6 @@ export default function Message2() {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-  };
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] || null;
-    setUploadedFile(file);
   };
 
   const validate = () => {
@@ -72,9 +64,9 @@ export default function Message2() {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     if (validate()) {
-      const fileName = uploadedFile ? uploadedFile.name : "No file uploaded";
+      // Envoyer les données au serveur ici
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}, File: ${fileName}`,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}, `,
       );
     }
   };
@@ -114,19 +106,13 @@ export default function Message2() {
       {errors.message && <p className="error">{errors.message}</p>}
 
       <label htmlFor="file-upload">Vos Documents:</label>
-      <input
-        className="file-upload-loc"
-        type="file"
-        id="file-upload"
-        name="file-upload"
-        onChange={handleFileChange}
-        accept=".pdf, .jpg, .jpeg, .png"
-        multiple
-      />
+      <UploadFunction />
 
-      <button className="submit-button" type="submit">
+      <button className="submit-button" onClick={handleSubmit} type="submit">
         Envoyer
       </button>
     </form>
   );
-}
+};
+
+export default FormLoc;

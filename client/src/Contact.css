@@ -17,18 +17,27 @@
   text-align: center;
   align-items: center;
 }
-.map-img {
-  display: none;
-}
 
 .map-img {
+  margin: auto;
   text-align: center;
+  width: 70%;
+  height: 50%;
+}
+@media screen and (min-width: 768px) {
+  .map-img {
+    margin: auto;
+    width: 700px;
+    height: 400px;
+  }
 }
 
 .error {
   color: red;
 }
-
+label {
+  color: rgb(21, 31, 224);
+}
 .username {
   text-align: center;
   font-size: 1.10rem;
@@ -36,6 +45,7 @@
   width: 250px;
   height: 35px;
   border-radius: 5px;
+  color: rgba(146, 7, 226, 0.999);
 }
 
 .email {
@@ -73,10 +83,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    width: 400px;
     padding: 7rem;
-    color: lightseagreen;
+    background-color: rgba(66, 65, 68, 0.295);
     font-size: 1.25rem;
     margin: 1rem;
   }
@@ -104,7 +114,7 @@
     font-size: 1.10rem;
     margin-bottom: 1rem;
     width: 350px;
-    height: 75px;
+    height: 150px;
     border-radius: 5px;
   }
 
@@ -118,4 +128,7 @@
     cursor: pointer;
     height: 50px;
   }
+}
+.submit-button:hover {
+  background-color: #45a049;
 }
