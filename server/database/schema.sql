@@ -1,6 +1,6 @@
-create table user (
+create table website_user (
   id int unsigned primary key auto_increment not null,
-  name varchar (55) not null,
+  name varchar (55) null,
   email varchar(255) not null unique,
   hashed_password varchar(255) not null,
   is_admin boolean not null default false
