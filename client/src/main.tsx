@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         element: <VehicleLocation />,
       },
       {
-        path: "/Reparation",
+        path: "/reparation",
         element: <Reparation />,
       },
       {

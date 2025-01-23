@@ -1,6 +1,8 @@
 import "./Tarif-29euros.css";
+import {  useNavigate } from "react-router-dom";
 
 const Tarif29 = () => {
+  const navigate = useNavigate();
   return (
     <div className="tarif-29">
       <h1>Tarif à 29 € / heure M.O</h1>
@@ -43,6 +45,7 @@ const Tarif29 = () => {
       <p>
         Le diagnostic est gratuit, et vous pouvez nous joindre au 03.26.02.82.99
       </p>
+      <button type="button" onClick = {() => navigate("/reparation")}>Retour </button>
     </div>
   );
 };
