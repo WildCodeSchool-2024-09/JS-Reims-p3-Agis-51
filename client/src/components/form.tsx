@@ -25,7 +25,9 @@ export default function Message() {
     return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
   };
 
-  const handleChange = (event: { target: { name: string; value: string } }) => {
+  const handleChange = (event: {
+    target: { name: string; value: string };
+  }) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
@@ -41,20 +43,20 @@ export default function Message() {
     };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required.";
+      newErrors.name = "Veuillez saisir votre nom.";
       valid = false;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "Veuillez saisir une adresse email.";
       valid = false;
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "Invalid email format.";
+      newErrors.email = "Votre email n'est pas valide.";
       valid = false;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required.";
+      newErrors.message = "Veuillez saisir un message.";
       valid = false;
     }
 
@@ -66,20 +68,19 @@ export default function Message() {
     event.preventDefault();
     if (validate()) {
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message} `,
       );
     }
   };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <label htmlFor="name">Nom et Prénom:</label>
+      <label htmlFor="name">Nom et Prénom</label>
       <input
         className="username"
         type="text"
         id="name"
         name="name"
-        value={formData.name}
         onChange={handleChange}
       />
       {errors.name && <p className="error">{errors.name}</p>}

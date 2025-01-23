@@ -32,7 +32,7 @@ create table document  (
 );
 
 insert into document(id, id_card, driver_license)
-values
+VALUES
   (1,"passeport", "driving license" );
  
 
