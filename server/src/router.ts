@@ -7,7 +7,7 @@ import userActions from "./modules/user/userActions";
 import vehicleActions from "./modules/vehicles/vehicleActions";
 
 router.post("/api/login", authActions.login);
-router.post("/api/website_users", authActions.hashPassword, userActions.add);
+router.post("/api/users", authActions.hashPassword, userActions.add);
 
 // Authentication wall
 router.use(authActions.verifyToken);
