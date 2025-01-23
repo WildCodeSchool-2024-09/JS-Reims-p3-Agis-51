@@ -18,6 +18,7 @@ import Tarif60 from "./components/Tarif-60euros";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
+import ProfilUser from "./pages/ProfilUser";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
 // Import additional components for new routes
