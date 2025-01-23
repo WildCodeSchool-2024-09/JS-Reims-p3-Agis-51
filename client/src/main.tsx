@@ -19,6 +19,7 @@ import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
+import AdminPage from "./components/pageAdmin";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -76,6 +77,16 @@ const router = createBrowserRouter([
       {
         path: "/Tarif60",
         element: <Tarif60 />,
+      },
+      {
+        path: "/admin",
+        element: <AdminPage />,
+        children: [
+          {
+            path: "/vehicles",
+            element: <Vehicles />,
+          },
+        ],
       },
     ],
   },

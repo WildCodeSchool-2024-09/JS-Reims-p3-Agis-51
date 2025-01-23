@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.vehicle-list {
+  display: flex;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+/* .header-container {
+  display: none;
+} */
+
+.admin-espace {
+  display: grid;
+  background-color: rgb(244, 248, 248);
+  list-style: none;
+  text-decoration: none;
+  margin: 2%;
+  padding: 5%;
+  font-size: larger;
+}
+a {
+  color: #090808;
+  text-decoration: none;
+}
+a:hover {
+  color: #ccc;
+}
+
+section {
+  padding: 2em;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+section li {
+  margin-bottom: 10px;
+}
+
+#messages {
+  background-color: #f7f7f7;
+}
+
+#messages ul {
+  padding: 20px;
+}
+
+#messages li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#messages li:last-child {
+  border-bottom: none;
+}
+
+#parc-automobiles {
+  background-color: #f7f7f7;
+}
+
+#parc-automobiles ul {
+  padding: 20px;
+}
+
+#parc-automobiles li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#parc-automobiles li:last-child {
+  border-bottom: none;
+}
+
+#demandes {
+  background-color: #f7f7f7;
+}
+
+#demandes ul {
+  padding: 20px;
+}
+
+#demandes li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#demandes li:last-child {
+  border-bottom: none;
+}

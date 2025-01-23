@@ -85,6 +85,10 @@
   font-size: 0.9rem;
 }
 
+.procedure-link:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 769px) {
   .forfait-reparations-page {
     max-width: 900px;
