@@ -5,14 +5,14 @@ const TarifsReparations = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/Tarif29");
+    navigate("/tarif29");
   };
   const handleClick2 = () => {
-    navigate("/Tarif45");
+    navigate("/tarif45");
   };
 
   const handleClick3 = () => {
-    navigate("/Tarif60");
+    navigate("/tarif60");
   };
   return (
     <div className="forfait-reparations-page">
@@ -43,7 +43,7 @@ const TarifsReparations = () => {
         <button className="procedure-link" type="button" onClick={handleClick}>
           {" "}
           Lien vers la procédure à 29€
-          <Link to="/Tarif29"> </Link>
+          <Link to="/tarif29"> </Link>
         </button>
       </div>
 
@@ -58,7 +58,7 @@ const TarifsReparations = () => {
         <button className="procedure-link" type="button" onClick={handleClick2}>
           {" "}
           Lien vers la procédure à 45€
-          <Link to="/Tarif45"> </Link>
+          <Link to="/tarif45"> </Link>
         </button>
       </div>
 
@@ -80,7 +80,7 @@ const TarifsReparations = () => {
         <button className="procedure-link" type="button" onClick={handleClick3}>
           {" "}
           Lien vers la procédure à 60€
-          <Link to="/Tarif60"> </Link>
+          <Link to="/tarif60"> </Link>
         </button>
       </div>
 

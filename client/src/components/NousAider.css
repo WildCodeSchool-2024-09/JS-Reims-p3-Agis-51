@@ -1,4 +1,4 @@
-h1 {
+.donation-title {
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
@@ -33,7 +33,7 @@ p {
   font-size: 1.25rem;
 }
 
-.donation-title {
+.donation-title2 {
   text-align: center;
   font-size: 2rem;
 }
