@@ -1,3 +1,30 @@
+.contact-page {
+  background-color: rgb(234, 231, 231);
+}
+.logo {
+  font-size: 2rem;
+  color: lightseagreen;
+  padding-top: 2.5rem;
+}
+
+.title-contact {
+  font-size: 1.5rem;
+  color: lightseagreen;
+}
+
+.text-box {
+  text-align: center;
+  line-height: 2.5rem;
+  font-size: 0.95rem;
+  margin: 2rem;
+  text-wrap: balance;
+}
+@media screen and (min-width: 768px) {
+  .text-box {
+    font-size: 1.25rem;
+  }
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
