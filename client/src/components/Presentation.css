@@ -6,27 +6,33 @@ body {
   font-size: 16px;
 }
 
-.info {
+.association {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+
+h2,
+h3 {
+  color: #0073aa;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2em;
+  border-bottom: 2px solid #0073aa;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.banner-icon {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  color: #0073aa;
-  font-size: 2.5em;
-  margin-bottom: 20px;
+h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 p {
@@ -36,15 +42,14 @@ p {
 
 ul {
   list-style: none;
-  padding: 0;
-  margin-left: 20px;
   padding: 15px;
+  margin-left: 20px;
 }
-.home-mission > li {
-  text-align: center;
-  list-style: none;
-  text-decoration: none;
+
+ul.missions {
+  padding-left: 20px;
 }
+
 ul li {
   margin-bottom: 10px;
   position: relative;
@@ -60,9 +65,6 @@ ul li::before {
 
 ul li p {
   margin: 0;
-}
-.UE {
-  text-align: center;
 }
 
 br {

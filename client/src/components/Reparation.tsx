@@ -5,12 +5,12 @@ function Reparation() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/TarifsReparations");
+    navigate("/tarifs-reparations");
   };
 
   return (
     <div className="reparations-page">
-      <h1>Entretien et Réparations</h1>
+      <h1 className="reparations-title">Entretien et Réparations</h1>
       <p>
         Le garage d’insertion réalise l’entretien et les réparations mécaniques
         de votre véhicule, quelle que soit la marque.
@@ -54,19 +54,19 @@ function Reparation() {
       </p>
 
       <h2>Informations pour le rendez-vous</h2>
-      <p>
-        <h3> Le jour du rendez-vous, merci de déposer votre véhicule :</h3>
+      <section className="tarifs">
+        <p> Le jour du rendez-vous, merci de déposer votre véhicule :</p>
         <ul>
           <li>Dans un état de propreté correct</li>
           <li>Avec un niveau de carburant suffisant</li>
           <li>Sans effets personnels</li>
         </ul>
-      </p>
-      <button className="tarif-button" type="button" onClick={handleClick}>
-        {" "}
-        Consulter nos tarifs
-        <Link to="/TarifsReparations"> </Link>
-      </button>
+        <button className="tarif-button" type="button" onClick={handleClick}>
+          {" "}
+          Consulter nos tarifs
+          <Link to="/tarifs-reparations"> </Link>
+        </button>
+      </section>
     </div>
   );
 }

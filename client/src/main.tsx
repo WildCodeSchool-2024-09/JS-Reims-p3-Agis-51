@@ -18,6 +18,8 @@ import Tarif60 from "./components/Tarif-60euros";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
+import ProfilUser from "./pages/ProfilUser";
+import Info from "./pages/Qui_sommes_nous/Presentation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 import VehicleList from "./pages/Vehicles";
 import AdminPage from "./components/pageAdmin";
@@ -42,26 +44,25 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Contact",
+        path: "/contact",
         element: <Contact />,
       },
-      { path: "/FormUser", element: <FormUser /> },
-
+      { path: "/compte", element: <FormUser /> },
       { path: "/legal", element: <Legal /> },
       {
-        path: "/list",
+        path: "/location",
         element: <VehicleLocation />,
       },
       {
-        path: "/Reparation",
+        path: "/reparation",
         element: <Reparation />,
       },
       {
-        path: "/TarifsReparations",
+        path: "/tarifs-reparations",
         element: <TarifsReparations />,
       },
       {
-        path: "/NousAider",
+        path: "/nous-aider",
         element: <Donation />,
       },
       {
@@ -69,22 +70,24 @@ const router = createBrowserRouter([
         element: <Presse />,
       },
       {
-        path: "/Tarif29",
+        path: "/tarif29",
         element: <Tarif29 />,
       },
       {
-        path: "/Tarif45",
+        path: "/tarif45",
         element: <Tarif45 />,
       },
       {
-        path: "/Tarif60",
+        path: "/tarif60",
         element: <Tarif60 />,
       },
 
       {
         path: "/admin",
         element: <AdminPage />,
-        children: [
+        children:
+      
+        [
           {
             path: "/admin/vehicles",
             element: <VehicleList />,
@@ -93,6 +96,15 @@ const router = createBrowserRouter([
              element: <Messages /> 
             },
         ],
+      },
+      {
+        path: "/profil-user",
+        element: <ProfilUser />,
+      },
+
+      {
+        path: "/qui-sommes-nous",
+        element: <Info />,
       },
     ],
   },
