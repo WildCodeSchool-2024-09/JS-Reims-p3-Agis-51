@@ -27,11 +27,11 @@ const read: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newVehicle = {
-      type: req.body.type,
-      energy: req.body.energy,
-      gearbox: req.body.gearbox,
-      quantity: req.body.quantity,
-      available: req.body.available,
+      famille: req.body.famille,
+      catégorie: req.body.catégorie,
+      équipement: req.body.équipement,
+      quantité: req.body.quantité,
+      disponible: req.body.disponible,
     };
     const insertId = await vehicleRepository.create(newVehicle);
     res.status(201).json(insertId);
@@ -44,11 +44,11 @@ const edit: RequestHandler = async (req, res, next) => {
   try {
     const vehicle = {
       id: Number(req.params.id),
-      type: req.body.type,
-      energy: req.body.energy,
-      gearbox: req.body.gearbox,
-      quantity: req.body.quantity,
-      available: req.body.available,
+      famille: req.body.famille,
+      catégorie: req.body.catégorie,
+      équipement: req.body.équipement,
+      quantité: req.body.quantité,
+      disponible: req.body.disponible,
     };
 
     const affectedRows = await vehicleRepository.update(vehicle);

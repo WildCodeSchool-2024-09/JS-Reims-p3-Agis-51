@@ -30,8 +30,11 @@ const read: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newwebsite_user = {
-      name: req.body.name,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
       email: req.body.email,
+      phone_number: req.body.phone_number,
+      address: req.body.address,
       hashed_password: req.body.hashed_password,
     };
 
