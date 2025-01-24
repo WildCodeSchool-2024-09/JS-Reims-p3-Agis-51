@@ -39,15 +39,7 @@ ul {
 
 ul li {
   margin-bottom: 10px;
-  position: relative;
   padding-left: 20px;
-}
-
-ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #0073aa;
 }
 
 ul li ul {
@@ -56,12 +48,6 @@ ul li ul {
 
 ul li ul li {
   padding-left: 20px;
-}
-
-ul li ul li::before {
-  content: "•";
-  left: 10px;
-  color: #333;
 }
 
 button {
@@ -81,7 +67,7 @@ button:hover {
   background-color: #005f8c;
 }
 
-@media (max-width: 680px) {
+@media screen and (max-width: 680px) {
   .tarif-45 h1 {
     font-size: 1.5em;
   }

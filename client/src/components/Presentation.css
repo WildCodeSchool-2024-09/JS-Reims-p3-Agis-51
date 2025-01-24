@@ -41,7 +41,6 @@ p {
 }
 
 ul {
-  list-style: none;
   padding: 15px;
 }
 
@@ -52,15 +51,7 @@ ul.missions {
 
 ul li {
   margin-bottom: 10px;
-  position: relative;
   padding-left: 20px;
-}
-
-ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #0073aa;
 }
 
 ul li p {
@@ -69,6 +60,5 @@ ul li p {
 
 br {
   display: block;
-  content: "";
   margin-top: 20px;
 }
