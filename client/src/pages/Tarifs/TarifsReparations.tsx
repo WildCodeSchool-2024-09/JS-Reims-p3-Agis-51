@@ -16,7 +16,7 @@ const TarifsReparations = () => {
   };
   return (
     <div className="forfait-reparations-page">
-      <h1>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h1>
+      <h2>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h2>
       <p>
         Les services d’AGIS 51 sont ouverts à <strong>TOUS</strong>. De par sa
         spécificité de garage solidaire, l’association propose des tarifs

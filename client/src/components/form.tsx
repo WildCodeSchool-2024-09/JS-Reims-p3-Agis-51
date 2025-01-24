@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./form.css";
 
 type Errors = {
   name: string;

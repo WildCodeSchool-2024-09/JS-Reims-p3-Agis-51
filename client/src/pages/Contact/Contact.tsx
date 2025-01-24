@@ -6,7 +6,7 @@ function Contact() {
     <>
       <div className="contact-page">
         <header>
-          <h1 className="logo">Contactez nous</h1>
+          <h1 className="title-contact1">Contactez nous</h1>
         </header>
         <main>
           <div className="text-box">
@@ -16,8 +16,8 @@ function Contact() {
               et de 13h30 à 17h
               <br />
               <br />
-              <h2 className="title-contact">Localisation</h2>
               tél : 03 26 02 82 99 <br /> <br />
+              <h2 className="title-contact">Localisation</h2>
               Adresse : ZI. Farman La Pompelle Chemin de Saint Léonard 51100
               REIMS
             </p>

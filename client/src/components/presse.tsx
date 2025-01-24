@@ -34,11 +34,11 @@ function Presse() {
 
   return (
     <div>
-      <h1 className="press-title">Articles de presse</h1>
+      <h2 className="press-title">Articles de presse</h2>
 
       <div className="article-container">
         <div className="article">
-          <h2>Inauguration Agis 51</h2>
+          <h3>Inauguration Agis 51</h3>
           <p>source : journal l'Union.</p>
           <img
             className={`Union zoom-image ${zoomedImage === "Union" ? "zoomed" : ""}`}
@@ -53,7 +53,7 @@ function Presse() {
           />
         </div>
         <div className="article">
-          <h2>Ouverture du garage</h2>
+          <h3>Ouverture du garage</h3>
           <p>source : journal le mag.</p>
           <img
             className={`lemag zoom-image ${zoomedImage === "lemag" ? "zoomed" : ""}`}
@@ -68,7 +68,7 @@ function Presse() {
           />
         </div>
         <div className="article">
-          <h2>L'insertion par le travail</h2>
+          <h3>L'insertion par le travail</h3>
           <p>source : journal L'hebdo du vendredi.</p>
           <img
             className={`lhebdo-du-vendredi zoom-image ${zoomedImage === "lhebdo-du-vendredi" ? "zoomed" : ""}`}
@@ -83,7 +83,7 @@ function Presse() {
           />
         </div>
         <div className="article">
-          <h2>La mobilité</h2>
+          <h3>La mobilité</h3>
           <p>source : Reims Metropole.</p>
           <img
             className={`metropole zoom-image ${zoomedImage === "metropole" ? "zoomed" : ""}`}
