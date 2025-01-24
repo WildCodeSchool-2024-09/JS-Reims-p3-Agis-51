@@ -12,14 +12,13 @@ const FormLoc = () => {
     email: "",
     message: "",
   });
+  const [file, setFile] = useState<File | null>(null);
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
     email: "",
     message: "",
   });
-
-  const [file, setFile] = useState<File | null>(null);
 
   const isValidEmail = (email: string): boolean => {
     const atIndex = email.indexOf("@");

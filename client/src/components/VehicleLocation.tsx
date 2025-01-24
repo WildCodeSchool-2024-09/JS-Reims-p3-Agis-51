@@ -4,8 +4,11 @@ import FormLoc from "./formLocation";
 
 interface Vehicle {
   id: number;
-  type: string;
-  available: boolean;
+  famille: string;
+  catégorie: string;
+  équipement: string;
+  quantité: number;
+  disponible: boolean;
 }
 
 const VehicleLocation = () => {
@@ -69,23 +72,23 @@ const VehicleLocation = () => {
             <table className="vehicle-table">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Type</th>
+                  <th>Famille</th>
+                  <th>Catégorie</th>
                   <th>Disponible</th>
                 </tr>
               </thead>
               <tbody>
                 {vehicles.map((vehicle) => (
                   <tr key={vehicle.id}>
-                    <td>{vehicle.id}</td>
-                    <td>{vehicle.type}</td>
-                    <td>{vehicle.available ? "Yes" : "No"}</td>
+                    <td>{vehicle.famille}</td>
+                    <td>{vehicle.catégorie}</td>
+                    <td>{vehicle.disponible ? "Yes" : "No"}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           ) : (
-            <p>Aucun véhicule disponible.</p>
+            <p>Aucun véhicule disponible </p>
           )}
         </div>
         <div>
