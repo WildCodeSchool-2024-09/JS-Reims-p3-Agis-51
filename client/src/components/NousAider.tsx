@@ -19,14 +19,14 @@ const DonationForm = () => {
         location ou à la vente et permettre ainsi à des personnes en difficulté
         d&apos;accéder à un emploi.
       </p>
-      <h2 className="donation-title2">
-        Pour faire une donation, vous devez remplir le formulaire ci-dessous ⬇️
-      </h2>
-      <Form />
       <div className="donation-img">
         <img src={aidernous} alt="aider-nous" />
         <img src={aidernous2} alt="aider-nous" />
       </div>
+      <h2 className="donation-title2">
+        Pour faire une donation, vous devez remplir le formulaire ci-dessous ⬇️
+      </h2>
+      <Form />
     </div>
   );
 };
