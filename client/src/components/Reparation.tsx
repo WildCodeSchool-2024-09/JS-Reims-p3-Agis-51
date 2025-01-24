@@ -10,7 +10,7 @@ function Reparation() {
 
   return (
     <div className="reparations-page">
-      <h1 className="reparations-title">Entretien et Réparations</h1>
+      <h2 className="reparations-title">Entretien et Réparations</h2>
       <p>
         Le garage d’insertion réalise l’entretien et les réparations mécaniques
         de votre véhicule, quelle que soit la marque.
@@ -21,13 +21,13 @@ function Reparation() {
         l’ensemble des travaux d’entretien courant et de réparations mécaniques
         des véhicules légers et utilitaires, quelle que soit la marque.
       </p>
-      <h2>Notre objectif</h2>
+      <h3>Notre objectif</h3>
       <p>
         Garantir un véhicule fiable en termes de sécurité et propre pour
         l’environnement.
       </p>
 
-      <h2>Nos prestations</h2>
+      <h3>Nos prestations</h3>
       <ul>
         <li>
           Vidange (forfait filtre+huile+joint), entretien, climatisation
@@ -53,7 +53,7 @@ function Reparation() {
         garantis par une assurance professionnelle garage.
       </p>
 
-      <h2>Informations pour le rendez-vous</h2>
+      <h3>Informations pour le rendez-vous</h3>
       <section className="tarifs">
         <p> Le jour du rendez-vous, merci de déposer votre véhicule :</p>
         <ul>

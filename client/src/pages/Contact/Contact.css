@@ -1,95 +1,83 @@
-.contact-page {
-  background-color: rgb(234, 231, 231);
-}
-.logo {
-  font-size: 2rem;
-  color: lightseagreen;
-  padding-top: 2.5rem;
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.75;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
-.title-contact {
-  font-size: 1.5rem;
-  color: lightseagreen;
+.contact-page {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title-contact1 {
+  color: #0073aa;
+  border-bottom: 2px solid #0073aa;
+  padding-bottom: 5px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+@media screen and (max-width: 680px) {
+  .title-contact1 {
+    font-size: 1.5rem;
+  }
 }
 
 .text-box {
-  text-align: center;
-  line-height: 2.5rem;
-  font-size: 0.95rem;
-  margin: 2rem;
-  text-wrap: balance;
+  margin-bottom: 20px;
 }
-@media screen and (min-width: 768px) {
-  .text-box {
-    font-size: 1.25rem;
+
+.title-contact {
+  color: #0073aa;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #0073aa;
+  padding-bottom: 5px;
+}
+
+.text-box p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 450px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+section {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .contact-page {
+    padding: 15px;
   }
-}
 
-.form-container {
-  background-color: lightgray;
-  border: solid 0.25rem lightblue;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 90%;
-  padding: 2rem;
-  color: lightseagreen;
-  font-size: 1.25rem;
-  margin: auto;
-}
-
-.error {
-  color: red;
-}
-
-.username {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 35px;
-  border-radius: 5px;
-}
-
-.email {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 35px;
-  border-radius: 5px;
-}
-
-.message {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 75px;
-  border-radius: 5px;
-}
-
-.submit-button {
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  height: 50px;
-}
-
-@media screen and (min-width: 768px) {
-  .form-container {
-    width: 65%;
+  .logo,
+  .title-contact {
+    font-size: 1.2em;
   }
-}
-@media screen and (min-width: 1024px) {
-  .form-container {
-    width: 650px;
+
+  iframe {
+    height: 350px;
   }
 }

@@ -4,13 +4,12 @@
   color: #333;
   padding: 20px;
   margin: 20px auto;
-  max-width: 800px;
+  max-width: 900px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   line-height: 1.6;
 }
 
-.forfait-reparations-page h1,
 .forfait-reparations-page h2,
 .forfait-reparations-page h3 {
   color: #0073aa;
@@ -18,18 +17,13 @@
   margin-bottom: 15px;
 }
 
-.forfait-reparations-page h1 {
-  font-size: 2.5em;
+.forfait-reparations-page h2 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
 }
 
-.forfait-reparations-page h2 {
-  font-size: 2em;
-}
-
 .forfait-reparations-page h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
 }
 
 .forfait-reparations-page p {
@@ -54,10 +48,10 @@
 .forfait-reparations-page .procedure-link {
   display: block;
   margin-top: 10px;
-  text-align: right;
-  color: #0073aa;
+  background-color: #0073aa;
+  color: #f9f9f9;
   text-decoration: none;
-  font-weight: bold;
+  text-align: center;
 }
 
 .forfait-reparations-page .procedure-link:hover {

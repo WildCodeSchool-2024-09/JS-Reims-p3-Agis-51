@@ -1,6 +1,6 @@
 .page-loc {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 20px auto;
 }
 
 .loc-intro,
@@ -19,7 +19,7 @@ h2 {
 
 p {
   margin-bottom: 15px;
-  text-align: justify;
+  text-align: center;
 }
 
 .vehicle-table {
@@ -74,6 +74,8 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+  text-align: center;
+  width: 75%;
 }
 
 .formLoc-container .error {
@@ -108,4 +110,13 @@ input {
 
 .submit-button:hover {
   background-color: #005f8a;
+}
+
+.file-input-div {
+  width: 80%;
+  margin: auto;
+}
+
+.message-loc {
+  width: 50%;
 }

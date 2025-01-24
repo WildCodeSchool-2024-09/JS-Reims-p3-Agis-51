@@ -50,6 +50,10 @@
   display: block;
 }
 
+.header-logo {
+  margin-bottom: -10px;
+}
+
 @media screen and (min-width: 768px) {
   .nav {
     display: flex;
@@ -57,15 +61,16 @@
 
   .header-logo {
     margin-left: 3rem;
+    margin-bottom: -10px;
   }
 }
 
 .logo {
-  width: 8rem;
+  width: 12rem;
 }
 @media screen and (min-width: 768px) {
   .logo {
-    width: 12rem;
+    width: 14rem;
   }
 }
 
