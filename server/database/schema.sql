@@ -1,28 +1,30 @@
 create table website_user (
   id int unsigned primary key auto_increment not null,
-  name varchar (55) null,
+  firstname varchar (55) null,
+  lastname varchar (55) null,
   email varchar(255) not null unique,
+  phone_number varchar(20) null,
+  address varchar(255) null,
   hashed_password varchar(255) not null,
   is_admin boolean not null default false
 );
 
 create table vehicle  (
-  id int unsigned primary key auto_increment not null,
-  type varchar(50) not null,
-  energy VARCHAR(50)  NULL,
-  gearbox VARCHAR(50) NULL,
-  quantity INT NULL,
-  available boolean not null
+  id int unsigned primary key auto_increment NOT NULL,
+  famille varchar(50) NOT NULL,
+  catégorie VARCHAR(100) NOT NULL,
+  équipement VARCHAR(100)  NULL,
+  quantité INT NULL,
+  disponible boolean NOT NULL
 );
 
-INSERT INTO vehicle(id, type, energy, gearbox, quantity, available)
+INSERT INTO vehicle(id, famille, catégorie, équipement, quantité, disponible)
 VALUES
-  (1, 'car', 'Unknown', 'automatic', 4, true),
-  (2, 'car', 'Unknown', 'manual', 10, true),
-  (3, 'bicycle', 'electric', NULL, 5, true),
-  (4, 'kick scooter', 'electric', NULL, 6, true),
-  (5, 'scooter', 'thermal', NULL, 5, true),
-  (6, 'scooter', 'electric', NULL, 4, true);
+  ("1", 'voiture', 'inconnu', 'boite manuelle', 10, true),
+  ("2", 'vélo', 'électrique', NULL, 5, true),
+  ("3", 'trottinette', 'électrique', NULL, 6, true),
+  ("4", 'scooter', 'thermique', NULL, 5, true),
+  ("5", 'scooter', 'électrique', NULL, 4, true);
 
 
 create table document  (
@@ -36,6 +38,6 @@ VALUES
   (1,"passeport", "driving license" );
  
 
-insert into user(id,name, email, hashed_password)
+insert into website_user(id,firstname, lastname, email, phone_number, address, hashed_password)
 values
-  (1,"John Doe", "jdoe@mail.com", "$argon2id$v=19$m=19456,t=2,p=1$nz6t40CzCcijUhj3Ntpz9A$4DW+9sqLdKvj27E3JYbImIIfZAadyDGXHFiwpBHli4s");
+  (1,"John", " Doe", "jdoe@mail.com", "1234567890", "123 rue de la paix", "$argon2id$v=19$m=19456,t=2,p=1$nz6t40CzCcijUhj3Ntpz9A$4DW+9sqLdKvj27E3JYbImIIfZAadyDGXHFiwpBHli4s");

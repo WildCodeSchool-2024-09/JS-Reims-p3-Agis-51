@@ -1,17 +1,20 @@
 import { useState } from "react";
-import UploadFunction from "./UploadFunction.tsx";
+
 type Errors = {
   name: string;
   email: string;
   message: string;
 };
 
-const FormLoc = () => {
+type FileUpload = File | null;
+
+export default function Message2() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [uploadedFile, setUploadedFile] = useState<FileUpload>(null);
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
@@ -29,6 +32,11 @@ const FormLoc = () => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
+    setUploadedFile(file);
   };
 
   const validate = () => {
@@ -64,9 +72,9 @@ const FormLoc = () => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     if (validate()) {
-      // Envoyer les données au serveur ici
+      const fileName = uploadedFile ? uploadedFile.name : "No file uploaded";
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}, `,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}, File: ${fileName}`,
       );
     }
   };
@@ -106,13 +114,19 @@ const FormLoc = () => {
       {errors.message && <p className="error">{errors.message}</p>}
 
       <label htmlFor="file-upload">Vos Documents:</label>
-      <UploadFunction />
+      <input
+        className="file-upload-loc"
+        type="file"
+        id="file-upload"
+        name="file-upload"
+        onChange={handleFileChange}
+        accept=".pdf, .jpg, .jpeg, .png"
+        multiple
+      />
 
-      <button className="submit-button" onClick={handleSubmit} type="submit">
+      <button className="submit-button" type="submit">
         Envoyer
       </button>
     </form>
   );
-};
-
-export default FormLoc;
+}
