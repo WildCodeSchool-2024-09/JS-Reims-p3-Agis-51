@@ -20,11 +20,11 @@ create table vehicle  (
 
 INSERT INTO vehicle(id, famille, catégorie, équipement, quantité, disponible)
 VALUES
-  ("1", 'voiture', 'inconnu', 'boite manuelle', 10, true),
-  ("2", 'vélo', 'électrique', NULL, 5, true),
-  ("3", 'trottinette', 'électrique', NULL, 6, true),
-  ("4", 'scooter', 'thermique', NULL, 5, true),
-  ("5", 'scooter', 'électrique', NULL, 4, true);
+  ("1", 'Voiture', 'inconnu', 'boite manuelle', 10, true),
+  ("2", 'Vélo', 'électrique', NULL, 5, true),
+  ("3", 'Trottinette', 'électrique', NULL, 6, true),
+  ("4", 'Scooter', 'thermique', NULL, 5, true),
+  ("5", 'Scooter', 'électrique', NULL, 4, true);
 
 
 create table document  (

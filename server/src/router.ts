@@ -23,6 +23,6 @@ router.get("/api/documents", documentActions.browse);
 router.get("/api/documents/:id", documentActions.read);
 router.post("/api/documents", documentActions.add);
 router.delete("/api/documents/:id", documentActions.destroy);
-router.get("/api/login", authActions.verifyAuth);
+router.get("/api/login", authActions.verifyToken);
 
 export default router;
