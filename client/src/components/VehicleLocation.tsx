@@ -45,7 +45,7 @@ const VehicleLocation = () => {
           peut répondre à votre besoin pour un tarif de 7,50 €/jour (dans la
           limite d’un véhicule disponible).
         </p>
-        <h2>Conditions de location :</h2>
+        <h2>Conditions de location</h2>
         <p>
           Etre orienté par un prescripteur du département de la Marne (voir : «
           accéder aux services »), être possesseur d’un permis de conduire en
@@ -55,7 +55,7 @@ const VehicleLocation = () => {
           est à renouveler toutes les semaines dans une limite cumulée de 3
           mois.
         </p>
-        <h2>Condition particulière :</h2>
+        <h2>Condition particulière</h2>
         <p>
           Le contrat de location prévoit un kilométrage limité entre le domicile
           et le lieu de travail, de formation…

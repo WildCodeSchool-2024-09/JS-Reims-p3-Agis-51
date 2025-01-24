@@ -9,16 +9,16 @@
   --link-color: #003366;
 }
 
-h1 {
+h2 {
   font-family: "Roboto", sans-serif;
-  color: var(--link-color);
+  color: var(--title-color);
   font-size: 1.8rem;
   text-align: center;
   margin: auto;
 }
 
 @media (min-width: 768px) {
-  h1 {
+  h2 {
     font-size: 2.5rem;
   }
 }
@@ -50,7 +50,7 @@ h1 {
   font-size: 1.25rem;
 }
 
-.article > h2 {
+.article > h3 {
   width: 80%;
   font-family: "Roboto", sans-serif;
   color: #0073aa;
