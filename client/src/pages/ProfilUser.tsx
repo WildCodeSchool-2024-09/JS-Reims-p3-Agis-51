@@ -154,7 +154,7 @@ const ProfilUser = () => {
     <div className="profilUser-container">
       <div className="profil-header">
         <h2>Mon Profil</h2>
-        <button type="button" onClick={handleLogout}>
+        <button className="btn-logout" type="button" onClick={handleLogout}>
           Se déconnecter
         </button>
       </div>

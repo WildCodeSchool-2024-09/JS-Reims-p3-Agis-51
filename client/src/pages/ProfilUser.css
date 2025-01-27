@@ -3,8 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  color: rgb(18, 96, 212);
+  margin: auto;
+  width: 90%;
+  color: #0073aa;
 }
 
 .error {
@@ -28,19 +29,28 @@
 
 .btn-profiluser {
   padding: 1rem;
-  background-color: rgb(10, 90, 181);
+  background-color: #0073aa;
   color: white;
   font-size: 16px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  margin-top: 3.5rem;
+  width: 60%;
+}
+@media screen and (max-width: 768px) {
+  .btn-profiluser {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .profilUser-container label {
   display: none;
   margin-bottom: 20px;
   font-size: 1.1rem;
-  color: #333;
+  color: #0073aa;
+  font-family: "Roboto", sans-serif;
 }
 
 .profilUser-header {
@@ -85,7 +95,8 @@
     display: block;
     margin-bottom: 20px;
     font-size: 1.1rem;
-    color: #333;
+    color: #0073aa;
+    font-family: "Roboto", sans-serif;
   }
 }
 
@@ -110,7 +121,7 @@
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
-  width: 20%;
+  width: 25%;
   margin: 1rem 0;
 }
 
@@ -120,4 +131,16 @@
 
 .profil-header {
   display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 2.5rem;
+}
+@media screen and (max-width: 768px) {
+  .profil-header {
+    width: 75%;
+  }
+}
+
+.btn-logout {
+  background-color: #0073aa;
 }
