@@ -26,9 +26,7 @@ export default function Message() {
     return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
   };
 
-  const handleChange = (event: {
-    target: { name: string; value: string };
-  }) => {
+  const handleChange = (event: { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
@@ -71,6 +69,7 @@ export default function Message() {
       alert(
         `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message} `,
       );
+      setFormData({ name: "", email: "", message: "" });
     }
   };
 
@@ -82,6 +81,7 @@ export default function Message() {
         type="text"
         id="name"
         name="name"
+        value={formData.name}
         onChange={handleChange}
       />
       {errors.name && <p className="error">{errors.name}</p>}

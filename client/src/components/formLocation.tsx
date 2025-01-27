@@ -97,6 +97,7 @@ const FormLoc = () => {
       alert(
         `Nom: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}\nFichier: ${fileName}`,
       );
+      setFormData({ name: "", email: "", message: "" });
 
       if (file) {
         handleUpload();
