@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         element: <Tarif60 />,
       },
       {
-        path: "/profil-user",
+        path: "/profile",
         element: <ProfilUser />,
       },
 

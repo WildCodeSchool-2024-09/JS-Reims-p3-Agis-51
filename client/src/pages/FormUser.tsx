@@ -20,10 +20,8 @@ function FormUser() {
     setAuth: (auth: Auth | null) => void;
   };
 
-  const [isLogin, setIsLogin] = useState(true); // Définition de l'état isLogin
+  const [isLogin, setIsLogin] = useState(true);
 
-  // Références des champs
-  const signupNameRef = useRef<HTMLInputElement>(null);
   const signupEmailRef = useRef<HTMLInputElement>(null);
   const signupPasswordRef = useRef<HTMLInputElement>(null);
 
@@ -36,61 +34,45 @@ function FormUser() {
 
   const navigate = useNavigate();
 
-  const handleLoginClick = () => setIsLogin(true); // Active le formulaire de connexion
-  const handleSignUpClick = () => setIsLogin(false); // Active le formulaire d'inscription
+  const handleLoginClick = () => setIsLogin(true);
+  const handleSignUpClick = () => setIsLogin(false);
 
-  // Validation email
   const loginValidateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  // Gestion de la soumission du formulaire d'inscription
   const handleSignupSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
 
-    if (
-      !signupNameRef.current ||
-      !signupEmailRef.current ||
-      !signupPasswordRef.current
-    ) {
+    if (!signupEmailRef.current || !signupPasswordRef.current) {
       alert("Veuillez remplir tous les champs.");
       return;
     }
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/users`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: signupNameRef.current.value,
-            email: signupEmailRef.current.value,
-            password: signupPasswordRef.current.value,
-          }),
-        },
-      );
+      await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: signupEmailRef.current.value,
+          password: signupPasswordRef.current.value,
+        }),
+      });
 
-      if (response.status === 201) {
-        alert("Compte créé avec succès !");
-        setAuth(null);
-        navigate("/");
-      } else {
-        alert("Erreur lors de la création du compte.");
-      }
+      navigate("/compte");
     } catch (err) {
       alert("Une erreur s'est produite. Veuillez réessayer.");
       console.error(err);
     }
   };
 
-  // Gestion de la soumission du formulaire de connexion
   const handleLoginSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
 
     const loginEmail = loginEmailRef.current?.value;
     const loginPassword = loginPasswordRef.current?.value;
+
     if (!loginEmail || !loginPassword) {
       setLoginErrorMessage("Veuillez remplir tous les champs.");
       return;
@@ -110,14 +92,14 @@ function FormUser() {
             email: loginEmail,
             password: loginPassword,
           }),
+          credentials: "include",
         },
       );
 
       if (response.status === 200) {
-        const user = await response.json();
-        alert("Connexion réussie !");
-        setAuth(user);
-        navigate("/ProfilUser"); // rediriger après succès
+        const data = await response.json();
+        setAuth(data);
+        navigate("/profile");
       } else if (response.status === 401) {
         setLoginErrorMessage("Identifiants incorrects.");
       } else {
@@ -151,15 +133,6 @@ function FormUser() {
       {!isLogin ? (
         <form className="form-signup" onSubmit={handleSignupSubmit}>
           <h2>Créer un Compte</h2>
-          <div className="input-form-user">
-            <input
-              ref={signupNameRef}
-              type="text"
-              placeholder="Nom et Prénom"
-              className="inputsignup"
-            />
-          </div>
-
           <div className="input-form-user">
             <input
               type="email"

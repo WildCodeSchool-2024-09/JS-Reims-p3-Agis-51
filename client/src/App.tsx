@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -9,16 +9,42 @@ export type { User, Auth };
 type User = {
   id: number;
   email: string;
-  is_admin: boolean;
+  isAdmin?: boolean;
 };
 
 type Auth = {
   user: User;
-  token: string;
+  message: string;
 };
 
-function App() {
-  const [auth, setAuth] = useState(null as Auth | null);
+export default function App() {
+  const [auth, setAuth] = useState<Auth | null>(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/login`,
+          {
+            method: "GET",
+            credentials: "include",
+          },
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setAuth(data);
+        } else {
+          setAuth(null);
+        }
+      } catch (error) {
+        console.error(error);
+        setAuth(null);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   return (
     <div className="app-container">
@@ -28,5 +54,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

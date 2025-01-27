@@ -1,108 +1,154 @@
-import type { RequestHandler } from "express";
-
 import argon2 from "argon2";
+import type { RequestHandler } from "express";
 import jwt from "jsonwebtoken";
 import userRepository from "../user/userRepository";
 
-import type { JwtPayload } from "jsonwebtoken";
-
-const login: RequestHandler = async (req, res, next) => {
-  try {
-    // Fetch a specific user from the database based on the provided email
-    const user = await userRepository.readByEmailWithPassword(req.body.email);
-
-    if (user == null) {
-      res.sendStatus(422);
-      return;
-    }
-
-    const verified = await argon2.verify(
-      user.hashed_password,
-      req.body.password,
-    );
-
-    if (verified) {
-      // Respond with the user and a signed token in JSON format (but without the hashed password)
-      const { hashed_password, ...userWithoutHashedPassword } = user;
-
-      const myPayload: MyPayload = {
-        sub: user.id.toString(),
-        isAdmin: user.is_admin,
-      };
-
-      const token = await jwt.sign(
-        myPayload,
-        process.env.APP_SECRET as string,
-        {
-          expiresIn: "1h",
-        },
-      );
-
-      res.json({
-        token,
-        user: userWithoutHashedPassword,
-      });
-    } else {
-      res.sendStatus(422);
-    }
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
-
 const hashingOptions = {
   type: argon2.argon2id,
-  memoryCost: 19 * 2 ** 10 /* 19 Mio en kio (19 * 1024 kio) */,
+  memoryCost: 19 * 2 ** 10,
   timeCost: 2,
   parallelism: 1,
 };
 
 const hashPassword: RequestHandler = async (req, res, next) => {
   try {
-    // Extraction du mot de passe de la requête
     const { password } = req.body;
 
-    // Hachage du mot de passe avec les options spécifiées
+    if (!password) {
+      res.status(400).json({ message: "Le mot de passe est requis." });
+      return;
+    }
+
     const hashedPassword = await argon2.hash(password, hashingOptions);
 
-    // Remplacement du mot de passe non haché par le mot de passe haché dans la requête
     req.body.hashed_password = hashedPassword;
-
-    // Oubli du mot de passe non haché de la requête : il restera un secret même pour notre code dans les autres actions
     req.body.password = undefined;
 
-    next();
+    return next();
   } catch (err) {
+    console.error("Error while hashing the password:", err);
+
+    return next(err);
+  }
+};
+
+const login: RequestHandler = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      res.status(400).json({ message: "Email et mot de passe requis." });
+      return;
+    }
+
+    const user = await userRepository.findByEmail(email);
+
+    if (!user) {
+      res.status(401).json({ message: "Invalid credentials." });
+      return;
+    }
+
+    const isPasswordValid = await argon2.verify(user.hashed_password, password);
+    if (!isPasswordValid) {
+      res.status(401).json({ message: "Identifiants incorrects." });
+      return;
+    }
+
+    const token = jwt.sign(
+      {
+        sub: user.id,
+        isAdmin: user.isAdmin,
+      },
+      process.env.APP_SECRET as string,
+      {
+        expiresIn: "1h",
+      },
+    );
+
+    res.cookie("authToken", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 3600000,
+    });
+
+    const { hashed_password, ...userWithoutPassword } = user;
+
+    res.status(200).json({
+      message: "Connexion réussie.",
+      user: userWithoutPassword,
+    });
+
+    return;
+  } catch (err) {
+    console.error("Error during login:", err);
     next(err);
   }
 };
 
 const verifyToken: RequestHandler = (req, res, next) => {
   try {
-    // Vérifier la présence de l'en-tête "Authorization" dans la requête
-    const authorizationHeader = req.get("Authorization");
+    const token = req.cookies.authToken;
 
-    if (authorizationHeader == null) {
-      throw new Error("Authorization header is missing");
+    if (!token) {
+      res.status(401).json({ message: "Token missing in cookies." });
+      return;
     }
 
-    // Vérifier que l'en-tête a la forme "Bearer <token>"
-    const [type, token] = authorizationHeader.split(" ");
+    const decoded = jwt.verify(
+      token,
+      process.env.APP_SECRET as string,
+    ) as MyPayload;
 
-    if (type !== "Bearer") {
-      throw new Error("Authorization header has not the 'Bearer' type");
-    }
-
-    // Vérifier la validité du token (son authenticité et sa date d'expériation)
-    // En cas de succès, le payload est extrait et décodé
-    req.auth = jwt.verify(token, process.env.APP_SECRET as string) as MyPayload;
+    (req.auth as MyPayload) = decoded;
 
     next();
   } catch (err) {
-    console.error(err);
-    res.sendStatus(401);
+    console.error("Error while verifying the token:", err);
+    res.status(401).json({ message: "Invalid or expired token." });
+    return;
   }
 };
 
-export default { login, hashPassword, verifyToken };
+const verifyAuth: RequestHandler = async (req, res, next) => {
+  try {
+    const token = req.cookies.authToken;
+    if (!token) {
+      res.status(401).json({ message: "Token missing in cookies." });
+      return;
+    }
+
+    const decoded = jwt.verify(
+      token,
+      process.env.APP_SECRET as string,
+    ) as MyPayload;
+
+    (req.auth as MyPayload) = decoded;
+
+    const userId = req.auth?.sub;
+    const user = await userRepository.findById(userId);
+
+    if (!user) {
+      res.status(404).json({ message: "Utilisateur non trouvé." });
+      return;
+    }
+
+    const { hashed_password, ...userWithoutPassword } = user;
+
+    res.status(200).json({
+      message: "Connexion réussie.",
+      user: userWithoutPassword,
+    });
+    return;
+  } catch (err) {
+    res.status(401).json({ message: "Invalid or expired token." });
+    return;
+  }
+};
+
+export default {
+  verifyAuth,
+  hashPassword,
+  login,
+  verifyToken,
+};

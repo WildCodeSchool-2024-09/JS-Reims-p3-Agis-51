@@ -1,100 +1,139 @@
 import "./ProfilUser.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import avatar from "../assets/images/avatar.jpg";
 
 interface Errors {
   firstname: string;
   lastname: string;
   email: string;
-  PhoneNumber: string;
-  adresse: string;
+  phone_number: string;
+  address: string;
 }
 
+type User = {
+  id: number;
+  email: string;
+  isAdmin?: boolean;
+  firstname: string;
+  lastname: string;
+  address: string;
+  phone_number: string;
+};
+
+type Auth = {
+  user: User;
+  message: string;
+};
+
+type Context = {
+  auth: Auth | null;
+  setAuth: (auth: Auth | null) => void;
+};
+
 const ProfilUser = () => {
+  const { auth } = useOutletContext() as Context;
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    PhoneNumber: "",
-    adresse: "",
+    firstname: auth?.user?.firstname || "",
+    lastname: auth?.user?.lastname || "",
+    email: auth?.user?.email || "",
+    phoneNumber: auth?.user?.phone_number || "",
+    address: auth?.user?.address || "",
   });
+  const [isdisabled, setIsDisabled] = useState(true);
+
+  useEffect(() => {
+    if (auth?.user) {
+      setFormData({
+        firstname: auth.user.firstname || "",
+        lastname: auth.user.lastname || "",
+        email: auth.user.email || "",
+        phoneNumber: auth.user.phone_number || "",
+        address: auth.user.address || "",
+      });
+    }
+  }, [auth]);
 
   const [errors, setErrors] = useState<Errors>({
     firstname: "",
     lastname: "",
     email: "",
-    PhoneNumber: "",
-    adresse: "",
+    phone_number: "",
+    address: "",
   });
 
-  const isValidEmail = (email: string): boolean => {
-    const atIndex = email.indexOf("@");
-    const dotIndex = email.lastIndexOf(".");
-    return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+  const validatePhoneNumber = (phone_number: string) => {
+    return phone_number.length === 10 && /^\d+$/.test(phone_number);
   };
 
   const handleChange = (event: { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+
     setErrors((prevErrors: Errors) => ({ ...prevErrors, [name]: "" }));
   };
 
-  const validate = () => {
-    let valid = true;
-    const newErrors: Errors = {
-      firstname: "",
-      lastname: "",
-      email: "",
-      PhoneNumber: "",
-      adresse: "",
-    };
-
-    if (!formData.firstname.trim()) {
-      newErrors.firstname = "Le prenom est requis.";
-      valid = false;
-    }
-    if (!formData.lastname.trim()) {
-      newErrors.lastname = " Le nom est requis.";
-      valid = false;
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "L'email est requis.";
-      valid = false;
-    } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "email invalide.";
-      valid = false;
-    }
-    if (!formData.PhoneNumber.trim()) {
-      newErrors.PhoneNumber = "Numéro de téléphone est requis.";
-      valid = false;
-    }
-    if (!formData.adresse.trim()) {
-      newErrors.adresse = "L'adresse est requis.";
-      valid = false;
-    }
-
-    setErrors(newErrors);
-    return valid;
-  };
-
-  const handleSave = () => {
-    if (validate()) {
-      localStorage.setItem("profilUser", JSON.stringify(formData));
-      console.info("Data saved successfully to localStorage:", formData);
-      alert("Vos informations ont été enregistrées avec succès !");
-    }
-  };
   const handleEditProfile = () => {
     alert("édition de profil !");
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({
+      phone_number: "",
+      email: "",
+      firstname: "",
+      lastname: "",
+      address: "",
+    });
+
+    if (formData.phoneNumber && !validatePhoneNumber(formData.phoneNumber)) {
+      setErrors((prev) => ({
+        ...prev,
+        phone_number: "Le numéro de téléphone doit contenir 10 chiffres",
+      }));
+      return;
+    }
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/users/${auth?.user?.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            email: formData.email,
+            phone_number: formData.phoneNumber,
+            firstname: formData.firstname,
+            lastname: formData.lastname,
+            address: formData.address,
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+      alert("Vos modifications sont bien enregistrées !");
+      setIsDisabled(true);
+    } catch (error) {
+      console.error("Error updating user:", error);
+      setErrors((prev) => ({
+        ...prev,
+        submit: "Erreur lors de la mise à jour",
+      }));
+    }
+  };
+
   return (
-    <form className="profilUser-container">
-      <h1>Mon Profil</h1>
+    <div className="profilUser-container">
+      <h2>Mon Profil</h2>
 
       <div className="profilUser-header">
-        <div className="avatar-container">
-          <img className="profilUser-img" src={avatar} alt="user" />
-        </div>
+        <img className="profilUser-img" src={avatar} alt="user" />
         <button
           type="button"
           className="btn-edit-profile"
@@ -102,19 +141,17 @@ const ProfilUser = () => {
         >
           Edit Profil
         </button>
-        <hr className="profilUser-divider" />
       </div>
-
       <h2>Mes informations personnelles</h2>
-
-      <div className="profilUser-form">
+      <form className="profilUser-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="firstname">Prénom:</label>
+          <label htmlFor="firstname">Prénom :</label>
           <input
             className="input-profiluser"
             type="text"
             id="firstname"
             name="firstname"
+            disabled={isdisabled}
             value={formData.firstname}
             onChange={handleChange}
             placeholder="Prénom"
@@ -123,12 +160,13 @@ const ProfilUser = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="lastname">Nom:</label>
+          <label htmlFor="lastname">Nom :</label>
           <input
             className="input-profiluser"
             type="text"
             id="lastname"
             name="lastname"
+            disabled={isdisabled}
             value={formData.lastname}
             onChange={handleChange}
             placeholder="Nom"
@@ -137,12 +175,13 @@ const ProfilUser = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email :</label>
           <input
             className="input-profiluser"
             type="email"
             id="email"
             name="email"
+            disabled={isdisabled}
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
@@ -151,40 +190,46 @@ const ProfilUser = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="PhoneNumber">Numéro de Téléphone:</label>
+          <label htmlFor="phoneNumber">Numéro de Téléphone :</label>
           <input
             className="input-profiluser"
             type="text"
-            id="PhoneNumber"
-            name="PhoneNumber"
-            value={formData.PhoneNumber}
+            id="phoneNumber"
+            name="phoneNumber"
+            disabled={isdisabled}
+            value={formData.phoneNumber}
             onChange={handleChange}
             placeholder="Numéro de Téléphone"
           />
-          {errors.PhoneNumber && <p className="error">{errors.PhoneNumber}</p>}
+          {errors.phone_number && (
+            <p className="error">{errors.phone_number}</p>
+          )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="adresse">Adresse:</label>
+          <label htmlFor="address">Adresse :</label>
           <input
             className="input-profiluser"
             type="text"
-            id="adresse"
-            name="adresse"
-            value={formData.adresse}
+            id="address"
+            name="address"
+            disabled={isdisabled}
+            value={formData.address}
             onChange={handleChange}
             placeholder="Adresse"
           />
-          {errors.adresse && <p className="error">{errors.adresse}</p>}
+          {errors.address && <p className="error">{errors.address}</p>}
         </div>
-
-        <div className="btn-group">
-          <button type="button" className="btn-profiluser" onClick={handleSave}>
-            Enregistrer
-          </button>
-        </div>
-      </div>
-    </form>
+        <button
+          type={isdisabled ? "submit" : "button"}
+          onClick={() => setIsDisabled(!isdisabled)}
+          disabled={false}
+          className="btn-profiluser"
+        >
+          {isdisabled ? "Modifier" : "Enregistrer"}
+        </button>
+      </form>
+    </div>
   );
 };
 
