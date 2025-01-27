@@ -1,6 +1,6 @@
 import "./ProfilUser.css";
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import avatar from "../assets/images/avatar.jpg";
 
 interface Errors {
@@ -32,7 +32,7 @@ type Context = {
 };
 
 const ProfilUser = () => {
-  const { auth } = useOutletContext() as Context;
+  const { auth, setAuth } = useOutletContext() as Context;
   const [formData, setFormData] = useState({
     firstname: auth?.user?.firstname || "",
     lastname: auth?.user?.lastname || "",
@@ -41,6 +41,7 @@ const ProfilUser = () => {
     address: auth?.user?.address || "",
   });
   const [isdisabled, setIsDisabled] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (auth?.user) {
@@ -128,9 +129,35 @@ const ProfilUser = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/logout`,
+        {
+          method: "POST",
+          credentials: "include",
+        },
+      );
+
+      if (response.ok) {
+        setAuth(null);
+        navigate("/");
+      } else {
+        console.error("Logout failed");
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+
   return (
     <div className="profilUser-container">
-      <h2>Mon Profil</h2>
+      <div className="profil-header">
+        <h2>Mon Profil</h2>
+        <button type="button" onClick={handleLogout}>
+          Se déconnecter
+        </button>
+      </div>
 
       <div className="profilUser-header">
         <img className="profilUser-img" src={avatar} alt="user" />

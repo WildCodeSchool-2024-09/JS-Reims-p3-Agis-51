@@ -8,7 +8,13 @@ import nousaider from "../assets/images/nous-aider.png";
 import reparation from "../assets/images/reparations.png";
 import revue from "../assets/images/revue-presse.png";
 
-function Navigation({ handleClick }: { handleClick: () => void }) {
+function Navigation({
+  handleClick,
+  isConnected,
+}: {
+  handleClick: () => void;
+  isConnected: boolean;
+}) {
   return (
     <div className="navbar__links">
       <Link
@@ -39,7 +45,11 @@ function Navigation({ handleClick }: { handleClick: () => void }) {
       <Link onClick={handleClick} to={"/presse"} className="navbar__link">
         <img src={revue} className="revue-img" alt="" /> Revue de presse
       </Link>
-      <Link onClick={handleClick} to={"/compte"} className="navbar__link">
+      <Link
+        onClick={handleClick}
+        to={isConnected ? "/profile" : "/compte"}
+        className="navbar__link"
+      >
         <img src={compte} className="compte-img" alt="" /> Compte
       </Link>
     </div>

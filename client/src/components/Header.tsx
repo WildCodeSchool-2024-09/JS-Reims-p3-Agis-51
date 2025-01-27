@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import home from "../assets/images/home.jpg";
 import Navigation from "./Nav";
 
-function Header() {
+function Header({ isConnected }: { isConnected: boolean }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -31,7 +31,7 @@ function Header() {
         </button>
       </div>
       <nav className={`nav ${isClicked ? "show" : ""}`}>
-        <Navigation handleClick={handleClick} />
+        <Navigation handleClick={handleClick} isConnected={isConnected} />
       </nav>
     </div>
   );

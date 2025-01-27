@@ -19,6 +19,7 @@ type Auth = {
 
 export default function App() {
   const [auth, setAuth] = useState<Auth | null>(null);
+  const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -34,8 +35,10 @@ export default function App() {
         if (response.ok) {
           const data = await response.json();
           setAuth(data);
+          setIsConnected(true);
         } else {
           setAuth(null);
+          setIsConnected(false);
         }
       } catch (error) {
         console.error(error);
@@ -48,7 +51,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <Header isConnected={isConnected} />
       <Outlet context={{ auth, setAuth }} />
       <Footer />
     </div>

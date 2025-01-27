@@ -14,6 +14,7 @@ router.get("/api/vehicles/:id", vehicleActions.read);
 // Authentication wall
 router.use(authActions.verifyToken);
 router.get("/api/login", authActions.verifyAuth);
+router.post("/api/logout", authActions.logout);
 
 router.get("/api/users", userActions.browse);
 router.get("/api/users/:id", userActions.read);
