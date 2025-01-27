@@ -40,7 +40,6 @@ h3 {
 }
 
 ul {
-  list-style: none;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
@@ -50,14 +49,11 @@ ul {
 
 ul li {
   margin-bottom: 10px;
-  position: relative;
   padding-left: 20px;
 }
 
 ul li::before {
   content: "•";
-  position: absolute;
-  left: 0;
   color: #0073aa;
 }
 
@@ -77,13 +73,14 @@ section.tarifs {
   cursor: pointer;
   text-align: center;
   margin: auto;
+  text-decoration: none;
 }
 
 .tarif-button:hover {
   background-color: #005f8c;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .reparations-title {
     font-size: 1.5em;
   }

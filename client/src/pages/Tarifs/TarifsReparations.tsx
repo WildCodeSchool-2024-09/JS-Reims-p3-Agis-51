@@ -1,19 +1,7 @@
 import "./TarifsReparations.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const TarifsReparations = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/tarif29");
-  };
-  const handleClick2 = () => {
-    navigate("/tarif45");
-  };
-
-  const handleClick3 = () => {
-    navigate("/tarif60");
-  };
   return (
     <div className="forfait-reparations-page">
       <h2>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h2>
@@ -40,11 +28,9 @@ const TarifsReparations = () => {
           <li>Étudiants boursiers</li>
           <li>Résidants marnais</li>
         </ul>
-        <button className="procedure-link" type="button" onClick={handleClick}>
-          {" "}
+        <Link className="procedure-link" to="/tarif29">
           Lien vers la procédure à 29€
-          <Link to="/tarif29"> </Link>
-        </button>
+        </Link>
       </div>
 
       <div className="tarif">
@@ -55,11 +41,9 @@ const TarifsReparations = () => {
           <li>Étudiants non boursiers</li>
           <li>Associations</li>
         </ul>
-        <button className="procedure-link" type="button" onClick={handleClick2}>
-          {" "}
+        <Link className="procedure-link" to="/tarif45">
           Lien vers la procédure à 45€
-          <Link to="/tarif45"> </Link>
-        </button>
+        </Link>
       </div>
 
       <div className="tarif">
@@ -77,11 +61,9 @@ const TarifsReparations = () => {
           Des remises sont accordées pour les salariés des entreprises
           adhérentes à <strong>ECORES</strong>.
         </p>
-        <button className="procedure-link" type="button" onClick={handleClick3}>
-          {" "}
+        <Link className="procedure-link" to="/tarif60">
           Lien vers la procédure à 60€
-          <Link to="/tarif60"> </Link>
-        </button>
+        </Link>
       </div>
 
       <h2>Nos Forfaits</h2>

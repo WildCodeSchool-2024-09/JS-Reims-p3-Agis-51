@@ -1,13 +1,7 @@
 import "./Reparation.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Reparation() {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/tarifs-reparations");
-  };
-
   return (
     <div className="reparations-page">
       <h2 className="reparations-title">Entretien et Réparations</h2>
@@ -61,11 +55,9 @@ function Reparation() {
           <li>Avec un niveau de carburant suffisant</li>
           <li>Sans effets personnels</li>
         </ul>
-        <button className="tarif-button" type="button" onClick={handleClick}>
-          {" "}
+        <Link className="tarif-button" to="/tarifs-reparations">
           Consulter nos tarifs
-          <Link to="/tarifs-reparations"> </Link>
-        </button>
+        </Link>
       </section>
     </div>
   );

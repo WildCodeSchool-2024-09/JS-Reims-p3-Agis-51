@@ -3,27 +3,20 @@ import databaseClient from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
 type User = {
   id: number;
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
   email: string;
-  phone_number: string;
-  address: string;
+  phone_number?: string;
+  address?: string;
   hashed_password: string;
-  is_admin: boolean;
+  isAdmin: boolean;
 };
 
 class userRepository {
-  async create(website_user: Omit<User, "id" | "is_admin">) {
+  async create(newUser: Omit<User, "id" | "isAdmin">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into website_user (name, email, hashed_password) values (?, ?, ?)",
-      [
-        website_user.firstname,
-        website_user.lastname,
-        website_user.email,
-        website_user.phone_number,
-        website_user.address,
-        website_user.hashed_password,
-      ],
+      "insert into website_user (email, hashed_password) values (?, ?)",
+      [newUser.email, newUser.hashed_password],
     );
 
     return result.insertId;
@@ -34,14 +27,16 @@ class userRepository {
       "select * from website_user where id = ?",
       [id],
     );
+
     return rows[0] as User;
   }
 
-  async readByEmailWithPassword(email: string) {
+  async findByEmail(email: string) {
     const [rows] = await databaseClient.query<Rows>(
       "select * from website_user where email = ?",
       [email],
     );
+
     return rows[0] as User;
   }
 
@@ -49,15 +44,31 @@ class userRepository {
     const [rows] = await databaseClient.query<Rows>(
       "select * from website_user",
     );
+
     return rows as User[];
   }
+
   async findById(userId: string | undefined) {
-    // Execute the SQL SELECT query to retrieve a user by email
     const [rows] = await databaseClient.query<Rows>(
       "select * from website_user where id = ?",
       [userId],
     );
+
     return rows[0] as User | null;
+  }
+
+  async update(userInfo: Partial<User>) {
+    await databaseClient.query<Result>(
+      "update website_user set email = ?, phone_number = ?, address = ?, firstname = ?, lastname = ? where id = ?",
+      [
+        userInfo.email,
+        userInfo.phone_number,
+        userInfo.address,
+        userInfo.firstname,
+        userInfo.lastname,
+        userInfo.id,
+      ],
+    );
   }
 }
 

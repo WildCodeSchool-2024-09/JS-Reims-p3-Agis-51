@@ -29,16 +29,12 @@ const read: RequestHandler = async (req, res, next) => {
 
 const add: RequestHandler = async (req, res, next) => {
   try {
-    const newwebsite_user = {
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
+    const newUser = {
       email: req.body.email,
-      phone_number: req.body.phone_number,
-      address: req.body.address,
       hashed_password: req.body.hashed_password,
     };
 
-    const insertId = await userRepository.create(newwebsite_user);
+    const insertId = await userRepository.create(newUser);
 
     res.status(201).json({ insertId });
   } catch (err) {
@@ -46,4 +42,22 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const updatedUserInfo = {
+      id: Number(req.params.id),
+      email: req.body.email,
+      phone_number: req.body.phone_number,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      address: req.body.address,
+    };
+
+    await userRepository.update(updatedUserInfo);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit };

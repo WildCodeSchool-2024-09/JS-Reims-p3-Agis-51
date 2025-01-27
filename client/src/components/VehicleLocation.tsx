@@ -17,7 +17,10 @@ const VehicleLocation = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const response = await fetch("http://localhost:3310/api/vehicles");
+        const response = await fetch("http://localhost:3310/api/vehicles", {
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        });
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -82,7 +85,9 @@ const VehicleLocation = () => {
                   <tr key={vehicle.id}>
                     <td>{vehicle.famille}</td>
                     <td>{vehicle.catégorie}</td>
-                    <td>{vehicle.disponible ? "Yes" : "No"}</td>
+                    <td className="tag">
+                      {vehicle.disponible ? "Oui" : "Non"}
+                    </td>
                   </tr>
                 ))}
               </tbody>

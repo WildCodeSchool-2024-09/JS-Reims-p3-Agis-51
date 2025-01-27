@@ -5,12 +5,6 @@
   align-items: center;
   padding: 1rem;
   color: rgb(18, 96, 212);
-  font-size: 1.25rem;
-  margin: auto;
-  width: 90%;
-  max-width: 500px;
-  background: #f8f9fa;
-  border-radius: 10px;
 }
 
 .error {
@@ -33,20 +27,13 @@
 }
 
 .btn-profiluser {
-  padding: 12px 20px;
+  padding: 1rem;
   background-color: rgb(10, 90, 181);
   color: white;
   font-size: 16px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 40%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
 }
 
 .profilUser-container label {
@@ -60,7 +47,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(234, 239, 241);
   width: 100%;
 }
 
@@ -124,8 +110,14 @@
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  width: 20%;
+  margin: 1rem 0;
 }
 
 .btn-edit-profile:hover {
   background-color: rgb(63, 88, 118);
+}
+
+.profil-header {
+  display: flex;
 }
