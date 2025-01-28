@@ -6,54 +6,8 @@ body {
   font-size: 16px;
 }
 
-.donation-container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  text-align: center;
-}
-
-.donation-title,
-.donation-title2 {
-  color: #0073aa;
-  margin-bottom: 10px;
-}
-
-.donation-title {
-  font-size: 1.8rem;
-  border-bottom: 2px solid #0073aa;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-}
-
-.donation-title2 {
-  font-size: 1.5em;
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-
-.donation-container p {
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.donation-img {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.donation-img img {
-  margin: 0 10px;
-  max-width: 100%;
-  border-radius: 8px;
-}
-
 .form-container {
-  max-width: 80%;
+  max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
@@ -71,9 +25,10 @@ body {
 
 .form-container input,
 .form-container textarea {
-  width: 100%;
+  width: 80%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: auto;
+  margin-bottom: 25px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
@@ -96,7 +51,7 @@ body {
   display: block;
   width: 100%;
   padding: 10px;
-  margin: 0 auto;
+  margin: auto;
   background-color: #0073aa;
   color: white;
   border: none;
@@ -110,28 +65,9 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  .donation-container {
-    padding: 15px;
-  }
-
-  .donation-title {
-    font-size: 2.25rem;
-  }
-  .donation-title2 {
-    font-size: 1.5rem;
-  }
-
-  .donation-img {
-    flex-direction: column;
-  }
-
-  .donation-img img {
-    margin: 10px 0;
-  }
-
   .form-container {
     padding: 15px;
-    max-width: 100%;
+    max-width: 80%;
   }
 
   .form-container label,

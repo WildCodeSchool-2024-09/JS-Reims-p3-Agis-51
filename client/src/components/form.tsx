@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./form.css";
 
 type Errors = {
   name: string;
@@ -41,20 +42,20 @@ export default function Message() {
     };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required.";
+      newErrors.name = "Veuillez saisir votre nom.";
       valid = false;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "Veuillez saisir une adresse email.";
       valid = false;
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "Invalid email format.";
+      newErrors.email = "Votre email n'est pas valide.";
       valid = false;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required.";
+      newErrors.message = "Veuillez saisir un message.";
       valid = false;
     }
 
@@ -66,14 +67,15 @@ export default function Message() {
     event.preventDefault();
     if (validate()) {
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`,
+        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message} `,
       );
+      setFormData({ name: "", email: "", message: "" });
     }
   };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <label htmlFor="name">Nom et Prénom:</label>
+      <label htmlFor="name">Nom et Prénom</label>
       <input
         className="username"
         type="text"

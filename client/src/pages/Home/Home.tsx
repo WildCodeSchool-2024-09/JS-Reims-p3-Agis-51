@@ -16,11 +16,11 @@ const Home = () => {
         Conventionnée par l’Etat comme « Atelier Chantier d’Insertion »,
         l’association s’est donnée une double mission :
       </p>
-      <ul>
+      <ul className="home-mission">
         <li>L’insertion professionnelle</li>
         <li>La mobilité pour l’emploi</li>
       </ul>
-      <p>Ce projet est soutenu par l’Union Européenne.</p>
+      <p className="UE">Ce projet est soutenu par l’Union Européenne.</p>
     </div>
   );
 };

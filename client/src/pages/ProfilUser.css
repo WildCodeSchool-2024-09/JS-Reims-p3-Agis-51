@@ -1,0 +1,146 @@
+.profilUser-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+  color: #0073aa;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5px;
+  margin-bottom: 10px;
+}
+
+.input-profiluser {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #aca4a4d3;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 1rem;
+  display: flex;
+}
+
+.btn-profiluser {
+  padding: 1rem;
+  background-color: #0073aa;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 3.5rem;
+  width: 60%;
+}
+@media screen and (max-width: 768px) {
+  .btn-profiluser {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.profilUser-container label {
+  display: none;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #0073aa;
+  font-family: "Roboto", sans-serif;
+}
+
+.profilUser-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.profilUser-divider {
+  margin-top: 2rem;
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgb(9, 92, 195);
+}
+
+.profilUser-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .profilUser-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+  .profilUser-container {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    max-width: 900px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+  .profilUser-container label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #0073aa;
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profilUser-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgb(206, 210, 212);
+}
+
+.btn-edit-profile {
+  background-color: rgb(136, 148, 156);
+  color: rgb(250, 246, 246);
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 25%;
+  margin: 1rem 0;
+}
+
+.btn-edit-profile:hover {
+  background-color: rgb(63, 88, 118);
+}
+
+.profil-header {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 2.5rem;
+}
+@media screen and (max-width: 768px) {
+  .profil-header {
+    width: 75%;
+  }
+}
+
+.btn-logout {
+  background-color: #0073aa;
+}

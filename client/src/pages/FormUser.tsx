@@ -1,59 +1,113 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import type { FormEventHandler } from "react";
 import "./FormUser.css";
+import { useNavigate, useOutletContext } from "react-router-dom";
+
+type User = {
+  id: number;
+  email: string;
+  is_admin: boolean;
+  name?: string;
+};
+
+type Auth = {
+  user: User;
+  token: string;
+};
 
 function FormUser() {
-  const [isLogin, setIsLogin] = useState(false);
+  const { setAuth } = useOutletContext() as {
+    setAuth: (auth: Auth | null) => void;
+  };
 
-  const [signupName, setSignupName] = useState("");
-  const [signupEmail, setSignupEmail] = useState("");
-  const [signupPassword, setSignupPassword] = useState("");
-  const [signupErrors, setSignupErrors] = useState({
-    name: false,
-    email: false,
-    password: false,
-  });
+  const [isLogin, setIsLogin] = useState(true);
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [loginErrors, setLoginErrors] = useState({
-    email: false,
-    password: false,
-  });
+  const signupEmailRef = useRef<HTMLInputElement>(null);
+  const signupPasswordRef = useRef<HTMLInputElement>(null);
+
+  const loginEmailRef = useRef<HTMLInputElement>(null);
+  const loginPasswordRef = useRef<HTMLInputElement>(null);
+
+  const [loginErrorMessage, setLoginErrorMessage] = useState<string | null>(
+    null,
+  );
+
+  const navigate = useNavigate();
 
   const handleLoginClick = () => setIsLogin(true);
   const handleSignUpClick = () => setIsLogin(false);
 
-  const handleSignupSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const loginValidateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
-    const errors = {
-      name: signupName.trim() === "",
-      email: signupEmail.trim() === "" || !signupEmail.includes("@"),
-      password: signupPassword.trim() === "",
-    };
+  const handleSignupSubmit: FormEventHandler = async (event) => {
+    event.preventDefault();
 
-    setSignupErrors(errors);
+    if (!signupEmailRef.current || !signupPasswordRef.current) {
+      alert("Veuillez remplir tous les champs.");
+      return;
+    }
 
-    if (!Object.values(errors).includes(true)) {
-      alert("Inscription réussie !");
-      setSignupName("");
-      setSignupEmail("");
-      setSignupPassword("");
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: signupEmailRef.current.value,
+          password: signupPasswordRef.current.value,
+        }),
+      });
+
+      navigate("/compte");
+    } catch (err) {
+      alert("Une erreur s'est produite. Veuillez réessayer.");
+      console.error(err);
     }
   };
 
-  const handleLoginSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleLoginSubmit: FormEventHandler = async (event) => {
+    event.preventDefault();
 
-    const errors = {
-      email: loginEmail.trim() === "" || !loginEmail.includes("@"),
-      password: loginPassword.trim() === "",
-    };
+    const loginEmail = loginEmailRef.current?.value;
+    const loginPassword = loginPasswordRef.current?.value;
 
-    setLoginErrors(errors);
+    if (!loginEmail || !loginPassword) {
+      setLoginErrorMessage("Veuillez remplir tous les champs.");
+      return;
+    }
+    if (!loginValidateEmail(loginEmail)) {
+      setLoginErrorMessage("L'adresse email est invalide.");
+      return;
+    }
 
-    if (!Object.values(errors).includes(true)) {
-      alert("Connexion réussie !");
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: loginEmail,
+            password: loginPassword,
+          }),
+          credentials: "include",
+        },
+      );
+
+      if (response.status === 200) {
+        const data = await response.json();
+        setAuth(data);
+        navigate("/profile");
+      } else if (response.status === 401) {
+        setLoginErrorMessage("Identifiants incorrects.");
+      } else {
+        setLoginErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
+      }
+    } catch (err) {
+      setLoginErrorMessage("Impossible de se connecter.");
+      console.error(err);
     }
   };
 
@@ -62,14 +116,14 @@ function FormUser() {
       <div className="form-user-toggle-buttons">
         <button
           type="button"
-          className={`toggle-user-button ${!isLogin ? "active" : ""}`}
+          className={`toggle-user-button ${!isLogin ? "is-active" : ""}`}
           onClick={handleSignUpClick}
         >
           Créer un Compte
         </button>
         <button
           type="button"
-          className={`toggle-user-button ${!isLogin ? "active" : ""}`}
+          className={`toggle-user-button ${isLogin ? "is-active" : ""}`}
           onClick={handleLoginClick}
         >
           Connexion
@@ -81,45 +135,20 @@ function FormUser() {
           <h2>Créer un Compte</h2>
           <div className="input-form-user">
             <input
-              type="text"
-              placeholder="Nom"
-              value={signupName}
-              onChange={(e) => setSignupName(e.target.value)}
-              className="inputsignup"
-            />
-            {signupErrors.name && (
-              <p className="error">Le champ "Nom" ne peut pas être vide.</p>
-            )}
-          </div>
-
-          <div className="input-form-user">
-            <input
               type="email"
               placeholder="Adresse Email"
-              value={signupEmail}
-              onChange={(e) => setSignupEmail(e.target.value)}
+              ref={signupEmailRef}
               className="inputsignup"
             />
-            {signupErrors.email && (
-              <p className="error">
-                Veuillez entrer une adresse email valide (avec @).
-              </p>
-            )}
           </div>
 
           <div className="input-form-user">
             <input
               type="password"
               placeholder="Mot de passe"
-              value={signupPassword}
-              onChange={(e) => setSignupPassword(e.target.value)}
+              ref={signupPasswordRef}
               className="inputsignup"
             />
-            {signupErrors.password && (
-              <p className="error">
-                Le champ "Mot de passe" ne peut pas être vide.
-              </p>
-            )}
           </div>
 
           <button type="submit" className="button-form-user">
@@ -133,31 +162,21 @@ function FormUser() {
             <input
               type="email"
               placeholder="Adresse Email"
-              value={loginEmail}
-              onChange={(e) => setLoginEmail(e.target.value)}
+              ref={loginEmailRef}
               className="inputlogin"
             />
-            {loginErrors.email && (
-              <p className="error">
-                Veuillez entrer une adresse email valide (avec @).
-              </p>
-            )}
           </div>
 
           <div className="input-form-user">
             <input
               type="password"
               placeholder="Mot de passe"
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
+              ref={loginPasswordRef}
               className="inputlogin"
             />
-            {loginErrors.password && (
-              <p className="error">
-                Le champ "Mot de passe" ne peut pas être vide.
-              </p>
-            )}
           </div>
+
+          {loginErrorMessage && <p className="error">{loginErrorMessage}</p>}
 
           <button type="submit" className="button-form-user">
             Connexion

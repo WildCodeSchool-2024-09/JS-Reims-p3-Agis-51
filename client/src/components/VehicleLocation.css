@@ -1,139 +1,122 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 .page-loc {
-  background-color: rgb(234, 231, 231);
+  max-width: 900px;
+  margin: 20px auto;
 }
 
-p,
-tbody {
-  font-family: "Montserrat", sans-serif;
-}
-p {
-  margin-top: 15px;
-  line-height: 1.25rem;
-}
-
-th,
-h2 {
-  font-family: "Lora", serif;
-  color: lightseagreen;
-}
-
-.loc-intro {
-  text-align: center;
-  line-height: 2.5rem;
-}
-.loc-intro > h2 {
-  margin-bottom: 10px;
-  margin-top: 20px;
-  font-size: 1.5rem;
-}
-.loc-intro > p {
-  font-size: 0.90rem;
-  text-align: justify;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
+.loc-intro,
 .vehicle-list {
-  background-color: lightgray;
-  border: solid 0.25rem lightblue;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 2.5rem;
-  border-radius: 25px;
-  padding-bottom: 25px;
-  margin-top: 2rem;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
-.vehicle-table {
-  border-collapse: collapse;
-  margin-top: 25px;
-  border-radius: 25px;
-  width: 75%;
-}
-@media screen and (min-width: 768px) {
-  .vehicle-list {
-    width: 50%;
-    margin: auto;
-  }
 
-  .vehicle-table {
-    width: 50%;
-    height: 80%;
-  }
+h2 {
+  color: #0073aa;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.vehicle-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.vehicle-table th,
+.vehicle-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.vehicle-table th {
+  background-color: #0073aa;
+  color: #fff;
+}
+
+.vehicle-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.vehicle-table tr:hover {
+  background-color: #ddd;
 }
 
 .formLoc-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 90%;
-  padding: 2rem;
-  color: lightseagreen;
-  font-size: 1.25rem;
+  gap: 15px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+input {
+  width: 50%;
+}
+
+.formLoc-container label {
+  color: #0073aa;
+  font-weight: bold;
+  text-align: center;
+}
+
+.formLoc-container input,
+.formLoc-container textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  width: 75%;
+}
+
+.formLoc-container .error {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.file-upload-loc {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #0073aa;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 25%;
+}
+@media screen and (max-width: 768px) {
+  .submit-button {
+    width: 50%;
+    height: auto;
+  }
+}
+
+.submit-button:hover {
+  background-color: #005f8a;
+}
+
+.file-input-div {
+  width: 80%;
   margin: auto;
 }
 
-.error {
-  color: red;
-}
-
-.username-loc {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 35px;
-  border-radius: 5px;
-}
-
-.email-loc {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 35px;
-  border-radius: 5px;
-}
-
 .message-loc {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 75px;
-  border-radius: 5px;
-}
-.file-upload-loc {
-  text-align: center;
-  font-size: 1.10rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  height: 35px;
-  margin-left: auto;
-}
-
-@media screen and (min-width: 768px) {
-  .loc-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-left: 1.5rem;
-  }
-  .formLoc-container {
-    width: 400px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .formLoc-container {
-    width: 600px;
-  }
+  width: 50%;
 }

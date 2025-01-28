@@ -4,23 +4,23 @@ import type { Result, Rows } from "../../../database/client";
 
 type Vehicle = {
   id: number;
-  type: string;
-  energy: string;
-  gearbox: string;
-  quantity: number;
-  available: boolean;
+  famille: string;
+  catégorie: string;
+  équipement: string;
+  quantité: number;
+  disponible: boolean;
 };
 
 class VehicleRepository {
   async create(vehicle: Omit<Vehicle, "id">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into vehicle ( type, energy, gearbox, quantity, available) values (?, ?, ?, ?, ?)",
+      "insert into vehicle ( famille, catégorie, équipement, quantité, disponible) values (?, ?, ?, ?, ?)",
       [
-        vehicle.type,
-        vehicle.energy,
-        vehicle.gearbox,
-        vehicle.quantity,
-        vehicle.available,
+        vehicle.famille,
+        vehicle.catégorie,
+        vehicle.équipement,
+        vehicle.quantité,
+        vehicle.disponible,
       ],
     );
     return result.insertId;
@@ -40,13 +40,13 @@ class VehicleRepository {
   }
   async update(vehicleToUpdate: Vehicle) {
     const [result] = await databaseClient.query<Result>(
-      "UPDATE vehicle SET type = ?, energy = ?, gearbox = ?, quantity = ?, available = ? WHERE id = ?",
+      "UPDATE vehicle SET famille = ?, catégorie = ?, équipement = ?, quantité = ?, disponible = ? WHERE id = ?",
       [
-        vehicleToUpdate.type,
-        vehicleToUpdate.energy,
-        vehicleToUpdate.gearbox,
-        vehicleToUpdate.quantity,
-        vehicleToUpdate.available,
+        vehicleToUpdate.famille,
+        vehicleToUpdate.catégorie,
+        vehicleToUpdate.équipement,
+        vehicleToUpdate.quantité,
+        vehicleToUpdate.disponible,
         vehicleToUpdate.id,
       ],
     );

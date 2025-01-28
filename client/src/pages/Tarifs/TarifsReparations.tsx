@@ -1,8 +1,10 @@
 import "./TarifsReparations.css";
+import { Link } from "react-router-dom";
+
 const TarifsReparations = () => {
   return (
     <div className="forfait-reparations-page">
-      <h1>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h1>
+      <h2>Un Garage Solidaire au Service de l’Emploi et de la Mobilité</h2>
       <p>
         Les services d’AGIS 51 sont ouverts à <strong>TOUS</strong>. De par sa
         spécificité de garage solidaire, l’association propose des tarifs
@@ -26,9 +28,9 @@ const TarifsReparations = () => {
           <li>Étudiants boursiers</li>
           <li>Résidants marnais</li>
         </ul>
-        <a href="https://example.com/procedure-29" className="procedure-link">
+        <Link className="procedure-link" to="/tarif29">
           Lien vers la procédure à 29€
-        </a>
+        </Link>
       </div>
 
       <div className="tarif">
@@ -39,9 +41,9 @@ const TarifsReparations = () => {
           <li>Étudiants non boursiers</li>
           <li>Associations</li>
         </ul>
-        <a href="https://example.com/procedure-45" className="procedure-link">
+        <Link className="procedure-link" to="/tarif45">
           Lien vers la procédure à 45€
-        </a>
+        </Link>
       </div>
 
       <div className="tarif">
@@ -59,9 +61,9 @@ const TarifsReparations = () => {
           Des remises sont accordées pour les salariés des entreprises
           adhérentes à <strong>ECORES</strong>.
         </p>
-        <a href="https://example.com/procedure-60" className="procedure-link">
+        <Link className="procedure-link" to="/tarif60">
           Lien vers la procédure à 60€
-        </a>
+        </Link>
       </div>
 
       <h2>Nos Forfaits</h2>

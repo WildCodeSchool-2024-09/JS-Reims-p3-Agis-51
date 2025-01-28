@@ -6,15 +6,13 @@ type Errors = {
   message: string;
 };
 
-type FileUpload = File | null;
-
-export default function Message2() {
+const FormLoc = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [uploadedFile, setUploadedFile] = useState<FileUpload>(null);
+  const [file, setFile] = useState<File | null>(null);
 
   const [errors, setErrors] = useState<Errors>({
     name: "",
@@ -32,11 +30,6 @@ export default function Message2() {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-  };
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] || null;
-    setUploadedFile(file);
   };
 
   const validate = () => {
@@ -69,13 +62,48 @@ export default function Message2() {
     return valid;
   };
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFile(event.target.files?.[0] || null);
+  };
+
+  const handleUpload = async () => {
+    if (!file) {
+      console.error("No file selected");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+      } else {
+        console.error("File upload failed with status:", response.status);
+      }
+    } catch (error) {
+      console.error("An error occurred during file upload:", error);
+    }
+  };
+
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     if (validate()) {
-      const fileName = uploadedFile ? uploadedFile.name : "No file uploaded";
+      const fileName = file ? file.name : "Aucun fichier sélectionné";
       alert(
-        `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}, File: ${fileName}`,
+        `Nom: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}\nFichier: ${fileName}`,
       );
+      setFormData({ name: "", email: "", message: "" });
+
+      if (file) {
+        handleUpload();
+      } else {
+        console.error("Aucun fichier à télécharger");
+      }
     }
   };
 
@@ -114,19 +142,13 @@ export default function Message2() {
       {errors.message && <p className="error">{errors.message}</p>}
 
       <label htmlFor="file-upload">Vos Documents:</label>
-      <input
-        className="file-upload-loc"
-        type="file"
-        id="file-upload"
-        name="file-upload"
-        onChange={handleFileChange}
-        accept=".pdf, .jpg, .jpeg, .png"
-        multiple
-      />
+      <input type="file" id="file-upload" onChange={handleFileChange} />
 
       <button className="submit-button" type="submit">
         Envoyer
       </button>
     </form>
   );
-}
+};
+
+export default FormLoc;

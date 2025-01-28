@@ -2,25 +2,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --text-family: "Montserrat", sans-serif;
-  --title-family: "Lora", serif;
-  --primary-color: lightgray;
-  --secondary-color: rgb(240, 237, 237);
-  --text-color: black;
-  --title-color: rgb(198, 108, 178);
-  --link-color: lightseagreen;
+  --text-family: "Roboto", sans-serif;
+  --primary-color: #f3f3f3;
+  --text-color: #333;
+  --title-color: #0073aa;
+  --link-color: #003366;
 }
 
-h1 {
-  font-family: var(--title-family);
-  color: var(--link-color);
+h2 {
+  font-family: "Roboto", sans-serif;
+  color: var(--title-color);
   font-size: 1.8rem;
   text-align: center;
   margin: auto;
 }
 
-@media (min-width: 768px) {
-  h1 {
+@media screen and (min-width: 768px) {
+  h2 {
     font-size: 2.5rem;
   }
 }
@@ -33,8 +31,8 @@ h1 {
   height: auto;
   max-width: 100%;
   padding: 1rem;
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: #f3f3f3;
+  color: #333;
   font-size: 1.25rem;
   margin: auto;
 }
@@ -47,44 +45,49 @@ h1 {
   height: 100%;
   width: 100%;
   padding: 1rem;
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: #f3f3f3;
+  color: #333;
   font-size: 1.25rem;
 }
 
-.article > h2 {
+.article > h3 {
   width: 80%;
-  font-family: var(--title-family);
-  color: var(--title-color);
+  font-family: "Roboto", sans-serif;
+  color: #0073aa;
   font-size: 1.2rem;
   text-align: center;
   margin: 0 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .article > h2 {
     font-size: 1.8rem;
   }
 }
 
 .zoom-image {
-  width: 100%;
+  width: 50%;
   height: auto;
   object-fit: cover;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.zoom-image:active {
-  transform: scale(1.2);
-  cursor: zoom-in;
+.zoom-image.zoomed {
+  transform: scale(1.5);
+  z-index: 10;
+  width: 65%;
 }
 
-@media (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .zoom-image {
     width: 70%;
     max-height: 20%;
-    object-fit: cover;
-    transition: transform 0.2s ease;
+  }
+
+  .zoom-image.zoomed {
+    transform: scale(2);
+    width: 60%;
   }
 }
 
@@ -97,7 +100,7 @@ h1 {
   margin: 0 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .article > p {
     width: 80%;
     font-family: var(--text-family);

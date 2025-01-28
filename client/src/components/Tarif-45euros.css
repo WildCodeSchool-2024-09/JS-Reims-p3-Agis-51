@@ -1,12 +1,4 @@
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.75;
-  font-size: 16px;
-}
-
-.reparations-page {
+.tarif-45 {
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
@@ -16,30 +8,28 @@ body {
   text-align: center;
 }
 
-.reparations-title {
+.tarif-45 h2 {
   color: #0073aa;
-  font-size: 1.8rem;
+  font-size: 2em;
   border-bottom: 2px solid #0073aa;
   padding-bottom: 5px;
   margin-bottom: 20px;
-  text-align: center;
 }
 
-p {
+.tarif-45 p {
   margin-bottom: 15px;
   text-align: center;
 }
 
-h3 {
+.tarif-45 h3 {
   color: #0073aa;
   font-size: 1.5em;
   margin-top: 20px;
   margin-bottom: 15px;
-  text-align: center;
-  border-bottom: 2px solid #0073aa;
 }
 
 ul {
+  list-style: none;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
@@ -52,16 +42,15 @@ ul li {
   padding-left: 20px;
 }
 
-ul li::before {
-  content: "•";
-  color: #0073aa;
+ul li ul {
+  margin-top: 10px;
 }
 
-section.tarifs {
-  margin-top: 20px;
+ul li ul li {
+  padding-left: 20px;
 }
 
-.tarif-button {
+button {
   display: block;
   width: 50%;
   padding: 10px;
@@ -71,21 +60,19 @@ section.tarifs {
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  text-align: center;
   margin: auto;
-  text-decoration: none;
 }
 
-.tarif-button:hover {
+button:hover {
   background-color: #005f8c;
 }
 
-@media screen and (max-width: 600px) {
-  .reparations-title {
+@media screen and (max-width: 680px) {
+  .tarif-45 h1 {
     font-size: 1.5em;
   }
 
-  .tarif-button {
+  button {
     padding: 8px;
     font-size: 14px;
   }

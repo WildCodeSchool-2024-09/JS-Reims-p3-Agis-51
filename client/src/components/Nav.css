@@ -1,111 +1,101 @@
-@media screen and (min-width: 768px) {
-  .navbar__links {
-    background-color: rgb(12, 106, 101);
-    display: flex;
-    gap: 1rem;
-    flex-direction: row;
-    visibility: visible;
-    padding: 1rem;
-  }
+.navbar__links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #003366;
+  padding: 10px;
+  width: auto;
+}
+
+.navbar__link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__link:hover {
+  background-color: #66ccff;
+  color: #003366;
+  transform: scale(1.1);
+}
+
+.navbar__link img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.btn-menu {
+  display: none;
+}
+
+.burger-bars {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 4px 0;
+  transition: all 0.3s;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #003366;
+  justify-content: center;
+}
+
+.nav.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {
   .navbar__links {
+    flex-direction: column;
+    background-color: #003366;
     padding: 7%;
     display: flex;
     align-items: center;
     align-content: center;
     list-style: none;
-    flex-direction: column;
     position: fixed;
     top: 0;
     bottom: 0;
-    background-color: rgb(88, 27, 168);
     left: 0;
     right: 0;
     justify-content: space-evenly;
   }
-}
-@media screen and (min-width: 768px) {
-  .navbar__link {
-    align-items: center;
-    text-decoration: none;
-    flex-direction: row;
-    visibility: visible;
-    color: inherit;
-    font-size: larger;
-    transition: all 0.3s ease-in-out;
-  }
-}
 
-.navbar__link {
-  color: azure;
-  text-decoration: none;
-}
+  .btn-menu {
+    display: block;
+    background-color: #003366;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
 
-@media screen and (min-width: 768px) {
-  .navbar__link:hover {
-    transform: scale(1.1);
-    color: #ffffff;
+  .btn-menu.show {
+    background-color: #cc0033;
   }
-}
 
-.about-img {
-  width: 25px;
-  height: 25px;
-}
-.reparation-img {
-  width: 25px;
-  height: 25px;
-}
-.location-img {
-  width: 25px;
-  height: 25px;
-}
-.aide-img {
-  width: 25px;
-  height: 25px;
-}
-.contact-img {
-  width: 25px;
-  height: 25px;
-}
-.compte-img {
-  width: 25px;
-  height: 25px;
-}
-.revue-img {
-  width: 25px;
-  height: 25px;
-}
+  .nav {
+    display: none;
+    flex-direction: column;
+  }
 
-@media screen and (min-width: 768px) {
-  .about-img {
-    width: 45px;
-    height: 45px;
-  }
-  .reparation-img {
-    width: 45px;
-    height: 45px;
-  }
-  .location-img {
-    width: 45px;
-    height: 45px;
-  }
-  .aide-img {
-    width: 45px;
-    height: 45px;
-  }
-  .contact-img {
-    width: 45px;
-    height: 45px;
-  }
-  .compte-img {
-    width: 45px;
-    height: 45px;
-  }
-  .revue-img {
-    width: 45px;
-    height: 45px;
+  .nav.show {
+    display: flex;
   }
 }

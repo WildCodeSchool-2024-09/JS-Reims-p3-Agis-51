@@ -6,15 +6,20 @@ import Home from "./pages/Home/Home";
 import Presse from "./pages/Presse/Revue";
 
 /* ************************************************************************* */
-import Contact from "./Contact";
+import Contact from "./pages/Contact/Contact";
 
 // Import the main app component
 import App from "./App";
 import Donation from "./components/NousAider";
 import Reparation from "./components/Reparation";
+import Tarif29 from "./components/Tarif-29euros";
+import Tarif45 from "./components/Tarif-45euros";
+import Tarif60 from "./components/Tarif-60euros";
 import VehicleLocation from "./components/VehicleLocation";
 import FormUser from "./pages/FormUser";
 import Legal from "./pages/Legal";
+import ProfilUser from "./pages/ProfilUser";
+import Info from "./pages/Qui_sommes_nous/Presentation";
 import TarifsReparations from "./pages/Tarifs/TarifsReparations";
 
 // Import additional components for new routes
@@ -36,31 +41,51 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Contact",
+        path: "/contact",
         element: <Contact />,
       },
-      { path: "/FormUser", element: <FormUser /> },
-
+      { path: "/compte", element: <FormUser /> },
       { path: "/legal", element: <Legal /> },
       {
-        path: "/list",
+        path: "/location",
         element: <VehicleLocation />,
       },
       {
-        path: "/Reparation",
+        path: "/reparation",
         element: <Reparation />,
       },
       {
-        path: "/TarifsReparations",
+        path: "/tarifs-reparations",
         element: <TarifsReparations />,
       },
       {
-        path: "/NousAider",
+        path: "/nous-aider",
         element: <Donation />,
       },
       {
         path: "/presse",
         element: <Presse />,
+      },
+      {
+        path: "/tarif29",
+        element: <Tarif29 />,
+      },
+      {
+        path: "/tarif45",
+        element: <Tarif45 />,
+      },
+      {
+        path: "/tarif60",
+        element: <Tarif60 />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilUser />,
+      },
+
+      {
+        path: "/qui-sommes-nous",
+        element: <Info />,
       },
     ],
   },
